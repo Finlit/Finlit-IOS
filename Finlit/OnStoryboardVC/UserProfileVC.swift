@@ -1,0 +1,154 @@
+//
+//  UserProfileVC.swift
+//  Finlit
+//
+//  Created by Gurpreet Singh on 21/10/18.
+//  Copyright © 2018 Gurpreet Singh. All rights reserved.
+//
+
+import UIKit
+import GoogleMaps
+import GooglePlaces
+import SDWebImage
+class UserProfileVC: UIViewController {
+    
+    
+    @IBOutlet weak var maboutHim: UILabel!
+    @IBOutlet weak var mAboutlbl: UITextField!
+    @IBOutlet weak var meditprobtnOut: UIButton!
+    @IBOutlet weak var usernameLbl: UILabel!
+    @IBOutlet weak var mjoinDatelbl: UILabel!
+    @IBOutlet weak var mProfileImage: UIImageView!
+    @IBOutlet weak var mcoverImage: UIImageView!
+    @IBOutlet weak var mFinancialInterestTextFiled: UITextField!
+    @IBOutlet weak var mGenderTextFiled: UITextField!
+    @IBOutlet weak var mAgeTextFiled: UITextField!
+    @IBOutlet weak var mLocationTextFiled: UITextField!
+    @IBOutlet weak var mprofiletypeImage: UIImageView!
+    
+    let Gender = ["male","female"]
+    let Whatru = ["Credit Card Churning","Stock Trading","Real estate","Retirement planning","Budgut planning","Personal investment","Futures/Forex Trading","Cryptocurrency Trading","Vacation planning"]
+    var GenderpickerView = UIPickerView()
+    var Whatrupickerview = UIPickerView()
+    var locCor: [Double]!
+    private var fileUploadAPI:FileUpload!
+    var picUrl:String?
+    var user:User?
+    var opponentId = String()
+    var VCcheckInt = Int()
+      private var userApi : UserAPI!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.userApi = UserAPI.sharedInstance
+       
+        mGenderTextFiled.inputView = GenderpickerView
+        mFinancialInterestTextFiled.inputView = Whatrupickerview
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+    
+        let userId = Constants.kUserDefaults.value(forKey: appConstants.userId)
+        print("userId is: \(userId)")
+        if VCcheckInt == 0{
+             getUserDetail(UserID: userId as! String)
+            meditprobtnOut.setTitle("EDIT", for: .normal)
+        }else{
+            getUserDetail(UserID: opponentId )
+            meditprobtnOut.setTitle("MESSAGE", for: .normal)
+        }
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        return false
+    }
+    
+    @IBAction func mBackBtn(_ sender: UIButton) {
+         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func mEditBtn(_ sender: UIButton) {
+        if VCcheckInt == 0{
+            let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileVCID") as! EditProfileVC
+            // destinationvc.user = self.user
+            self.navigationController?.pushViewController(destinationvc, animated: true)
+        }else{
+            let otherUserId = self.user?.id
+            let otherUsername = self.user?.name
+            print(otherUserId!)
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            vc.opponentID = otherUserId!
+            vc.opponentName = otherUsername!
+            if self.user?.imgUrl != nil{
+                let otherImgUrl = self.user?.imgUrl
+                vc.opponentImgUrl = otherImgUrl!
+            }
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        
+    }
+    @IBAction func mprofileBtnActm(_ sender: Any) {
+        
+    }
+    func getUserDetail(UserID:String){
+        userApi.getUserDetails(userId: UserID, pageNo: 1) { (data, error) in
+            if data[APIConstants.isSuccess.rawValue] as! Bool == true {
+                if error == nil{
+                    //  self.hideProgress()
+                     self.user = nil
+                    let userlist = data[APIConstants.data.rawValue] as! NSDictionary
+                    
+                    self.user = User.init(dictionary: userlist)
+                    self.putdataTofields()
+                }}
+            else{
+                //      self.hideProgress()
+                print("Getting Error")
+            }
+        }
+        
+    }
+    func putdataTofields(){
+        
+//        let url = self.user?.imgUrl
+//        if url != nil{
+//            let urlimage = URL(string: url!)
+//            SDImageCache.shared().clearMemory()
+//            SDImageCache.shared().clearDisk()
+//            Constants.kUserDefaults.set(url, forKey: appConstants.UserImage)
+//             mProfileImage.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
+//             mcoverImage.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
+//        }else{}
+        
+        
+        if  self.user?.imgUrl != nil {
+            print("image url is \(self.user?.imgUrl)")
+            self.mProfileImage.sd_setImage(with: URL.init(string:(user?.imgUrl!.httpsExtend)!), placeholderImage: #imageLiteral(resourceName: "cameraicon"))
+            self.mcoverImage.sd_setImage(with: URL.init(string:(user?.imgUrl!.httpsExtend)!), placeholderImage: #imageLiteral(resourceName: "squareimage"))
+            
+        }
+        
+        mGenderTextFiled.text = user?.gender
+        if user?.gender == "male"{
+            maboutHim.text = "About Him"
+        }else{
+            maboutHim.text = "About Her"
+        }
+        mAboutlbl.text = user?.aboutUs
+        mFinancialInterestTextFiled.text = user?.question
+        mLocationTextFiled.text = user?.address
+        let age : String? = String(describing: user?.ageGroup)
+        mAgeTextFiled.text = age!
+        usernameLbl.text = user?.name
+    }
+
+}
