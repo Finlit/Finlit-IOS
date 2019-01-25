@@ -15,15 +15,22 @@ var GenderpickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
- self.navigationController?.navigationBar.isHidden = false
+
         mGenderTextField.inputView = GenderpickerView
       self.GenderpickerView.delegate = self
+        GenderpickerView.showsSelectionIndicator = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
+    
+    
     
 
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {

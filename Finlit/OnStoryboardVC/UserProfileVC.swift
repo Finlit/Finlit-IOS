@@ -13,11 +13,10 @@ import SDWebImage
 class UserProfileVC: UIViewController {
     
     
-    @IBOutlet weak var maboutHim: UILabel!
-    @IBOutlet weak var mAboutlbl: UITextField!
-    @IBOutlet weak var meditprobtnOut: UIButton!
+ 
+    @IBOutlet weak var mAboutTxtFld: UITextField!
+    @IBOutlet weak var mEditBtnOutl: UIButton!
     @IBOutlet weak var usernameLbl: UILabel!
-    @IBOutlet weak var mjoinDatelbl: UILabel!
     @IBOutlet weak var mProfileImage: UIImageView!
     @IBOutlet weak var mcoverImage: UIImageView!
     @IBOutlet weak var mFinancialInterestTextFiled: UITextField!
@@ -37,6 +36,7 @@ class UserProfileVC: UIViewController {
     var opponentId = String()
     var VCcheckInt = Int()
       private var userApi : UserAPI!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userApi = UserAPI.sharedInstance
@@ -47,20 +47,23 @@ class UserProfileVC: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-    
+          self.navigationController?.navigationBar.isHidden = true
+        
         let userId = Constants.kUserDefaults.value(forKey: appConstants.userId)
         print("userId is: \(userId)")
+        
         if VCcheckInt == 0{
              getUserDetail(UserID: userId as! String)
-            meditprobtnOut.setTitle("EDIT", for: .normal)
+            mEditBtnOutl.setTitle("EDIT", for: .normal)
         }else{
             getUserDetail(UserID: opponentId )
-            meditprobtnOut.setTitle("MESSAGE", for: .normal)
+            mEditBtnOutl.setTitle("MESSAGE", for: .normal)
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -118,18 +121,7 @@ class UserProfileVC: UIViewController {
         
     }
     func putdataTofields(){
-        
-//        let url = self.user?.imgUrl
-//        if url != nil{
-//            let urlimage = URL(string: url!)
-//            SDImageCache.shared().clearMemory()
-//            SDImageCache.shared().clearDisk()
-//            Constants.kUserDefaults.set(url, forKey: appConstants.UserImage)
-//             mProfileImage.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-//             mcoverImage.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-//        }else{}
-        
-        
+    
         if  self.user?.imgUrl != nil {
             print("image url is \(self.user?.imgUrl)")
             self.mProfileImage.sd_setImage(with: URL.init(string:(user?.imgUrl!.httpsExtend)!), placeholderImage: #imageLiteral(resourceName: "cameraicon"))
@@ -138,16 +130,15 @@ class UserProfileVC: UIViewController {
         }
         
         mGenderTextFiled.text = user?.gender
-        if user?.gender == "male"{
-            maboutHim.text = "About Him"
-        }else{
-            maboutHim.text = "About Her"
-        }
-        mAboutlbl.text = user?.aboutUs
+        mAboutTxtFld.text = user?.aboutUs
         mFinancialInterestTextFiled.text = user?.question
         mLocationTextFiled.text = user?.address
-        let age : String? = String(describing: user?.ageGroup)
-        mAgeTextFiled.text = age!
+        
+        if user?.ageGroup != nil {
+            let age : String! = String(describing: user!.ageGroup!)
+            mAgeTextFiled.text = age!
+        }
+       
         usernameLbl.text = user?.name
     }
 

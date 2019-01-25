@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelegate, PayPalProfileSharingDelegate {
+    
     func userDidCancel(_ profileSharingViewController: PayPalProfileSharingViewController) {
         print("Paypal Cancel Payment")
     }
@@ -33,6 +34,8 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     
     var mBool = Bool()
     @IBOutlet weak var mVerlbl: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +54,7 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -87,46 +90,54 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyFavouritesVCID") as! MyFavouritesVC
         self.navigationController?.pushViewController(destinationvc, animated: true)
     }
+    
+    
+    
     @IBAction func mNearByBtn(_ sender: UIButton) {
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "NearByVCID") as! NearByVC
         self.navigationController?.pushViewController(destinationvc, animated: true)
     }
     
     @IBAction func mChatBtn(_ sender: UIButton) {
-////        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "QuickQuizVCID") as! QuickQuizVC
-////        destinationvc.VCcheck = 0
-////        self.navigationController?.pushViewController(destinationvc, animated: true)
-//        let resultController = self.storyboard?.instantiateViewController(withIdentifier: "popupID") as? UINavigationController
-//        self.navigationController?.definesPresentationContext = true
-//        resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        resultController?.modalTransitionStyle = .crossDissolve
-//        //resultController?.delegate = self
-//        self.present(resultController!, animated: true, completion: nil)
+        let resultController = self.storyboard?.instantiateViewController(withIdentifier: "popupID") as? UINavigationController
+        self.navigationController?.definesPresentationContext = true
+        resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        resultController?.modalTransitionStyle = .crossDissolve
+        self.present(resultController!, animated: true, completion: nil)
+        
+        
+        
+        
         
         // Remove our last completed payment, just for demo purposes.
         resultText = ""
         // Optional: include multiple items
-        let item1 = PayPalItem(name: "Old jeans with holes", withQuantity: 1, withPrice: NSDecimalNumber(string: "84.99"), withCurrency: "USD", withSku: "Hip-0037")
-        let item2 = PayPalItem(name: "Free rainbow patch", withQuantity: 1, withPrice: NSDecimalNumber(string: "0.00"), withCurrency: "USD", withSku: "Hip-00066")
-        let item3 = PayPalItem(name: "Long-sleeve plaid shirt (mustache not included)", withQuantity: 1, withPrice: NSDecimalNumber(string: "37.99"), withCurrency: "USD", withSku: "Hip-00291")
-        let items = [item1, item2, item3]
-        let subtotal = PayPalItem.totalPrice(forItems: items)
-        // Optional: include payment details
-        let shipping = NSDecimalNumber(string: "5.99")
-        let tax = NSDecimalNumber(string: "2.50")
-        let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
-        let total = subtotal.adding(shipping).adding(tax)
-        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Hipster Clothing", intent: .sale)
-        payment.items = items
-        payment.paymentDetails = paymentDetails
-        if (payment.processable) {
-            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
-            present(paymentViewController!, animated: true, completion: nil)
-        }
-        else {
-            print("Payment not processalbe: \(payment)")
-        }
+//        let item1 = PayPalItem(name: "Old jeans with holes", withQuantity: 1, withPrice: NSDecimalNumber(string: "84.99"), withCurrency: "USD", withSku: "Hip-0037")
+//        let item2 = PayPalItem(name: "Free rainbow patch", withQuantity: 1, withPrice: NSDecimalNumber(string: "0.00"), withCurrency: "USD", withSku: "Hip-00066")
+//        let item3 = PayPalItem(name: "Long-sleeve plaid shirt (mustache not included)", withQuantity: 1, withPrice: NSDecimalNumber(string: "37.99"), withCurrency: "USD", withSku: "Hip-00291")
+//        let items = [item1, item2, item3]
+//        let subtotal = PayPalItem.totalPrice(forItems: items)
+//        // Optional: include payment details
+//        let shipping = NSDecimalNumber(string: "5.99")
+//        let tax = NSDecimalNumber(string: "2.50")
+//        let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
+//        let total = subtotal.adding(shipping).adding(tax)
+//        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Hipster Clothing", intent: .sale)
+//        payment.items = items
+//        payment.paymentDetails = paymentDetails
+//        if (payment.processable) {
+//            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+//            present(paymentViewController!, animated: true, completion: nil)
+//        }
+//        else {
+//            print("Payment not processalbe: \(payment)")
+//        }
     }
+    
+    
+    
+    
+    
     
     // PayPalPaymentDelegate
     
@@ -163,7 +174,7 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
         })
     }
     
-    @IBAction func mMyCircleBtn(_ sender: UIButton) {
+    @IBAction func mPendingDatesBtn(_ sender: UIButton) {
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
            destinationvc.VCcheckInt = 1
         self.navigationController?.pushViewController(destinationvc, animated: true)

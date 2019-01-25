@@ -70,8 +70,9 @@ class EditProfileVC: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+     
     }
+    
     func putdataTofields(){
         let url = self.user?.imgUrl
        
@@ -83,11 +84,16 @@ class EditProfileVC: UIViewController {
             Constants.kUserDefaults.set(url, forKey: appConstants.UserImage)
             mprofileImgs.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
             mCoverProfileImg.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-        }else{}
+        }
+        
         mGenderTextField.text = user?.gender
         mWhatRUTextField.text = user?.question
         mLocationTextField.text = user?.address
-        mAgeTextField.text! = String(describing: user?.ageGroup)
+        
+        if user?.ageGroup != nil {
+            mAgeTextField.text! = String(describing: user!.ageGroup!)
+        }
+     
         mNameTextField.text = user?.name
         mGenderTextField.text = user?.gender
         mAboutYouTextField.text = user?.aboutUs
@@ -379,6 +385,9 @@ extension EditProfileVC : CropViewControllerDelegate {
     }
     
 }
+
+
+
 extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -386,9 +395,7 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
             return QuestionArr.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

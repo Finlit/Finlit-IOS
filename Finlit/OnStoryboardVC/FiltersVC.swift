@@ -42,7 +42,9 @@ class FiltersVC: UIViewController {
     var long = Double()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.navigationItem.title = "FILTERS"
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         mBoolCheck = true
         mBoolCheck1 = true
         mBoolCheck2 = true
@@ -55,6 +57,11 @@ class FiltersVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func mBackBtnTapped(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func mApplyBtnAct(_ sender: Any) {

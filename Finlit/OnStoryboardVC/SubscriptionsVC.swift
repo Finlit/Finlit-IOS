@@ -100,15 +100,17 @@ class SubscriptionsVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaym
         let tax = NSDecimalNumber(string: "0.00")
         let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
         let total = subtotal.adding(shipping).adding(tax)
-        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Hipster Clothing", intent: .sale)
+        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Finlit App", intent: .sale)
         payment.items = items
         payment.paymentDetails = paymentDetails
         if (payment.processable) {
             let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
             present(paymentViewController!, animated: true, completion: nil)
+            print("testing")
         }
+            
         else {
-            print("Payment not processalbe: \(payment)")
+            print("Payment not processable: \(payment)")
         }
     }
     

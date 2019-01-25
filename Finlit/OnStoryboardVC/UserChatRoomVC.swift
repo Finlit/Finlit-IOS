@@ -66,7 +66,7 @@ class UserTakeQuizVC: UIViewController {
     }
     
     @IBAction func mMorebtnAct(_ sender: Any) {
-        let alert=UIAlertController(title:"RedIron", message: "Choose More Options", preferredStyle:UIAlertControllerStyle.alert )
+        let alert=UIAlertController(title:"Finlit", message: "What would you like to do?", preferredStyle:UIAlertControllerStyle.alert )
         
         alert.addAction(UIAlertAction(title: blockStr, style: UIAlertActionStyle.default, handler: {
             _ in print("FOO ")

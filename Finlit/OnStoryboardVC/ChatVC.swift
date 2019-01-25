@@ -10,11 +10,6 @@ import UIKit
 
 class ChatVC: UIViewController,UITextFieldDelegate {
     
-    var NameLblArry = ["Lorem Ipsum"]
-    var ImageArry = ["image-6"]
-    var LabelArry1 = ["3"]
-    var LabelArry = ["I expect to succeed at whatever I put my mind to."]
-    var TimeArry = ["0:35"]
     var Chatlistarr = NSMutableArray()
     var chatArr : [Chat]!
 
@@ -66,7 +61,6 @@ class ChatVC: UIViewController,UITextFieldDelegate {
                             if id != Constants.kUserDefaults.value(forKey: appConstants.id)as? String{
                                 self.Chatlistarr.add(dict)
                                 
-                                
                             }else{
                                 print("Differnt dict")
                             }
@@ -101,7 +95,9 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
          cell.mView.dropShadow(scale: true)
         cell.mNameLbl.text = self.chatArr[indexPath.row].name
         cell.mLabel1.text = String(describing:self.chatArr[indexPath.row].unreadCount!)
-        cell.mLabel.text = self.chatArr[indexPath.row].aboutUs
+        //cell.mLabel.text = self.chatArr[indexPath.row].aboutUs
+        cell.mLabel.text = self.chatArr[indexPath.row].lastMessage
+        
         let url = self.chatArr[indexPath.row].imgUrl
         if url != nil{
             let urlimage = URL(string: url!)
