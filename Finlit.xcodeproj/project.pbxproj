@@ -334,7 +334,6 @@
 		2E6064DE21AD639D00A9A6D8 /* KolodaView */ = {
 			isa = PBXGroup;
 			children = (
-				93A45B8821676E2600DA505B /* Main.storyboard */,
 				2E6064DF21AD639D00A9A6D8 /* ExampleOverlayView.swift */,
 				2E6064E021AD639D00A9A6D8 /* OverlayView.xib */,
 			);
@@ -456,6 +455,7 @@
 		93A45B8321676E2600DA505B /* Finlit */ = {
 			isa = PBXGroup;
 			children = (
+				93A45B8821676E2600DA505B /* Main.storyboard */,
 				2EAE5AEA21A3CD7F00A64847 /* Finlit.entitlements */,
 				93E759C021873154004C30BC /* Utils */,
 				93E759BA218730F1004C30BC /* Resources */,
