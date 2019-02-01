@@ -68,21 +68,12 @@
 		939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5552175BF9500125C17 /* NotificationTblCell.swift */; };
 		939EB5582175DEE700125C17 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5572175DEE700125C17 /* SettingVC.swift */; };
 		939F46E72181F0E80010D7EE /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D22181F0E70010D7EE /* Amount.swift */; };
-		939F46E82181F0E80010D7EE /* CreateActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D32181F0E70010D7EE /* CreateActivity.swift */; };
 		939F46E92181F0E80010D7EE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D42181F0E70010D7EE /* Comment.swift */; };
 		939F46EA2181F0E80010D7EE /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D52181F0E70010D7EE /* Like.swift */; };
-		939F46EB2181F0E80010D7EE /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D62181F0E70010D7EE /* Order.swift */; };
 		939F46EE2181F0E80010D7EE /* Countryy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DA2181F0E70010D7EE /* Countryy.swift */; };
-		939F46EF2181F0E80010D7EE /* SocialAcntDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DB2181F0E70010D7EE /* SocialAcntDetails.swift */; };
-		939F46F02181F0E80010D7EE /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DC2181F0E70010D7EE /* Folder.swift */; };
 		939F46F12181F0E80010D7EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DD2181F0E70010D7EE /* User.swift */; };
 		939F46F22181F0E80010D7EE /* Invites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DE2181F0E70010D7EE /* Invites.swift */; };
-		939F46F42181F0E80010D7EE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E02181F0E70010D7EE /* Country.swift */; };
 		939F46F52181F0E80010D7EE /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E12181F0E70010D7EE /* Media.swift */; };
-		939F46F62181F0E80010D7EE /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E22181F0E70010D7EE /* Budget.swift */; };
-		939F46F72181F0E80010D7EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E32181F0E70010D7EE /* Post.swift */; };
-		939F46F82181F0E80010D7EE /* SavedRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E42181F0E70010D7EE /* SavedRoute.swift */; };
-		939F46F92181F0E80010D7EE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E52181F0E70010D7EE /* Task.swift */; };
 		939F46FA2181F0E80010D7EE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E62181F0E70010D7EE /* Route.swift */; };
 		93A45B8521676E2600DA505B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A45B8421676E2600DA505B /* AppDelegate.swift */; };
 		93A45B8721676E2600DA505B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A45B8621676E2600DA505B /* ViewController.swift */; };
@@ -202,21 +193,12 @@
 		939EB5552175BF9500125C17 /* NotificationTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTblCell.swift; sourceTree = "<group>"; };
 		939EB5572175DEE700125C17 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		939F46D22181F0E70010D7EE /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
-		939F46D32181F0E70010D7EE /* CreateActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateActivity.swift; sourceTree = "<group>"; };
 		939F46D42181F0E70010D7EE /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		939F46D52181F0E70010D7EE /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
-		939F46D62181F0E70010D7EE /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		939F46DA2181F0E70010D7EE /* Countryy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countryy.swift; sourceTree = "<group>"; };
-		939F46DB2181F0E70010D7EE /* SocialAcntDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialAcntDetails.swift; sourceTree = "<group>"; };
-		939F46DC2181F0E70010D7EE /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		939F46DD2181F0E70010D7EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		939F46DE2181F0E70010D7EE /* Invites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invites.swift; sourceTree = "<group>"; };
-		939F46E02181F0E70010D7EE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		939F46E12181F0E70010D7EE /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		939F46E22181F0E70010D7EE /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
-		939F46E32181F0E70010D7EE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		939F46E42181F0E70010D7EE /* SavedRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRoute.swift; sourceTree = "<group>"; };
-		939F46E52181F0E70010D7EE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		939F46E62181F0E70010D7EE /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		93A45B8121676E2600DA505B /* Finlit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finlit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A45B8421676E2600DA505B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -352,6 +334,7 @@
 		2E6064DE21AD639D00A9A6D8 /* KolodaView */ = {
 			isa = PBXGroup;
 			children = (
+				93A45B8821676E2600DA505B /* Main.storyboard */,
 				2E6064DF21AD639D00A9A6D8 /* ExampleOverlayView.swift */,
 				2E6064E021AD639D00A9A6D8 /* OverlayView.xib */,
 			);
@@ -422,21 +405,12 @@
 			isa = PBXGroup;
 			children = (
 				939F46D22181F0E70010D7EE /* Amount.swift */,
-				939F46D32181F0E70010D7EE /* CreateActivity.swift */,
 				939F46D42181F0E70010D7EE /* Comment.swift */,
 				939F46D52181F0E70010D7EE /* Like.swift */,
-				939F46D62181F0E70010D7EE /* Order.swift */,
 				939F46DA2181F0E70010D7EE /* Countryy.swift */,
-				939F46DB2181F0E70010D7EE /* SocialAcntDetails.swift */,
-				939F46DC2181F0E70010D7EE /* Folder.swift */,
 				939F46DD2181F0E70010D7EE /* User.swift */,
 				939F46DE2181F0E70010D7EE /* Invites.swift */,
-				939F46E02181F0E70010D7EE /* Country.swift */,
 				939F46E12181F0E70010D7EE /* Media.swift */,
-				939F46E22181F0E70010D7EE /* Budget.swift */,
-				939F46E32181F0E70010D7EE /* Post.swift */,
-				939F46E42181F0E70010D7EE /* SavedRoute.swift */,
-				939F46E52181F0E70010D7EE /* Task.swift */,
 				939F46E62181F0E70010D7EE /* Route.swift */,
 				4E5E315F218ADD1700523400 /* Location.swift */,
 				4E5E3161218B2EC300523400 /* Options.swift */,
@@ -494,7 +468,6 @@
 				93A45B8421676E2600DA505B /* AppDelegate.swift */,
 				2E6064DE21AD639D00A9A6D8 /* KolodaView */,
 				93A45B8621676E2600DA505B /* ViewController.swift */,
-				93A45B8821676E2600DA505B /* Main.storyboard */,
 				93A45B8B21676E2700DA505B /* Assets.xcassets */,
 				93A45B8D21676E2700DA505B /* LaunchScreen.storyboard */,
 				936E1FB8216DF9C000D3AB25 /* Finit.Bridge.h */,
@@ -717,7 +690,7 @@
 				TargetAttributes = {
 					93A45B8021676E2600DA505B = {
 						CreatedOnToolsVersion = 9.4.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -904,7 +877,6 @@
 				939EB5582175DEE700125C17 /* SettingVC.swift in Sources */,
 				93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */,
 				93E75A1E2187315B004C30BC /* UITextField+fixCaretPosition.swift in Sources */,
-				939F46F42181F0E80010D7EE /* Country.swift in Sources */,
 				93A45B972167758700DA505B /* SignUpVC.swift in Sources */,
 				4E6298C3218C257A00E39DB1 /* QuestionAPI.swift in Sources */,
 				939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */,
@@ -916,9 +888,7 @@
 				93400295217EFEA300D08E29 /* ChatRoomTblCell.swift in Sources */,
 				4E5E3160218ADD1700523400 /* Location.swift in Sources */,
 				93A45B8521676E2600DA505B /* AppDelegate.swift in Sources */,
-				939F46F02181F0E80010D7EE /* Folder.swift in Sources */,
 				938CCEBE216C988200DFB8CC /* QuickQuizVC.swift in Sources */,
-				939F46F62181F0E80010D7EE /* Budget.swift in Sources */,
 				93A45B992167949400DA505B /* VerificationVC.swift in Sources */,
 				93E75A242187315B004C30BC /* TOCropViewControllerTransitioning.m in Sources */,
 				938CCEC2216CBD4F00DFB8CC /* CongratsVC.swift in Sources */,
@@ -926,11 +896,9 @@
 				93E759B3218720F6004C30BC /* UserRemoteReplicator.swift in Sources */,
 				93996602216CE521007968FB /* QuickQuizTblCell.swift in Sources */,
 				93E75A272187315B004C30BC /* TOCropScrollView.m in Sources */,
-				939F46F92181F0E80010D7EE /* Task.swift in Sources */,
 				2EFA405521BA34900023ACC7 /* Chat.swift in Sources */,
 				93E75A362187315B004C30BC /* TPKeyboardAvoidingScrollView.m in Sources */,
 				938CCEBC216C71EC00DFB8CC /* CreateProfileVC.swift in Sources */,
-				939F46EB2181F0E80010D7EE /* Order.swift in Sources */,
 				93E75A372187315B004C30BC /* Validators.swift in Sources */,
 				931048F32174C8C400E09C3E /* NotificationVC.swift in Sources */,
 				9354B8392188421600BA8D2A /* UpdatePasswordVC.swift in Sources */,
@@ -938,22 +906,18 @@
 				931048E52174808700E09C3E /* HomeVC.swift in Sources */,
 				939EB5542175B89D00125C17 /* SubscriptionsVC.swift in Sources */,
 				938CCEC0216CBD0800DFB8CC /* WelcomeVC.swift in Sources */,
-				939F46E82181F0E80010D7EE /* CreateActivity.swift in Sources */,
 				9340028B217C46A300D08E29 /* ChatRoomsVC.swift in Sources */,
 				939EB54D2175B6E400125C17 /* NearByTblCell.swift in Sources */,
 				93E75A352187315B004C30BC /* Color.swift in Sources */,
 				93E75A282187315B004C30BC /* TOCropView.m in Sources */,
-				939F46F82181F0E80010D7EE /* SavedRoute.swift in Sources */,
 				93E75A232187315B004C30BC /* UIImage+CropRotate.m in Sources */,
 				939F46F12181F0E80010D7EE /* User.swift in Sources */,
 				4E6298C5218C25A800E39DB1 /* QuestionRemoteReplicator.swift in Sources */,
 				93E75A332187315B004C30BC /* String.swift in Sources */,
 				9340028F217C802100D08E29 /* UserProfileVC.swift in Sources */,
-				939F46EF2181F0E80010D7EE /* SocialAcntDetails.swift in Sources */,
 				9383ECE021830DC500F5C535 /* iCarousel.m in Sources */,
 				2E6064E121AD639E00A9A6D8 /* ExampleOverlayView.swift in Sources */,
 				2E18F4A821AEC44B00FF0E6E /* WhatsTableViewCell.swift in Sources */,
-				939F46F72181F0E80010D7EE /* Post.swift in Sources */,
 				93E75A322187315B004C30BC /* UIDeviceMode.swift in Sources */,
 				93E759B721872198004C30BC /* RemoteRepository.swift in Sources */,
 				931048F52174CC5100E09C3E /* FiltersVC.swift in Sources */,
@@ -1161,8 +1125,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Finlit/Finlit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AS5BYWVPBS;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9ZY6JDM67V;
 				INFOPLIST_FILE = Finlit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1170,10 +1134,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "van-tech-farmerz.Finlit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vannteq.finlitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "af9ffbb5-585d-4750-8e25-8ba8e767e476";
+				PROVISIONING_PROFILE_SPECIFIER = FinlitProvProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = Finlit/Finit.Bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1187,8 +1151,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Finlit/Finlit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AS5BYWVPBS;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9ZY6JDM67V;
 				INFOPLIST_FILE = Finlit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1196,10 +1160,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayPalMobile",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "van-tech-farmerz.Finlit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vannteq.finlitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "af9ffbb5-585d-4750-8e25-8ba8e767e476";
+				PROVISIONING_PROFILE_SPECIFIER = FinlitProvProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = Finlit/Finit.Bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

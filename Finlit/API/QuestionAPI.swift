@@ -32,28 +32,7 @@ class QuestionAPI{
   
   
   
-    
-    // MARK: Create Post
-    func createPost(postDetials: Post , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-        
-        
-        QuestionRemoteReplicatorr.createPost(postDetials: postDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let postData = responseData![APIConstants.post.rawValue] as! Dictionary<String, AnyObject>
-//                    let postDataFolder = NSKeyedArchiver.archivedData(withRootObject: postData)
-//                    Constants.kUserDefaults.set(postDataFolder, forKey: appConstants.post)
-                    callback(true,responseData,nil)
-                }else{
-                    callback(false,responseData,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
+
     
     //MARK: Delete Post
     func deletePost(postID: String , callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
@@ -90,22 +69,9 @@ class QuestionAPI{
     }
     
     
-    //MARK:-- Get Post By Id From Remote
-    func getPostDetailsByID(postId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        QuestionRemoteReplicatorr.getPostDetailsByID(query: postId) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error")
-                
-            }
-            
-        }
-    }
+
     
-    //Sukhwinder
+
     //MARK: FavPost
     func favPost(postID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
         QuestionRemoteReplicatorr.favPost(postID: postID){ (responseData, error) -> Void in
@@ -226,153 +192,10 @@ class QuestionAPI{
         }
     }
 
-    //MARK: Create Comment
-    func createComment(postID: String ,commentDetials: Comment, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.createComment(postID: postID,commentDetials:commentDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject>){ (Data, error) -> Void in
-            if Data != nil {
-                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    
-                    
-                    callback(true,Data,nil)
-                }else{
-                    callback(false,Data,Data!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
     
     
     
-    //MARK: Delete Comment
-    func deleteComment(commentID: String , callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.deleteComment(commentID: commentID){ (Data, error) -> Void in
-            if Data != nil {
-                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    callback(true,Data,nil)
-                }else{
-                    callback(false,Data,Data!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
-    
-    //MARK:-- Get Post comments By Id From Remote
-    func getPostCommentsByID(postId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        QuestionRemoteReplicatorr.getPostCommentsByID(postId: postId) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error")
-                
-            }
-            
-        }
-    }
-    
-    
-    
-     //MARK: LikePost
-    func likePost(postID: String ,postDetials: Dictionary<String, AnyObject>, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.likePost(postID: postID,postDetials:postDetials){ (responseData, error) -> Void in
-          if responseData != nil {
-            if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-    
-    
-    
-              callback(true,responseData,nil)
-            }else{
-              callback(false,responseData,responseData!["error"] as? String)
-            }
-          }
-    
-        }
-    
-      }
-    
-    
-    //MARK: DisLikePost
-    func dislikePost(postID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.dislikePost(postID: postID){ (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    
-                    
-                    callback(true,nil)
-                    
-                }else{
-                    callback(false,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
-    //MARK: CreateSaved
-    func createSaved(postID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.createSaved(postID: postID){ (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    
-                    
-                    callback(true,nil)
-                }else{
-                    callback(false,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-  
-    
-    
-    //MARK: CreateUnSaved
-    func createUnSaved(postID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.createUnSaved(postID: postID){ (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    callback(true,nil)
-                }else{
-                    callback(false,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
 
-    
-    
-    //MARK:-- Get Post By Id From Remote
-    func getReactedUsersByID(postId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        QuestionRemoteReplicatorr.getReactedUsersByID(query: postId) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error")
-                
-            }
-            
-        }
-    }
-    
     
     
     //MARK:-- Get Notifications
@@ -392,67 +215,7 @@ class QuestionAPI{
     
     
     
-    //MARK: Report Post
-    func reportPost(postID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.reportPost(postID: postID){ (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    
-                    
-                    callback(true,nil)
-                    
-                }else{
-                    callback(false,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
-    
-    //MARK: Report Comment
-    func reportComment(commentID: String , callback:@escaping (_ isSuccess:Bool , _ error: String? ) -> Void)   {
-        QuestionRemoteReplicatorr.reportComment(commentID: commentID){ (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-                    
-                    
-                    
-                    callback(true,nil)
-                    
-                }else{
-                    callback(false,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
-    
-    
-    
-    // MARK: Update Post
-    func updatePost(postid:String,postDetials: Post , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-        
-        
-        QuestionRemoteReplicatorr.updatePost(postID: postid, postDetials: postDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-            if responseData != nil {
-                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-               
-                    callback(true,responseData,nil)
-                }else{
-                    callback(false,responseData,responseData!["error"] as? String)
-                }
-            }
-            
-        }
-        
-    }
+
     
     func setCountZeroChat(postid:String,postDetials: Chat , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
         

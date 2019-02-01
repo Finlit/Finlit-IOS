@@ -2110,7 +2110,7 @@ Please type the  Verification Code here.</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-1R-9AS">
                                                         <rect key="frame" x="0.0" y="35" width="107" height="74.5"/>
                                                         <connections>
-                                                            <action selector="mHomeBtnAct:" destination="zUv-qB-0OI" eventType="touchUpInside" id="FvI-iM-OLc"/>
+                                                            <action selector="mDatesBtnAct:" destination="zUv-qB-0OI" eventType="touchUpInside" id="7px-09-xpn"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcu-GU-cyF">
@@ -3439,7 +3439,7 @@ happen to bond prices?</string>
             </objects>
             <point key="canvasLocation" x="5378" y="1188"/>
         </scene>
-        <!--MY MATCHES-->
+        <!--DATES-->
         <scene sceneID="PlB-K8-eh7">
             <objects>
                 <viewController storyboardIdentifier="MatchesVCID" id="3pC-o7-RkI" customClass="MatchesVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
@@ -3663,7 +3663,7 @@ happen to bond prices?</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5u-cq-evU">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5u-cq-evU">
                                 <rect key="frame" x="0.0" y="538" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HEART TO MARK FAVOURITE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toZ-85-pYQ">
@@ -3699,7 +3699,7 @@ happen to bond prices?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nJ2-dH-NVn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MY MATCHES" id="O9O-h9-jeV">
+                    <navigationItem key="navigationItem" title="DATES" id="O9O-h9-jeV">
                         <barButtonItem key="leftBarButtonItem" image="arrow" id="z3l-19-nzb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

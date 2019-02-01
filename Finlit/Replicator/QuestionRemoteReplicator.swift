@@ -118,28 +118,14 @@ class QuestionRemoteReplicator{
         }
     }
 
-    //MARK:- Get Post By ID
-    func getPostDetailsByID(query:String = "" ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
-        let url = getPosts + "/\(query)"
-        
-        let urlString =  "\(baseUrl1)\(url.html)"
-        
-        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
-            callback(data, error)
-        }
-    }
+
     
     
-    //MARK:- Get Post Comments By ID
-    func getPostCommentsByID(postId:String = "" ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
-        let url = getAllComments
-        
-        let urlString =  "\(baseUrl1)\(url.html)" + postId
-        
-        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
-            callback(data, error)
-        }
-    }
+
+    
+    
+    
+    
     //MARK: fav post
     func favPost(postID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
         let urlString =  "\(baseUrl1)\(createLike.html)/" + postID
@@ -209,79 +195,27 @@ class QuestionRemoteReplicator{
             
         }
     }
-     //MARK: Like post
-      func likePost(postID:String,postDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(createLike.html)" + postID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: postDetials) { (data, error) -> Void in
-          callback(data , error?.description )
-    
-        }
-      }
+
     
     
     
-    //MARK: Dislke post
-    func dislikePost(postID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(createDisLike.html)/" + postID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
     
     
     
-    //MARK: Create Comment
-    func createComment(postID:String,commentDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(createComments.html)"
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: commentDetials) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
-  
-    //MARK: Delete Comment
-    func deleteComment(commentID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(deleteComment.html)" + commentID
-        remoteRepo.remoteDELETEServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
     
-    //MARK: Create Saved
-    func createSaved(postID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(createSaved.html)" + postID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
-    
-    //MARK: Create UnSaved
-    func createUnSaved(postID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(createUnSaved.html)" + postID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
     
     
     
     
-    //MARK:- Get Reacted Users By ID
-    func getReactedUsersByID(query:String = "" ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
-        let url = getReactedUsers + "/\(query)"
-        let urlString =  "\(baseUrl1)\(url.html)"
-        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
-            callback(data, error)
-        }
-    }
+
     
     
     
@@ -299,26 +233,12 @@ class QuestionRemoteReplicator{
     
     
     
-    //MARK: Report post
-    func reportPost(postID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(reportPost.html)" + postID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
     
     
     
-    //MARK: Report Comment
-    func reportComment(commentID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
-        let urlString =  "\(baseUrl1)\(reportComment.html)" + commentID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
-            callback(data , error?.description )
-            
-        }
-    }
+
     
     
     

@@ -210,7 +210,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
         public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     
-            if url.scheme == "fb709576229406877" {
+         //384995035393668-gulati  if url.scheme == "fb709576229406877" {
+           
+            
+            if url.scheme == "fb384995035393668" {
                 let facebookDidHandle = FBSDKApplicationDelegate.sharedInstance().application(
                     application,
                     open: url,

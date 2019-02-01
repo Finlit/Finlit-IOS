@@ -10,16 +10,7 @@ import UIKit
 import SVProgressHUD
 import AlamofireImage
 class MatchesVC: UIViewController{
-    var NameArry = ["John Smith"]
-    var NameArry1 = ["Real state"]
-    var NameArry2 = ["36 Evenue Alkaska Usa"]
-    var ImageArry = ["image-6"]
-    var ImageArry1 = ["image-8"]
-    var ImageArry2 = ["moenybag"]
-    var ImageArry3 = ["clockicon"]
-    var ImageArry4 = ["pinpoint"]
-    var MessageArry = ["Message"]
-    var ViewProfileArry = ["View Profile"]
+  
     var VCcheckInt = Int()
     var userApi :UserAPI!
     var usersdata : [User]!
@@ -33,8 +24,8 @@ class MatchesVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mMyCircleTblCell.delegate = self
-        self.mMyCircleTblCell.dataSource = self
+//        self.mMyCircleTblCell.delegate = self
+//        self.mMyCircleTblCell.dataSource = self
          self.navigationController?.navigationBar.isHidden = false
         self.mSearchTextField.delegate = self
         self.userApi = UserAPI.sharedInstance
@@ -44,7 +35,8 @@ class MatchesVC: UIViewController{
         mMyCircleTblCell.estimatedRowHeight = 165
         mMyCircleTblCell.rowHeight = UITableViewAutomaticDimension
         if VCcheckInt == 0{
-            navigationItem.title = "Find Matches"
+            //navigationItem.title = "Find Matches"
+            navigationItem.title = "DATES"
             if Constants.kUserDefaults.value(forKey:appConstants.selecttype) != nil{
                 let type =  Constants.kUserDefaults.value(forKey:appConstants.selecttype)as! String
                 getallusers(type: "?gender=\(type)")
@@ -53,7 +45,8 @@ class MatchesVC: UIViewController{
             }
           
         }else{
-            navigationItem.title = "My Matches"
+            //navigationItem.title = "My Matches"
+            navigationItem.title = "PENDING DATES"
              GetChatlist()
         }
        

@@ -11,6 +11,7 @@ import UIKit
 class SettingVC: UIViewController {
 let Gender = ["male","female"]
 var GenderpickerView = UIPickerView()
+    var GenderType : String?
     @IBOutlet weak var mGenderTextField: UITextField!
     
     override func viewDidLoad() {
@@ -23,6 +24,13 @@ var GenderpickerView = UIPickerView()
     
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
+        if Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String != nil {
+            
+            mGenderTextField.text = Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String
+            
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +114,7 @@ extension  SettingVC: UIPickerViewDelegate, UIPickerViewDataSource {
             mGenderTextField.text = Gender[row]
         Constants.kUserDefaults.set(mGenderTextField.text!, forKey: appConstants.selecttype)
             mGenderTextField.resignFirstResponder()
+     (Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String)
         }
         
         

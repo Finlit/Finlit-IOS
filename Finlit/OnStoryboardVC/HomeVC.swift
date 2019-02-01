@@ -62,7 +62,7 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
          mVerlbl.isHidden = true
 
     }
-    @IBAction func mHomeBtnAct(_ sender: Any) {
+    @IBAction func mDatesBtnAct(_ sender: Any) {
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
         destinationvc.VCcheckInt = 0
         self.navigationController?.pushViewController(destinationvc, animated: true)
