@@ -24,7 +24,8 @@ var GenderpickerView = UIPickerView()
     
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
-        if Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String != nil {
+        
+        if Constants.kUserDefaults.value(forKey: appConstants.selecttype) as? String != nil {
             
             mGenderTextField.text = Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String
             

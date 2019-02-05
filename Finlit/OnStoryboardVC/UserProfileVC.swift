@@ -39,8 +39,8 @@ class UserProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.userApi = UserAPI.sharedInstance
-       
         mGenderTextFiled.inputView = GenderpickerView
         mFinancialInterestTextFiled.inputView = Whatrupickerview
         
