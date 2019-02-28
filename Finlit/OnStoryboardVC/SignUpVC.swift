@@ -153,6 +153,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 self.user?.email = self.mEmailTextField.text
                 self.user?.deviceId = Constants.kUserDefaults.value(forKey: appConstants.fcmToken) as? String
                 self.user?.deviceType = "iOS"
+                self.user?.deviceId = "0000"
                 self.userSignUpUser(userDict: user!)
                 return
         }

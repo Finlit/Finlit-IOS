@@ -20,6 +20,21 @@ class VCHelper :NSObject{
        return view
     }
     
+    func addLightRadiusAndBordrToView (view :UIView) -> UIView {
+        view.layer.cornerRadius = 2.0
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 0.50
+        view.clipsToBounds = true
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 1.00
+        view.layer.shadowRadius = 0.50
+        view.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+        view.layer.shouldRasterize = true
+        return view
+    }
+    
+    
     func addBoderUIView(view :UIView) -> UIView {
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.borderWidth = 0.5

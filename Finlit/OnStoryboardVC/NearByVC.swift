@@ -10,15 +10,7 @@ import UIKit
 import MapKit
 import SDWebImage
 class NearByVC: UIViewController {
-//    var NameArry = ["John Smith"]
-//    var NameArry1 = ["Real state"]
-//    var NameArry2 = ["36 Evenue Alkaska Usa"]
-//    var ImageArry = ["image-6"]
-//    var ImageArry1 = ["novicesmall"]
-//    var ImageArry2 = ["moenybag"]
-//    var ImageArry3 = ["pinpoint"]
-//    var MessageArry = ["Message"]
-//    var ViewProfileArry = ["View Profile"]
+
     var NearByDict : NearBySearch?
     private var questionAPI : QuestionAPI!
     private var userApi : UserAPI!

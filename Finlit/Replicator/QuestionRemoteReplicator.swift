@@ -17,8 +17,8 @@ class QuestionRemoteReplicator{
     
     private let getPosts = "posts"
     private let deletePost = "posts/"
-    private let createLike = "users/favourite"
-    private let createDisLike = "users/unfavourite"
+    private let createLike = "blogs/like/"
+    private let createDisLike = "blogs/dislike/"
      private let createComments = "comments"
      private let deleteComment = "comments/"
     private let createSaved = "posts/saved/"
@@ -198,24 +198,53 @@ class QuestionRemoteReplicator{
 
     
     
+    //MARK:- Get all Blogs
+    func getAllBlogs(query:String = "", callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+        
+        let url = "blogs"
+        let urlString =  "\(baseUrl1)\(url.html)"
+        
+        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+            callback(data, error)
+        }
+    }
+    
+    //MARK:- Get Blog Comments By ID
+    func getCommentsOfBlog(blogId:String = "" ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+        let url = "comments?blogId="
+        
+        let urlString =  "\(baseUrl1)\(url.html)" + blogId
+        
+        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+            callback(data, error)
+        }
+    }
+    
+    //MARK:- Get BlogDetails By ID
+    func getBlogsDetailsById(query:String ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+        let url = "blogs" + "/\(query)"
+        
+        let urlString =  "\(baseUrl1)\(url.html)"
+        
+        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+            callback(data, error)
+        }
+    }
+    
+
+    //MARK: Create Comment
+    func createComment(blogID:String,commentDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(createComments.html)"
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: commentDetials) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
     
 
     
     
-    
-    
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-
     
     
     
@@ -228,17 +257,6 @@ class QuestionRemoteReplicator{
             callback(data, error)
         }
     }
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-
     
     
     
@@ -258,6 +276,34 @@ class QuestionRemoteReplicator{
             
         }
     }
+    
+    
+    
+    
+    //MARK: Like Blog
+    func likeBlog(blogID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(createLike.html)" + blogID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:]) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    
+    //MARK: DisLike Blog
+    func dislikeBlog(blogID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(createDisLike.html)" + blogID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:]) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
     
   
 //  //MARK:- Get Post By ID

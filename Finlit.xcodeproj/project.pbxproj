@@ -31,12 +31,24 @@
 		2EFA405921BA55420023ACC7 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA405821BA55420023ACC7 /* EditProfileTableViewCell.swift */; };
 		2EFA405B21BAA0890023ACC7 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA405A21BAA0890023ACC7 /* Interest.swift */; };
 		3CB3F6DBBB1813F3B71A34A3 /* Pods_Finlit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */; };
+		4E0EEA2A2227B6ED00BA953B /* CommentsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */; };
+		4E0EEA302227D8B400BA953B /* TblView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA2F2227D8B400BA953B /* TblView.swift */; };
+		4E0EEA322227DFD100BA953B /* DatesRemoteReplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */; };
+		4E1559F92227E51E00C4AFDA /* DatesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559F82227E51E00C4AFDA /* DatesAPI.swift */; };
+		4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7932213F38000263A86 /* DatesTblCell.swift */; };
+		4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7952214148E00263A86 /* MeetUserVC.swift */; };
 		4E239F912189C88E00964CED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E239F902189C88000964CED /* CoreLocation.framework */; };
+		4E241FA42215ABD80071CC61 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA32215ABD80071CC61 /* Blog.swift */; };
+		4E241FA82216FC4E0071CC61 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA72216FC4E0071CC61 /* CommentsVC.swift */; };
 		4E5E3160218ADD1700523400 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E315F218ADD1700523400 /* Location.swift */; };
 		4E5E3162218B2EC300523400 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E3161218B2EC300523400 /* Options.swift */; };
 		4E5E3164218B308100523400 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E3163218B308100523400 /* Questions.swift */; };
 		4E6298C3218C257A00E39DB1 /* QuestionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6298C2218C257A00E39DB1 /* QuestionAPI.swift */; };
 		4E6298C5218C25A800E39DB1 /* QuestionRemoteReplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6298C4218C25A800E39DB1 /* QuestionRemoteReplicator.swift */; };
+		4E992FC0221424DC0062EA58 /* MyBlogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E992FBF221424DC0062EA58 /* MyBlogsVC.swift */; };
+		4E992FC2221426EE0062EA58 /* MyBlogsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */; };
+		4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03A220DAE4300A48D6F /* SplashVC.swift */; };
+		4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03D2211681200A48D6F /* DatesVC.swift */; };
 		931048E52174808700E09C3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E42174808700E09C3E /* HomeVC.swift */; };
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
@@ -104,9 +116,7 @@
 		93E75A282187315B004C30BC /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E759F521873154004C30BC /* TOCropView.m */; };
 		93E75A292187315B004C30BC /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E759F621873154004C30BC /* TOCropOverlayView.m */; };
 		93E75A2A2187315B004C30BC /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E759F721873154004C30BC /* TOCropToolbar.m */; };
-		93E75A2B2187315B004C30BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E759FA21873154004C30BC /* Info.plist */; };
 		93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E759FE21873154004C30BC /* CropViewController.swift */; };
-		93E75A2D2187315B004C30BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93E759FF21873154004C30BC /* Info.plist */; };
 		93E75A2E2187315B004C30BC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E75A0121873154004C30BC /* Date.swift */; };
 		93E75A2F2187315B004C30BC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E75A0221873154004C30BC /* UIView.swift */; };
 		93E75A302187315B004C30BC /* PlaceHolderTextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E75A0321873154004C30BC /* PlaceHolderTextColor.swift */; };
@@ -152,12 +162,24 @@
 		2EFA405421BA34900023ACC7 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		2EFA405821BA55420023ACC7 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		2EFA405A21BAA0890023ACC7 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTblCell.swift; sourceTree = "<group>"; };
+		4E0EEA2F2227D8B400BA953B /* TblView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblView.swift; sourceTree = "<group>"; };
+		4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesRemoteReplicator.swift; sourceTree = "<group>"; };
+		4E1559F82227E51E00C4AFDA /* DatesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesAPI.swift; sourceTree = "<group>"; };
+		4E15C7932213F38000263A86 /* DatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTblCell.swift; sourceTree = "<group>"; };
+		4E15C7952214148E00263A86 /* MeetUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUserVC.swift; sourceTree = "<group>"; };
 		4E239F902189C88000964CED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4E241FA32215ABD80071CC61 /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
+		4E241FA72216FC4E0071CC61 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		4E5E315F218ADD1700523400 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4E5E3161218B2EC300523400 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		4E5E3163218B308100523400 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		4E6298C2218C257A00E39DB1 /* QuestionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAPI.swift; sourceTree = "<group>"; };
 		4E6298C4218C25A800E39DB1 /* QuestionRemoteReplicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionRemoteReplicator.swift; sourceTree = "<group>"; };
+		4E992FBF221424DC0062EA58 /* MyBlogsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogsVC.swift; sourceTree = "<group>"; };
+		4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogsTblCell.swift; sourceTree = "<group>"; };
+		4E9AC03A220DAE4300A48D6F /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		4E9AC03D2211681200A48D6F /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
 		6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finlit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931048E42174808700E09C3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -340,6 +362,24 @@
 			path = KolodaView;
 			sourceTree = "<group>";
 		};
+		4E992FBE221424AD0062EA58 /* BlogsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E992FBF221424DC0062EA58 /* MyBlogsVC.swift */,
+				4E241FA72216FC4E0071CC61 /* CommentsVC.swift */,
+			);
+			path = BlogsViewControllers;
+			sourceTree = "<group>";
+		};
+		4E9AC03C221167E900A48D6F /* DatesViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E9AC03D2211681200A48D6F /* DatesVC.swift */,
+				4E15C7952214148E00263A86 /* MeetUserVC.swift */,
+			);
+			path = DatesViewControllers;
+			sourceTree = "<group>";
+		};
 		936E1F9D216DDCD000D3AB25 /* OnStoryboardVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +408,7 @@
 				9340028E217C802100D08E29 /* UserProfileVC.swift */,
 				2E6064E321AD661D00A9A6D8 /* CardVC.swift */,
 				2E18F4A521AE861300FF0E6E /* PayquizVC.swift */,
+				4E9AC03A220DAE4300A48D6F /* SplashVC.swift */,
 			);
 			path = OnStoryboardVC;
 			sourceTree = "<group>";
@@ -395,6 +436,9 @@
 				93400298217EFF1C00D08E29 /* UserChatRoomTblCell.swift */,
 				2E18F4A721AEC44B00FF0E6E /* WhatsTableViewCell.swift */,
 				2EFA405821BA55420023ACC7 /* EditProfileTableViewCell.swift */,
+				4E15C7932213F38000263A86 /* DatesTblCell.swift */,
+				4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */,
+				4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */,
 			);
 			name = TblCell;
 			path = ..;
@@ -418,6 +462,7 @@
 				2E25EC87219D77C5006DC6BD /* Participants.swift */,
 				2EFA405421BA34900023ACC7 /* Chat.swift */,
 				2EFA405A21BAA0890023ACC7 /* Interest.swift */,
+				4E241FA32215ABD80071CC61 /* Blog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -455,6 +500,8 @@
 		93A45B8321676E2600DA505B /* Finlit */ = {
 			isa = PBXGroup;
 			children = (
+				4E992FBE221424AD0062EA58 /* BlogsViewControllers */,
+				4E9AC03C221167E900A48D6F /* DatesViewControllers */,
 				93A45B8821676E2600DA505B /* Main.storyboard */,
 				2EAE5AEA21A3CD7F00A64847 /* Finlit.entitlements */,
 				93E759C021873154004C30BC /* Utils */,
@@ -481,6 +528,7 @@
 			children = (
 				93E759AF21872040004C30BC /* UserAPI.swift */,
 				4E6298C2218C257A00E39DB1 /* QuestionAPI.swift */,
+				4E1559F82227E51E00C4AFDA /* DatesAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -490,6 +538,7 @@
 			children = (
 				4E6298C4218C25A800E39DB1 /* QuestionRemoteReplicator.swift */,
 				93E759B2218720F6004C30BC /* UserRemoteReplicator.swift */,
+				4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */,
 			);
 			path = Replicator;
 			sourceTree = "<group>";
@@ -615,6 +664,7 @@
 				93E75A0621873154004C30BC /* String.swift */,
 				93E75A0721873154004C30BC /* UIViewController.swift */,
 				93E75A0821873154004C30BC /* Color.swift */,
+				4E0EEA2F2227D8B400BA953B /* TblView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -745,9 +795,7 @@
 			files = (
 				93A45B8F21676E2700DA505B /* LaunchScreen.storyboard in Resources */,
 				93A45B8C21676E2700DA505B /* Assets.xcassets in Resources */,
-				93E75A2D2187315B004C30BC /* Info.plist in Resources */,
 				93A45B8A21676E2600DA505B /* Main.storyboard in Resources */,
-				93E75A2B2187315B004C30BC /* Info.plist in Resources */,
 				2E6064E221AD639E00A9A6D8 /* OverlayView.xib in Resources */,
 				93E75A212187315B004C30BC /* TOCropViewControllerLocalizable.strings in Resources */,
 				2E4A659F21A035F00074B0FF /* GoogleService-Info.plist in Resources */,
@@ -776,12 +824,14 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/ReadMoreTextView/ReadMoreTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -800,12 +850,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReadMoreTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -864,12 +916,14 @@
 			files = (
 				93E75A222187315B004C30BC /* TOActivityCroppedImageProvider.m in Sources */,
 				93E75A292187315B004C30BC /* TOCropOverlayView.m in Sources */,
+				4E992FC2221426EE0062EA58 /* MyBlogsTblCell.swift in Sources */,
 				93E75A302187315B004C30BC /* PlaceHolderTextColor.swift in Sources */,
 				93E75A2F2187315B004C30BC /* UIView.swift in Sources */,
 				93E75A342187315B004C30BC /* UIViewController.swift in Sources */,
 				939F46E92181F0E80010D7EE /* Comment.swift in Sources */,
 				93A45B8721676E2600DA505B /* ViewController.swift in Sources */,
 				939EB5502175B7BE00125C17 /* ChatTblCell.swift in Sources */,
+				4E241FA42215ABD80071CC61 /* Blog.swift in Sources */,
 				93E75A252187315B004C30BC /* TOCroppedImageAttributes.m in Sources */,
 				931048EF2174ADEC00E09C3E /* MyFavouritesVC.swift in Sources */,
 				93E75A1D2187315B004C30BC /* SkyFloatingLabelTextField.swift in Sources */,
@@ -878,6 +932,7 @@
 				93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */,
 				93E75A1E2187315B004C30BC /* UITextField+fixCaretPosition.swift in Sources */,
 				93A45B972167758700DA505B /* SignUpVC.swift in Sources */,
+				4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */,
 				4E6298C3218C257A00E39DB1 /* QuestionAPI.swift in Sources */,
 				939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */,
 				939F46EE2181F0E80010D7EE /* Countryy.swift in Sources */,
@@ -887,6 +942,7 @@
 				93E75A192187315B004C30BC /* GDCheckbox.swift in Sources */,
 				93400295217EFEA300D08E29 /* ChatRoomTblCell.swift in Sources */,
 				4E5E3160218ADD1700523400 /* Location.swift in Sources */,
+				4E992FC0221424DC0062EA58 /* MyBlogsVC.swift in Sources */,
 				93A45B8521676E2600DA505B /* AppDelegate.swift in Sources */,
 				938CCEBE216C988200DFB8CC /* QuickQuizVC.swift in Sources */,
 				93A45B992167949400DA505B /* VerificationVC.swift in Sources */,
@@ -898,9 +954,12 @@
 				93E75A272187315B004C30BC /* TOCropScrollView.m in Sources */,
 				2EFA405521BA34900023ACC7 /* Chat.swift in Sources */,
 				93E75A362187315B004C30BC /* TPKeyboardAvoidingScrollView.m in Sources */,
+				4E0EEA322227DFD100BA953B /* DatesRemoteReplicator.swift in Sources */,
 				938CCEBC216C71EC00DFB8CC /* CreateProfileVC.swift in Sources */,
 				93E75A372187315B004C30BC /* Validators.swift in Sources */,
+				4E0EEA2A2227B6ED00BA953B /* CommentsTblCell.swift in Sources */,
 				931048F32174C8C400E09C3E /* NotificationVC.swift in Sources */,
+				4E1559F92227E51E00C4AFDA /* DatesAPI.swift in Sources */,
 				9354B8392188421600BA8D2A /* UpdatePasswordVC.swift in Sources */,
 				936E1FB7216DF56500D3AB25 /* CWStatusBarNotification.m in Sources */,
 				931048E52174808700E09C3E /* HomeVC.swift in Sources */,
@@ -929,18 +988,22 @@
 				2EF992032199AC7B003C44B4 /* NearBySearch.swift in Sources */,
 				93E75A2E2187315B004C30BC /* Date.swift in Sources */,
 				939F46F52181F0E80010D7EE /* Media.swift in Sources */,
+				4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */,
 				93E75A1B2187315B004C30BC /* FileUpload.swift in Sources */,
 				939F46EA2181F0E80010D7EE /* Like.swift in Sources */,
 				93E75A3F2187315B004C30BC /* VCHelper.swift in Sources */,
 				931048ED2174A6A600E09C3E /* MyCircleVC.swift in Sources */,
+				4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */,
 				93E75A1A2187315B004C30BC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				93E75A2A2187315B004C30BC /* TOCropToolbar.m in Sources */,
+				4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */,
 				4E5E3164218B308100523400 /* Questions.swift in Sources */,
 				939EB54B2175B66700125C17 /* MyFavouriteTblCell.swift in Sources */,
 				939EB5522175B7F400125C17 /* MyCircleTblCell.swift in Sources */,
 				931048E721748F8300E09C3E /* NearByVC.swift in Sources */,
 				93E75A312187315B004C30BC /* TxtFld.swift in Sources */,
 				931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */,
+				4E241FA82216FC4E0071CC61 /* CommentsVC.swift in Sources */,
 				939F46FA2181F0E80010D7EE /* Route.swift in Sources */,
 				93D2EC38216B735000D0C984 /* ForgetPasswordVC.swift in Sources */,
 				939F46F22181F0E80010D7EE /* Invites.swift in Sources */,
@@ -950,6 +1013,7 @@
 				93621B18216B2A9800D86A27 /* SignInVC.swift in Sources */,
 				93400291217EFBD600D08E29 /* UserChatRoomVC.swift in Sources */,
 				2E6064E421AD661E00A9A6D8 /* CardVC.swift in Sources */,
+				4E0EEA302227D8B400BA953B /* TblView.swift in Sources */,
 				93E759B021872040004C30BC /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

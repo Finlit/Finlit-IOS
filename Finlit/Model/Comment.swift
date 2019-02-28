@@ -16,7 +16,7 @@ public class Comment {
 	public var id : String?
 	public var text : String?
 	public var createdAt : String?
-    public var postId : String?
+    public var blogId : String?
 	public var user : User?
     public var tags : [NSDictionary]?
 
@@ -53,7 +53,7 @@ public class Comment {
 	required public init?(dictionary: NSDictionary) {
 
 		id = dictionary["id"] as? String
-        postId = dictionary["postId"] as? String
+        blogId = dictionary["blogId"] as? String
 		text = dictionary["text"] as? String
 		createdAt = dictionary["createdAt"] as? String
     tags = dictionary["tags"] as? [NSDictionary]
@@ -72,7 +72,7 @@ public class Comment {
 		let dictionary = NSMutableDictionary()
 
 		dictionary.setValue(self.id, forKey: "id")
-        dictionary.setValue(self.postId, forKey: "postId")
+        dictionary.setValue(self.blogId, forKey: "blogId")
 		dictionary.setValue(self.text, forKey: "text")
 		dictionary.setValue(self.createdAt, forKey: "createdAt")
       dictionary.setValue(self.tags, forKey: "tags")

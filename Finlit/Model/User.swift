@@ -35,7 +35,7 @@ enum UserAttributes :String {
     case isSelected = "isSelected"
     case locationCoordinates = "locationCoordinates"
     case birthday = "birthday"
-    case country = "country"
+    case createdAt = "createdAt"
  
     
     case facebookId = "facebookId"
@@ -79,7 +79,7 @@ enum UserAttributes :String {
     isSelected,
     locationCoordinates,
     birthday,
-    country,
+    createdAt,
     facebookId,
     age,
     question
@@ -124,7 +124,7 @@ public class User {
     public var isSelected : Bool?
     public var locationCoordinates : [String]?
     public var birthday : String?
-    public var country : String?
+    public var createdAt : String?
     public var facebookId : String?
     public var townId : String?
     public var role : String?
@@ -201,7 +201,7 @@ public class User {
         isProfileCompleted = dictionary["isProfileCompleted"] as? Bool
         locationCoordinates = dictionary["locationCoordinates"] as? [String]
         birthday = dictionary["birthday"] as? String
-        country = dictionary["country"] as? String
+        createdAt = dictionary["createdAt"] as? String
          facebookId = dictionary["facebookId"] as? String
         
          if (dictionary["interest"] != nil) { interest = InterestModel.modelsFromDictionaryArray(array: dictionary["interest"] as! NSArray) }
@@ -250,7 +250,7 @@ public class User {
         dictionary.setValue(self.isSelected, forKey: "isSelected")
         dictionary.setValue(self.locationCoordinates, forKey: "locationCoordinates")
         dictionary.setValue(self.birthday, forKey: "birthday")
-        dictionary.setValue(self.country, forKey: "country")
+        dictionary.setValue(self.createdAt, forKey: "createdAt")
         dictionary.setValue(self.facebookId, forKey: "facebookId")
         dictionary.setValue(self.townId, forKey: "townId")
         dictionary.setValue(self.isProfileCompleted, forKey: "isProfileCompleted")

@@ -89,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         Constants.kUserDefaults.set(token, forKey: appConstants.fcmToken)
         
     }
+    
+    
     func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
     }
@@ -116,36 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        //                switch application.applicationState {
-        //                case .inactive:
-        //                    print("Inactive")
-        //                    //Show the view with the content of the push
-        //                    completionHandler(.newData)
-        //
-        //                case .background:
-        //                    print("Background")
-        //                    //Refresh the local model
-        //                    completionHandler(.newData)
-        //
-        //                case .active:
-        //                    print("Active")
-        //                    //Show an in-app banner
-        //                    //
-        //
-        //                    completionHandler(UIBackgroundFetchResult.newData)
-        //                }
-        //                print(userInfo)
-        //
-        //                guard let data: [String: Any] = userInfo as? [String: Any] else {
-        //                    return
-        //                }
-        //
-        //                let contentData = data["content"] as! String
-        //                print(contentData)
-        //                let titleData = data["title"] as! String
-        //                print(titleData)
-        //                createNotification(title: titleData, body: contentData)
-        
+  
         completionHandler(.newData)
     }
     

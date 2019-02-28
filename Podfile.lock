@@ -116,6 +116,7 @@ PODS:
   - PayPal-iOS-SDK/Core (2.18.1)
   - pop (1.0.12)
   - Protobuf (3.6.1)
+  - ReadMoreTextView (3.0.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -124,6 +125,7 @@ PODS:
     - SwiftyJSON (~> 4.0.0-alpha.1)
   - SwiftyJSON (4.0.0)
   - SwiftyPickerPopover (6.6.4)
+  - Toast-Swift (3.0.1)
   - TTRangeSlider (1.0.6)
 
 DEPENDENCIES:
@@ -141,10 +143,12 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Koloda
   - PayPal-iOS-SDK
+  - ReadMoreTextView
   - SDWebImage (~> 4.0)
   - SVProgressHUD
   - SwiftLocation (~> 3.2.3)
   - SwiftyPickerPopover
+  - Toast-Swift (~> 3.0.0)
   - TTRangeSlider
 
 SPEC REPOS:
@@ -178,11 +182,13 @@ SPEC REPOS:
     - PayPal-iOS-SDK
     - pop
     - Protobuf
+    - ReadMoreTextView
     - SDWebImage
     - SVProgressHUD
     - SwiftLocation
     - SwiftyJSON
     - SwiftyPickerPopover
+    - Toast-Swift
     - TTRangeSlider
 
 SPEC CHECKSUMS:
@@ -215,13 +221,15 @@ SPEC CHECKSUMS:
   PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  ReadMoreTextView: 19147adf93abce6d7271e14031a00303fe28720d
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwiftyPickerPopover: 6d08cbae133c80743654f4e977607cd1553947e6
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
 
-PODFILE CHECKSUM: 966a91f9e20d2105b583659414550257c3574487
+PODFILE CHECKSUM: 6a38ebe616ee3cb4d7c1e3142c631645611abf46
 
 COCOAPODS: 1.5.3

@@ -21,6 +21,11 @@ public extension UIColor {
         return UIColor(red:0.41, green:0.70, blue:0.26, alpha:1.0)
     }
     
+    static func pinkThemeColor() -> UIColor {
+        return UIColor(red:0.84, green:0.29, blue:0.55, alpha:1.0)
+    }
+    
+    
     static func lightBlackThemeColor() -> UIColor {
         return UIColor(red:0.07, green:0.07, blue:0.07, alpha:1.0)
     }

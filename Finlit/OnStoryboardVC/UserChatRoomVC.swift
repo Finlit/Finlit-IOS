@@ -12,10 +12,6 @@ import FirebaseDatabase
 import SVProgressHUD
 class UserTakeQuizVC: UIViewController {
     
-    var MessageLblArry = ["hello","hii this is gurpreet singh how are you tell me somehthing about you","hii this is gurpreet singh how are you tell me somehthing","asjdjsadhsajdhasjdsadjsdsjdhsajdhsajdhsadjsahdjsahdjsdhsajdhskjdhsajdhaskjdhskjdhasjkdhasjdhsajdhasjkdhasdjsahdkjsdhsjkdhsjdhsajdhsajdhsj","sajdhsajdhsdjgshdsadhsdgshdgsahdgsajhdgsadhgsdhsgdhsgdhsdgsahjdgsahdgashjdgsahdgsdjhgsdhjsagdhjsagdhjsadgshajdgshdgsahjdgsahdgashdgashjdgsadhgsahdgashdgsahdgashjdgsahdgsahdgsahjdgsahjdgshjdgsahdghsajdghsdgsahjdgsahdg"]
-    var LabelArry = ["2 hour ago"]
-    var ImageArry = ["default_user_square"]
-    var ImageArry1 = ["CHATPNG"]
     var questionApi : QuestionAPI!
     var chatID = String()
     var chatDictionary : Chat!

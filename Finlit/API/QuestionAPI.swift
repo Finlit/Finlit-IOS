@@ -214,8 +214,78 @@ class QuestionAPI{
     }
     
     
+    //MARK:-- Get All Blogs
+    func getAllBlogs(name:String,pageNo:Int,callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    {
+        QuestionRemoteReplicatorr.getAllBlogs() { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+            else{
+                print("Getting Error")
+                
+            }
+            
+        }
+    }
+    
+    
+    //MARK:-- Get Blog Details Id From Remote
+    func getBlogDetailsById(blogId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void ) {
+        
+        QuestionRemoteReplicatorr.getBlogsDetailsById(query: blogId) { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+                
+            else {
+                print("Getting Error")
+            }
+            
+        }
+        
+    }
+    
+    
+    //MARK:-- Get Blog comments By Id
+    func getCommentsOfBlog(blogId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    {
+        QuestionRemoteReplicatorr.getCommentsOfBlog(blogId: blogId) { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+            else{
+                print("Getting Error")
+                
+            }
+        }
+    }
+    
+    
+    //MARK: Create Comment
+    func createComment(blogID: String ,commentDetials: Comment, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        QuestionRemoteReplicatorr.createComment(blogID: blogID,commentDetials:commentDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject>){ (Data, error) -> Void in
+            if Data != nil {
+                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    
+                    
+                    callback(true,Data,nil)
+                }else{
+                    callback(false,Data,Data!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
     
 
+    
+    
     
     func setCountZeroChat(postid:String,postDetials: Chat , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
         
@@ -264,6 +334,52 @@ class QuestionAPI{
             
         }
     }
+    
+    
+    
+    
+    
+    
+    //MARK: LikeBlog
+    func likeBlog(blogID: String, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        QuestionRemoteReplicatorr.likeBlog(blogID: blogID){ (responseData, error) -> Void in
+            if responseData != nil {
+                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
+
+                    callback(true,responseData,nil)
+                }else{
+                    callback(false,responseData,responseData!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    //MARK:  DIsLikeBlog
+    func dislikeBlog(blogID: String, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        QuestionRemoteReplicatorr.dislikeBlog(blogID: blogID){ (responseData, error) -> Void in
+            if responseData != nil {
+                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    callback(true,responseData,nil)
+                }else{
+                    callback(false,responseData,responseData!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
   //MARK:-- Get get Comments Censored Words
 //  func getCommentsCensored(callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
 //  {

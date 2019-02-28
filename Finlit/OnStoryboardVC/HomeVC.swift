@@ -63,9 +63,12 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
 
     }
     @IBAction func mDatesBtnAct(_ sender: Any) {
-        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
-        destinationvc.VCcheckInt = 0
-        self.navigationController?.pushViewController(destinationvc, animated: true)
+        
+                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "SplashVCID") as! SplashVC
+                self.navigationController?.pushViewController(destinationvc, animated: true)
+//        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
+//        destinationvc.VCcheckInt = 0
+//        self.navigationController?.pushViewController(destinationvc, animated: true)
         
     }
     
@@ -86,9 +89,12 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
         
     }
     
-    @IBAction func mMyFavouriteBtn(_ sender: UIButton) {
-        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyFavouritesVCID") as! MyFavouritesVC
-        self.navigationController?.pushViewController(destinationvc, animated: true)
+    @IBAction func mMyBlogsBtn(_ sender: UIButton) {
+                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyBlogsVCID") as! MyBlogsVC
+                self.navigationController?.pushViewController(destinationvc, animated: true)
+
+//        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyFavouritesVCID") as! MyFavouritesVC
+//        self.navigationController?.pushViewController(destinationvc, animated: true)
     }
     
     

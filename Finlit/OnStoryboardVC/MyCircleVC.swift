@@ -27,25 +27,32 @@ class MatchesVC: UIViewController{
 //        self.mMyCircleTblCell.delegate = self
 //        self.mMyCircleTblCell.dataSource = self
          self.navigationController?.navigationBar.isHidden = false
-        self.mSearchTextField.delegate = self
+        //self.mSearchTextField.delegate = self
         self.userApi = UserAPI.sharedInstance
         self.questionApi = QuestionAPI.sharedInstance
         self.usersdata = [User]()
         self.chatArr = [Chat]()
         mMyCircleTblCell.estimatedRowHeight = 165
         mMyCircleTblCell.rowHeight = UITableViewAutomaticDimension
-        if VCcheckInt == 0{
-            //navigationItem.title = "Find Matches"
+        
+        if VCcheckInt == 0 {
+      
             navigationItem.title = "DATES"
             if Constants.kUserDefaults.value(forKey:appConstants.selecttype) != nil{
                 let type =  Constants.kUserDefaults.value(forKey:appConstants.selecttype)as! String
                 getallusers(type: "?gender=\(type)")
-            }else{
+            }
+            
+            
+            else{
                 getallusers(type: "")
             }
           
-        }else{
-            //navigationItem.title = "My Matches"
+        }
+        
+        
+        else{
+         
             navigationItem.title = "PENDING DATES"
              GetChatlist()
         }
@@ -73,22 +80,25 @@ class MatchesVC: UIViewController{
         SVProgressHUD.show(withStatus: "Processing...")
         userApi.getAllUsers(type:type) { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
-                if error == nil{
-                    //                    self.hideProgress()
+                if error == nil {
+        
                     self.usersdata.removeAll()
                     let userList = data[APIConstants.items.rawValue] as! NSArray
                   
                     self.usersdata = User.modelsFromDictionaryArray(array: userList)
-                    //
+                    
                     self.mMyCircleTblCell.reloadData()
                     SVProgressHUD.dismiss()
-                }}
+                }  }
             else{
                 SVProgressHUD.dismiss()
                 print("Getting Error")
             }
         }
     }
+    
+    
+    
     //MARK:- Fav n UnFav
     func favPost(PostId:String){
         questionApi.favPost(postID: PostId) { (data, error) in
@@ -318,11 +328,12 @@ extension MatchesVC : UITextFieldDelegate{
         print("TextField should end editing method called")
         if mSearchTextField.text != ""{
             AllSearch(Name: mSearchTextField.text!)
-        }else{
+        }else {
             if Constants.kUserDefaults.value(forKey:appConstants.selecttype) != nil{
                 let type =  Constants.kUserDefaults.value(forKey:appConstants.selecttype)as! String
                 getallusers(type: "?gender=\(type)")
-            }else{
+            }
+            else{
                 getallusers(type: "")
             }
         }

@@ -178,10 +178,6 @@ class UserAPI{
                     let dataProfile = NSKeyedArchiver.archivedData(withRootObject: data)
                     Constants.kUserDefaults.set(dataProfile, forKey: appConstants.profile)
                     
-                    
-                    
-                    
-                    
                     callback(true,responseData,nil)
                 }else{
                     callback(false,responseData,responseData!["error"] as? String)
@@ -191,29 +187,7 @@ class UserAPI{
         }
         
     }
-//    func setCountZero( userId: String, callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-//
-//
-//        userRemoteReplicator.setCountZero(userID: userId ){ (responseData, error) -> Void in
-//            if responseData != nil {
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-//                    let dataProfile = NSKeyedArchiver.archivedData(withRootObject: data)
-//                    Constants.kUserDefaults.set(dataProfile, forKey: appConstants.profile)
-//
-//
-//
-//
-//
-//                    callback(true,responseData,nil)
-//                }else{
-//                    callback(false,responseData,responseData!["error"] as? String)
-//                }
-//            }
-//
-//        }
-//
-//    }
+
 
    // MARK:-- GetUserDetals
       func getUserDetails(userId:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
@@ -275,70 +249,9 @@ class UserAPI{
             
         }
     }
-    //MARK:-- Get States
-    func getState(countryId:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        userRemoteReplicator.getState(query: countryId,pageNo: pageNo) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error. Can't fetch states.")
-                
-            }
-            
-        }
-    }
-    
-    
-    
-    //MARK:-- Get Towns
-    func getTowns(countryId:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        userRemoteReplicator.getTowns(query: countryId,pageNo: pageNo) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error. Can't fetch states.")
-                
-            }
-            
-        }
-    }
-    
-    
-    //MARK:-- Get LGA by State Id (When NIgeria)
-    func getLGAByStateId(stateId:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        userRemoteReplicator.getLGAByStateId(query: stateId,pageNo: pageNo) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error. Can't fetch states.")
-                
-            }
-            
-        }
-    }
 
     
-    
-    //MARK:-- Get LGA by Town Id (When SA)
-    func getLGAByTownId(zipCodeId:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-    {
-        userRemoteReplicator.getLGAByTownId(query: zipCodeId,pageNo: pageNo) { (Data, error) in
-            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-                callback(Data! , nil)
-            }
-            else{
-                print("Getting Error. Can't fetch states.")
-                
-            }
-            
-        }
-    }
+
 
     //MARK:-- Get FavSearch
     func favSearch(query:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
