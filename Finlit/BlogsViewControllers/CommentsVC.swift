@@ -151,8 +151,8 @@ class CommentsVC: UIViewController {
             if (isSuccess){
                 SVProgressHUD.dismiss()
                self.view.makeToast("Comment Created Successfully")
-                //kAppDelegate.showNotification(text: "Comment Created Successfully")
                 
+    
                 self.mCommentTxtFld.text = ""
                 
                 self.getAllComments()
@@ -162,10 +162,10 @@ class CommentsVC: UIViewController {
                 SVProgressHUD.dismiss()
                 if error != nil{
                     self.view.makeToast(error!)
-//                    kAppDelegate.showNotification(text: error!)
+          
                 }else{
                      self.view.makeToast("Something went wrong!")
-                    //kAppDelegate.showNotification(text: "Something went wrong!")
+                
                 }
             }
             

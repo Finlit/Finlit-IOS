@@ -22,9 +22,11 @@ class DatesVC: UIViewController {
     let vcHelper = VCHelper()
     var cellHeight : CGFloat =  380
     var userMdlArry :  [User]!
+    var datesAPI : DatesAPI!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.datesAPI = DatesAPI.sharedInstance
          self.userMdlArry = [User]()
         
     }
@@ -113,6 +115,34 @@ class DatesVC: UIViewController {
     }
     
     
+    
+    
+    func sendNoThanksRequest(IdofUser:String,userDict:User)
+        
+    {
+        SVProgressHUD.show(withStatus: "Please Wait")
+        datesAPI.sendNoThanksRequest(toUserID: IdofUser, dateDetials: userDict){ (isSuccess,data, error) -> Void in
+            SVProgressHUD.dismiss()
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                
+            }else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something went wrong!")
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
 }
 
 extension DatesVC : UITableViewDelegate, UITableViewDataSource {
@@ -126,8 +156,15 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         let userr = userMdlArry[indexPath.row]
         
+        cell.mConfirmInterestBtn.tag = indexPath.row
+        cell.mNoThanksBtn.tag = indexPath.row
+        
+        
         if self.categoryType == "Available" {
             cell.mConfirmInterestBtn.setTitle("I am interested", for: .normal)
+            cell.mConfirmInterestBtn.addTarget(self, action: #selector(IamIntrestedBtnAction), for: .touchUpInside)
+            cell.mNoThanksBtn.addTarget(self, action: #selector(NoThanksBtnAction), for: .touchUpInside)
+           
              let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  " is looking for a date"
             cell.mCalendarIcon.isHidden = true
@@ -137,13 +174,12 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
             cell.mConfirmBtnTopConst.constant = -40
             cell.mConfirmBtnTopConst.isActive = true
             cell.layoutIfNeeded()
-            
         }
         
         if self.categoryType == "Pending" {
             cell.mConfirmInterestBtn.setTitle("Confirm", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
-            cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  " is looking for a date"
+            cell.mWantsToMeetLbl.text = "\(username.capitalized)" +  " wants to meet you"
             cell.mCalendarIcon.isHidden = false
             cell.mLocationIcon.isHidden = false
             cell.mPlaceLbl.isHidden = false
@@ -191,13 +227,56 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         return 430
         }}
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
+//        let userDets = self.userMdlArry[indexPath.row]
+//        destinationVC.secondUserDetails = userDets
+//        self.navigationController?.pushViewController(destinationVC, animated: true)
+//    }
+//
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    
+    
+    
+    @objc func IamIntrestedBtnAction(sender:UIButton)  {
+        // text to share
+        let tag = sender.tag
+        //let datess = userMdlArry[tag]
+        let i = IndexPath(row: tag, section: 0)
+         //let cell = mDatesTblView.cellForRow(at: i)  as! DatesTblCell
+        
+        
+        if self.categoryType == "Available" {
         let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
-        let userDets = self.userMdlArry[indexPath.row]
+        let userDets = self.userMdlArry![i.row]
         destinationVC.secondUserDetails = userDets
         self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
+    
+    
+    @objc func NoThanksBtnAction(sender:UIButton)  {
+        // text to share
+        let tag = sender.tag
+        let datess = userMdlArry[tag]
+        let i = IndexPath(row: tag, section: 0)
+        //let cell = mDatesTblView.cellForRow(at: i)  as! DatesTblCell
+        
+        
+        if self.categoryType == "Available" {
+            self.userMdlArry.remove(at: i.row)
+            var userDict : User?
+            userDict = User.init(dictionary: NSDictionary())
+            if let idd = datess.id {
+                self.sendNoThanksRequest(IdofUser: idd, userDict: userDict!)}
+            self.mDatesTblView.reloadData()
+            
+        }
+    }
+    
+    
     
 }
 

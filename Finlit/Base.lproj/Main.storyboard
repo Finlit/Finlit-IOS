@@ -4761,7 +4761,7 @@ happen to bond prices?</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-d8-s5o">
-                                                <rect key="frame" x="112" y="5" width="1" height="35"/>
+                                                <rect key="frame" x="107" y="5" width="1" height="35"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="OMu-E8-kzh"/>
@@ -4771,7 +4771,7 @@ happen to bond prices?</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhu-0K-umX">
-                                                <rect key="frame" x="207" y="5" width="1" height="35"/>
+                                                <rect key="frame" x="212" y="5" width="1" height="35"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="nL7-Jt-59f"/>
@@ -4781,7 +4781,7 @@ happen to bond prices?</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpb-bj-xqE">
-                                                <rect key="frame" x="33" y="8" width="59" height="29"/>
+                                                <rect key="frame" x="28" y="8" width="59" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <state key="normal" title="Available">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4801,7 +4801,7 @@ happen to bond prices?</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gj-t9-hPR">
-                                                <rect key="frame" x="228" y="8" width="70" height="29"/>
+                                                <rect key="frame" x="233" y="8" width="70" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <state key="normal" title="Confirmed">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4811,10 +4811,10 @@ happen to bond prices?</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-bY-Lx8">
-                                                <rect key="frame" x="17.5" y="40" width="90" height="4"/>
+                                                <rect key="frame" x="10" y="40" width="95" height="4"/>
                                                 <color key="backgroundColor" red="0.91372549020000005" green="0.2156862745" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="Pqv-GB-deF"/>
+                                                    <constraint firstAttribute="width" constant="95" id="Pqv-GB-deF"/>
                                                     <constraint firstAttribute="height" constant="4" id="Wb1-JA-BfW"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -4827,7 +4827,7 @@ happen to bond prices?</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtu-tb-EaQ">
-                                                <rect key="frame" x="115" y="40" width="90" height="4"/>
+                                                <rect key="frame" x="112.5" y="40" width="95" height="4"/>
                                                 <color key="backgroundColor" red="0.91372549020000005" green="0.2156862745" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="4" id="DXE-JM-YCx"/>
@@ -4842,7 +4842,7 @@ happen to bond prices?</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyT-Ng-Uk8">
-                                                <rect key="frame" x="218" y="40" width="90" height="4"/>
+                                                <rect key="frame" x="220.5" y="40" width="95" height="4"/>
                                                 <color key="backgroundColor" red="0.91372549020000005" green="0.2156862745" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="4" id="ty7-Pq-Dmy"/>
@@ -4866,7 +4866,7 @@ happen to bond prices?</string>
                                             <constraint firstAttribute="bottom" secondItem="SMu-bY-Lx8" secondAttribute="bottom" constant="1" id="ICi-rW-WJw"/>
                                             <constraint firstItem="3gj-t9-hPR" firstAttribute="leading" secondItem="bhu-0K-umX" secondAttribute="trailing" constant="20" id="JZt-IA-vQQ"/>
                                             <constraint firstItem="dqQ-d8-s5o" firstAttribute="leading" secondItem="kpb-bj-xqE" secondAttribute="trailing" constant="20" id="KPQ-Hx-z50"/>
-                                            <constraint firstItem="OwJ-ru-z5E" firstAttribute="leading" secondItem="dqQ-d8-s5o" secondAttribute="trailing" constant="20" id="KS1-AG-F8t"/>
+                                            <constraint firstItem="OwJ-ru-z5E" firstAttribute="leading" secondItem="dqQ-d8-s5o" secondAttribute="trailing" constant="25" id="KS1-AG-F8t"/>
                                             <constraint firstAttribute="bottom" secondItem="dqQ-d8-s5o" secondAttribute="bottom" constant="5" id="L0I-uu-Wmf"/>
                                             <constraint firstAttribute="bottom" secondItem="ZyT-Ng-Uk8" secondAttribute="bottom" constant="1" id="Ltm-Fw-5KW"/>
                                             <constraint firstItem="bhu-0K-umX" firstAttribute="top" secondItem="VXQ-pQ-HgH" secondAttribute="top" constant="5" id="MoE-bI-Tu9"/>
@@ -4878,7 +4878,7 @@ happen to bond prices?</string>
                                             <constraint firstItem="wtu-tb-EaQ" firstAttribute="width" secondItem="SMu-bY-Lx8" secondAttribute="width" id="m7m-ih-otH"/>
                                             <constraint firstItem="ZyT-Ng-Uk8" firstAttribute="width" secondItem="SMu-bY-Lx8" secondAttribute="width" id="mVu-ay-nhd"/>
                                             <constraint firstItem="OwJ-ru-z5E" firstAttribute="centerY" secondItem="VXQ-pQ-HgH" secondAttribute="centerY" id="r7S-56-g9u"/>
-                                            <constraint firstItem="bhu-0K-umX" firstAttribute="leading" secondItem="OwJ-ru-z5E" secondAttribute="trailing" constant="20" id="tx3-KJ-PVh"/>
+                                            <constraint firstItem="bhu-0K-umX" firstAttribute="leading" secondItem="OwJ-ru-z5E" secondAttribute="trailing" constant="25" id="tx3-KJ-PVh"/>
                                             <constraint firstItem="dqQ-d8-s5o" firstAttribute="top" secondItem="VXQ-pQ-HgH" secondAttribute="top" constant="5" id="wMv-Sr-seq"/>
                                         </constraints>
                                     </view>
@@ -5081,7 +5081,7 @@ happen to bond prices?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-6y-m51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8424.375" y="1998.5915492957747"/>
+            <point key="canvasLocation" x="8370" y="1991"/>
         </scene>
         <!--MEET USER-->
         <scene sceneID="2S3-oB-ZWQ">

@@ -18,38 +18,91 @@ class MeetUserVC: UIViewController {
     @IBOutlet weak var mLocationTxtFld: UITextField!
     @IBOutlet weak var mTimeTxtFld: UITextField!
     
+    var myImgUrl : String?
     var userMdlVar : User?
     var secondUserDetails : User?
     var locCor: [String]!
     let DateTimepicker = UIDatePicker()
     var sendbuttonFrame = CGRect()
+    var datesAPI : DatesAPI!
+    var toUserId : String = ""
+    var userDict : User?
+    var selectedDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.datesAPI = DatesAPI.sharedInstance
+        
+        if fetchProfileFromPresistance() == true{
+            if self.userMdlVar!.imgUrl != nil {
+                self.mUserImage1.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                
+            else {
+                if let userid = Constants.kUserDefaults.value(forKey: appConstants.userId){
+                    self.getMyProfileDetails(UserID: userid as! String)
+                }}
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.createDatePicker()
         self.setupUI()
+  
+        //changeSendBtnToWhite()
         self.mLocationTxtFld.delegate = self
         self.mTimeTxtFld.delegate = self
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
      
     }
     
-    func changeSendBtn() {
+
+    
+    
+    func changeSendBtnToPink() {
         sendbuttonFrame.size.width = sendbuttonFrame.width + 60
         let btnProfile = UIButton(frame: self.sendbuttonFrame)
         btnProfile.setTitle("Send", for: .normal)
-        btnProfile.layer.borderColor = UIColor.white.cgColor
+        btnProfile.setTitleColor(UIColor.white, for: .normal)
+        btnProfile.titleLabel?.font =  .systemFont(ofSize: 14)
+        btnProfile.layer.borderColor = UIColor.lightGray.cgColor
         btnProfile.backgroundColor = UIColor.pinkThemeColor()
         btnProfile.layer.cornerRadius = 4.0
         btnProfile.layer.masksToBounds = true
+        btnProfile.addTarget(self, action: #selector(sendBtnAction), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: btnProfile)]
     }
+    
+    @objc  func sendBtnAction () {
+   
+        if self.mLocationTxtFld.text?.count == 0 {
+    self.view.makeToast("Select a Location")
+    return
+    }
+    
+    if self.mTimeTxtFld.text?.count == 0 {
+    self.view.makeToast("Select a Time")
+    return
+    }
+    
+    self.userDict = User.init(dictionary: NSDictionary())
+    if self.mLocationTxtFld.text != nil || self.mTimeTxtFld.text != "" {
+    userDict?.location?.address = self.mLocationTxtFld.text
+    var dateInString = self.selectedDate.stringOfDateandTimefromDateType
+        var dateInUTC = dateInString.dateStringToUTCString
+    userDict?.createdAt = dateInUTC
+    self.sendDateRequest(userDict: userDict!) //API
+    
+    
+    }
+    
+    }
+    
+    
     
     
     
@@ -64,10 +117,27 @@ class MeetUserVC: UIViewController {
             return
         }
         
-    
-    
+        self.userDict = User.init(dictionary: NSDictionary())
+        if self.mLocationTxtFld.text != nil || self.mTimeTxtFld.text != "" {
+            userDict?.location?.address = self.mLocationTxtFld.text
+            userDict?.createdAt = self.selectedDate.stringfromDateType.dateStringToUTCString
+                self.sendDateRequest(userDict: userDict!)
         
+
+        
+        }}
+    
+    
+    func pushBackToDatesVC() {
+        for vc in (self.navigationController?.viewControllers ?? []) {
+            if vc is DatesVC {
+                _ = self.navigationController?.popToViewController(vc, animated: true)
+                break
+            }
+        }
     }
+    
+    
     
     
     
@@ -84,19 +154,12 @@ class MeetUserVC: UIViewController {
          mTimeTxtFld.attributedPlaceholder = NSAttributedString(string: "Choose Date & Time", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
         
         
-        if fetchProfileFromPresistance() == true{
-            if self.userMdlVar!.imgUrl != nil {
-                self.mUserImage1.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
-                
-            else {
-                if let userid = Constants.kUserDefaults.value(forKey: appConstants.userId){
-                    self.getUserDetail(UserID: userid as! String)
-                }}
-        }
+   
         
         
         
         if self.secondUserDetails != nil {
+            self.toUserId = (secondUserDetails?.id)!
             self.navigationItem.title = "MEET " + (secondUserDetails?.name?.capitalized)!
             if self.secondUserDetails!.imgUrl != nil {
                 self.mUserImg2.sd_setImage(with: URL.init(string:(self.secondUserDetails!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
@@ -123,10 +186,6 @@ class MeetUserVC: UIViewController {
     
     
     
-    
-    
-    
-    
 
     @IBAction func mCancelTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -140,12 +199,41 @@ class MeetUserVC: UIViewController {
     }
     
     
+    // MARK: Send Date Request
+    func sendDateRequest(userDict:User)
+        
+    {
+                SVProgressHUD.show(withStatus: "Please Wait")
+        datesAPI.sendDateRequest(toUserID: self.toUserId, dateDetials: userDict){ (isSuccess,data, error) -> Void in
+            SVProgressHUD.dismiss()
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                self.view.makeToast("Request Sent Successfully")
+                self.pushBackToDatesVC()
+                
+                
+            }else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something went wrong!")
+                    
+                }
+            }
+            
+        }
+        
+    }
     
     
     
     
     
-    func getUserDetail(UserID:String){
+    
+    
+    func getMyProfileDetails(UserID:String){
         UserAPI().getUserDetails(userId: UserID, pageNo: 1) { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
@@ -213,7 +301,7 @@ extension MeetUserVC :UITextFieldDelegate{
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
+        //self.changeSendBtn(btnBackgColor: UIColor.white)
         switch textField {
             
         case self.mLocationTxtFld:
@@ -233,7 +321,7 @@ extension MeetUserVC :UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.count != 0 {
-            self.changeSendBtn()
+            self.changeSendBtnToPink()
         }
     }
     
@@ -257,6 +345,7 @@ extension MeetUserVC {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .medium
+        self.selectedDate = DateTimepicker.date
         let dateString =  DateTimepicker.date.dateToSmartDate
         let timeString = DateTimepicker.date.dateToSmartTime
         //let dateString = formatter.string(from: DOBpicker.date)

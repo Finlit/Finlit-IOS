@@ -15,6 +15,8 @@ class DatesRemoteReplicator{
     private let pendingUsers = "users/pending"
     private let confirmedUsers = "users/confirmed"
     private let verify = "users/verify"
+    private let sendDateRequest = "users/userpending/"
+    private let sendNoThanksRequestToAvailableUser = "users/userintrested/"
     private let create = "users/" //create/addprofile
     
     
@@ -39,6 +41,26 @@ class DatesRemoteReplicator{
         
         remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
             callback(data, error)
+        }
+    }
+    
+    
+    //MARK: Create Date Request
+    func sendDateRequest(toUserID:String,dateDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(sendDateRequest.html)" + toUserID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: dateDetials) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    
+    //MARK: Create No Thanks Request
+    func sendNoThanksRequest(toUserID:String,dateDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(sendNoThanksRequestToAvailableUser.html)" + toUserID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: dateDetials) { (data, error) -> Void in
+            callback(data , error?.description )
+            
         }
     }
     

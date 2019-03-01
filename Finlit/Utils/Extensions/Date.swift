@@ -19,6 +19,14 @@ public extension Date{
         let dateString = dateFormatter.string(from: self as Date)
         return dateString
     }
+    
+    var stringOfDateandTimefromDateType: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        let dateString = dateFormatter.string(from: self as Date)
+        return dateString
+    }
+    
   
   var dateToSmartDate:String{
     let dateFormatter =  DateFormatter()
