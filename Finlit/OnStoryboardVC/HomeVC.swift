@@ -93,8 +93,6 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
                 let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyBlogsVCID") as! MyBlogsVC
                 self.navigationController?.pushViewController(destinationvc, animated: true)
 
-//        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MyFavouritesVCID") as! MyFavouritesVC
-//        self.navigationController?.pushViewController(destinationvc, animated: true)
     }
     
     
@@ -181,9 +179,9 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     }
     
     @IBAction func mPendingDatesBtn(_ sender: UIButton) {
-        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
-           destinationvc.VCcheckInt = 1
-        self.navigationController?.pushViewController(destinationvc, animated: true)
+               let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "PendingDatesVCID") as! PendingDatesVC
+                self.navigationController?.pushViewController(destinationvc, animated: true)
+        
     }
     
     @IBAction func mSubscriptionsBtn(_ sender: UIButton) {

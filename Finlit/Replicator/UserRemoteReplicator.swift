@@ -20,6 +20,9 @@ import Foundation
       
         private let createTask = "tasks"
         private let createCategory = "categories"
+        private let blockUser = "users/update/block"
+        private let UnBlockUser = "users/update/unblock"
+        private let getAllBlockedUsers = "users/block/search"
 
       
     
@@ -209,6 +212,50 @@ import Foundation
                 callback(data, error)
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        // MARK: Block User
+        func blockUser(userDetails: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+            let urlString =  "\(baseUrl1)\(blockUser.html)"
+            remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: userDetails) { (data, error) -> Void in
+                callback(data , error )
+                
+            }
+        }
+        
+        
+        
+        // MARK: UnBlock User
+        func unBlockUser(userDetails: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+            let urlString =  "\(baseUrl1)\(UnBlockUser.html)"
+            remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: userDetails) { (data, error) -> Void in
+                callback(data , error )
+                
+            }
+        }
+        
+        
+        
+        
+        //MARK:- Get Blocked Users
+        func getAllBlockedUsers(query:String = "" ,pageNo:Int = 1 ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+            
+            let urlString =  "\(baseUrl1)\(getAllBlockedUsers.html)"
+            
+            remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+                callback(data, error)
+            }
+        }
+        
+        
+        
+        
+        
 
         
         

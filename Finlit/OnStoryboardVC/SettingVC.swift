@@ -60,15 +60,24 @@ var GenderpickerView = UIPickerView()
             break
 
         case 2:
-           
+            let vc = storyboard?.instantiateViewController(withIdentifier: "BlockedUsersVCID")as! BlockedUsersVC
+            navigationController?.pushViewController(vc, animated: true)
             break
+            
+            
         case 3:
             
             break
         case 4:
             
             break
+            
         case 5:
+            
+            break
+            
+            
+        case 6:
             
             Constants.kUserDefaults.set(nil, forKey: appConstants.profile)
             Constants.kUserDefaults.set(nil, forKey: appConstants.token)

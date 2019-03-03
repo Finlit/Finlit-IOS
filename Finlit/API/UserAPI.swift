@@ -284,236 +284,6 @@ class UserAPI{
     }
     
     
-    
-    
-    
-    
-    
-    
-    //    // MARK: Create Category
-    //    func createCategory(categoryDetials: Budget , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-    //
-    //
-    //        userRemoteReplicator.createCategory(categoryDetials: categoryDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-    //            if responseData != nil {
-    //                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-    //                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-    //                    let dataFolder = NSKeyedArchiver.archivedData(withRootObject: data)
-    //                    Constants.kUserDefaults.set(dataFolder, forKey: appConstants.folder)
-    //
-    //
-    //                    callback(true,responseData,nil)
-    //                }else{
-    //                    callback(false,responseData,responseData!["error"] as? String)
-    //                }
-    //            }
-    //
-    //        }
-    //
-    //    }
-
-    
-    
-//    // MARK: Create Folder
-//    func createFolder(folderDetials: Folder , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-//
-//
-//        userRemoteReplicator.createFolder(folderDetials: folderDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-//            if responseData != nil {
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-//                    let dataFolder = NSKeyedArchiver.archivedData(withRootObject: data)
-//                    Constants.kUserDefaults.set(dataFolder, forKey: appConstants.folder)
-//
-//
-//
-//
-//
-//                    callback(true,responseData,nil)
-//                }else{
-//                    callback(false,responseData,responseData!["error"] as? String)
-//                }
-//            }
-//
-//        }
-//
-//    }
-//
-//
-//
-//  //MARK:-- Get Folder From Remote
-//  func getAllFolder(name:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-//  {
-//    userRemoteReplicator.getAllFolder(query: name,pageNo: pageNo) { (Data, error) in
-//      if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-//        callback(Data! , nil)
-//      }
-//      else{
-//        print("Getting Error")
-//
-//      }
-//
-//    }
-//  }
-    
-    
-//
-//    // MARK: Create Task
-//    func createTask(taskDetials: CreateActivity , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-//
-//
-//        userRemoteReplicator.createTask(taskDetials: taskDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-//            if responseData != nil {
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-//                    let dataTask = NSKeyedArchiver.archivedData(withRootObject: data)
-//                    Constants.kUserDefaults.set(dataTask, forKey: appConstants.task)
-//
-//
-//
-//                    callback(true,responseData,nil)
-//                }else{
-//                    callback(false,responseData,responseData!["error"] as? String)
-//                }
-//            }
-//
-//        }
-//
-//    }
-//
-//
-//    // MARK: Update Task Status
-//    func updateTaskStatus(taskId:String, routeId: String? , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-//
-//
-//        userRemoteReplicator.updateTaskStatus(taskId: taskId, routeID: routeId ) { (responseData, error) -> Void in
-//            if responseData != nil {
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-//                    let dataTask = NSKeyedArchiver.archivedData(withRootObject: data)
-//                    Constants.kUserDefaults.set(dataTask, forKey: appConstants.task)
-//
-//
-//
-//                    callback(true,responseData,nil)
-//                }else{
-//                    callback(false,responseData,responseData!["error"] as? String)
-//                }
-//            }
-//
-//        }
-//
-//    }
-//
-//
-//
-//
-//    //MARK:-- Get Todays tasks
-//    func getTodaysTask(name:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-//    {
-//        userRemoteReplicator.getTodaysTask(query: name) { (Data, error) in
-//            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-//                callback(Data! , nil)
-//            }
-//            else{
-//                print("Getting Error")
-//
-//            }
-//
-//        }
-//    }
-//
-//
-//    //MARK:-- Get Tasks By Folder Id
-//    func getTasksByFolderId(folderId:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-//    {
-//        userRemoteReplicator.getTasksByFolderId(query: folderId) { (Data, error) in
-//            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-//                callback(Data! , nil)
-//            }
-//            else{
-//                print("Getting Error")
-//
-//            }
-//
-//        }
-//    }
-//
-//
-//
-//
-//    //MARK:-- Get All Tasks
-//    func getAllTasks(name:String, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
-//    {
-//        userRemoteReplicator.getAllTasks(query: name) { (Data, error) in
-//            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
-//                callback(Data! , nil)
-//            }
-//            else{
-//                print("Getting Error")
-//
-//            }
-//
-//        }
-//    }
-//
-//
-//
-//
-//    // MARK: Create Amount Spent
-//    func createAmount(amountDetials: Amount , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
-//
-//
-//        userRemoteReplicator.createAmount(amountDetials: amountDetials.dictionaryRepresentation() as! Dictionary<String, AnyObject> ) { (responseData, error) -> Void in
-//            if responseData != nil {
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//                    let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
-//                    let dataTask = NSKeyedArchiver.archivedData(withRootObject: data)
-//                    Constants.kUserDefaults.set(dataTask, forKey: appConstants.task)
-//
-//
-//
-//                    callback(true,responseData,nil)
-//                }else{
-//                    callback(false,responseData,responseData!["error"] as? String)
-//                }
-//            }
-//
-//        }
-//
-//    }
-//
-//
-    
-    
-    
-    
-    
-
-//    
-//    // MARK: Create User
-//    func userSignUp(userDetials: Dictionary<String, AnyObject> , callback:@escaping ( _ successResponse: Bool, _ error: String? ) -> Void)   {
-//
-//        userRemoteReplicator.userSignUp(userDetials: userDetials){ (responseData, error) -> Void in
-//            if responseData != nil{
-//                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
-//
-//                    if let data = responseData?[APIConstants.data.rawValue]! as? Dictionary<String, AnyObject>!{
-//                        Constants.kUserDefaults.setValue(data["id"], forKey: appConstants.id)
-//                    }
-//                    callback(true,nil)
-//                }else{
-//                    print(responseData!["error"]!)
-//                    callback(false,responseData!["error"] as? String)
-//                }
-//            }else{
-//                callback(false,responseData!["error"] as? String)
-//            }
-//
-//        }
-//
-//    }
-
     //MARK: ValidatePin
     func userValidatePin(userDetials: Dictionary<String, String> , callback:@escaping (_ successResponse: Bool,  _ user:User?, _ error: String? ) -> Void)   {
         
@@ -538,7 +308,88 @@ class UserAPI{
             }
         }
         
-    }//
+    }
+    
+    
+    
+    //MARK: Block User
+    func blockUser(userDetails: Dictionary<String, AnyObject>? , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
+        
+        
+        userRemoteReplicator.blockUser(userDetails: userDetails! ) { (responseData, error) -> Void in
+            if responseData != nil {
+                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    
+                    
+                    
+                    callback(true,responseData,nil)
+                }else{
+                    callback(false,responseData,responseData!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    //MARK: UnBlock User
+    func unBlockUser(userDetails: Dictionary<String, AnyObject>? , callback:@escaping (_ isSuccess:Bool , _ responseData:  Dictionary<String, AnyObject>? , _ error: String? ) -> Void)   {
+        
+        
+        userRemoteReplicator.unBlockUser(userDetails: userDetails! ) { (responseData, error) -> Void in
+            if responseData != nil {
+                if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    
+                    
+                    
+                    callback(true,responseData,nil)
+                }else{
+                    callback(false,responseData,responseData!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    // MARK:-- getAllBlockedUsers
+    func getAllBlockedUsers(query:String,pageNo:Int, callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    {
+        userRemoteReplicator.getAllBlockedUsers(query: query,pageNo: pageNo) { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+            else{
+                print("Getting Error")
+                
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    //
 //
 //    //MARK:- Resend Code
 //    func resendVarificationCode(userDetials: Dictionary<String, String>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void) {

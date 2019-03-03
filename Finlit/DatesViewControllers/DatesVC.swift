@@ -37,8 +37,7 @@ class DatesVC: UIViewController {
       
         mDatesTblView.rowHeight = UITableViewAutomaticDimension
         mDatesTblView.estimatedRowHeight = 380
-        mDatesTblView.delegate = self
-        mDatesTblView.dataSource = self
+        
         self.ResetBtnProperties()
       self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
       self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
@@ -92,6 +91,14 @@ class DatesVC: UIViewController {
     }
     
     
+    
+    @IBAction func mFilterBtnTapped(_ sender: UIBarButtonItem) {
+        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "DatingFiltersVCID") as! DatingFiltersVC
+       self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
+    
+    //MARK: - Get All Users
     func getallDatingUsers(type: String) {
         SVProgressHUD.show()
         DatesAPI().getAllAvailableUsers(type: type){ (data, error) in
@@ -102,7 +109,8 @@ class DatesVC: UIViewController {
                     let userlist = data[APIConstants.items.rawValue] as! NSArray
                     
                     self.userMdlArry = User.modelsFromDictionaryArray(array: userlist)
-                    
+                    self.mDatesTblView.delegate = self
+                    self.mDatesTblView.dataSource = self
                     self.mDatesTblView.reloadData()
                     SVProgressHUD.dismiss()
                 }}
@@ -116,7 +124,7 @@ class DatesVC: UIViewController {
     
     
     
-    
+    //MARK: - Send No Thanks Request
     func sendNoThanksRequest(IdofUser:String,userDict:User)
         
     {
@@ -141,6 +149,83 @@ class DatesVC: UIViewController {
         
     }
     
+    //MARK: - Send Confirm Request
+    func sendConfirmRequest(IdofUser:String)
+        
+    {
+        SVProgressHUD.show(withStatus: "Please Wait")
+        datesAPI.sendConfirmRequest(toUserID: IdofUser){ (isSuccess,data, error) -> Void in
+            SVProgressHUD.dismiss()
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                
+            }else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something went wrong!")
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    //MARK: - Send No Thanks Request To Pending User
+    func sendNoThanksRequestToPendingUser(IdofUser:String)
+        
+    {
+        SVProgressHUD.show(withStatus: "Please Wait")
+        datesAPI.sendNoThanksRequestToPendingUser(toUserID: IdofUser){ (isSuccess,data, error) -> Void in
+            SVProgressHUD.dismiss()
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                
+            }else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something went wrong!")
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    //MARK: - Send No Thanks Request To Pending User
+    func cancelDateRequest(IdofUser:String)
+        
+    {
+        SVProgressHUD.show()
+        datesAPI.cancelDateRequest(toUserID: IdofUser){ (isSuccess,data, error) -> Void in
+            SVProgressHUD.dismiss()
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                
+            }else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something went wrong!")
+                    
+                }
+            }
+            
+        }
+        
+    }
     
     
 }
@@ -193,7 +278,8 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         
         if self.categoryType == "Confirmed" {
-            cell.mConfirmInterestBtn.setTitle("Confirm", for: .normal)
+            cell.mConfirmInterestBtn.setTitle("Edit", for: .normal)
+             cell.mNoThanksBtn.setTitle("Cancel this date", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  "is looking for a date"
             cell.mCalendarIcon.isHidden = false
@@ -243,7 +329,7 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     @objc func IamIntrestedBtnAction(sender:UIButton)  {
         // text to share
         let tag = sender.tag
-        //let datess = userMdlArry[tag]
+        let datess = userMdlArry[tag]
         let i = IndexPath(row: tag, section: 0)
          //let cell = mDatesTblView.cellForRow(at: i)  as! DatesTblCell
         
@@ -254,6 +340,26 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         destinationVC.secondUserDetails = userDets
         self.navigationController?.pushViewController(destinationVC, animated: true)
         }
+        
+        
+        if self.categoryType == "Pending" {
+            self.userMdlArry.remove(at: i.row)
+            
+            if let idd = datess.id {
+                self.sendConfirmRequest(IdofUser: idd)
+                self.mDatesTblView.reloadData()
+            }
+            
+        }
+        
+        if self.categoryType == "Confirmed" {
+            let userr = self.userMdlArry[i.row]
+             let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
+                destinationVC.secondUserDetails = userr
+            self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
+        
+        
     }
     
     
@@ -274,7 +380,27 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
             self.mDatesTblView.reloadData()
             
         }
-    }
+        
+        
+        if self.categoryType == "Pending" {
+            self.userMdlArry.remove(at: i.row)
+            if let idd = datess.id {
+                self.sendNoThanksRequestToPendingUser(IdofUser: idd)}
+            self.mDatesTblView.reloadData()
+            
+        }
+        
+        
+        if self.categoryType == "Confirmed" {
+            self.userMdlArry.remove(at: i.row)
+            if let idd = datess.id {
+                self.cancelDateRequest(IdofUser: idd)}
+            self.mDatesTblView.reloadData()
+            
+        }
+        
+        
+      }
     
     
     

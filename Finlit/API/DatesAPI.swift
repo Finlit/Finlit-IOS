@@ -81,6 +81,62 @@ class DatesAPI{
     
     
     
+    func sendConfirmRequest(toUserID: String, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        DatesRemoteReplicatorr.sendConfirmRequest(toUserID: toUserID){ (Data, error) -> Void in
+            if Data != nil {
+                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    callback(true,Data,nil)
+                }else{
+                    callback(false,Data,Data!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    func sendNoThanksRequestToPendingUser(toUserID: String, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        DatesRemoteReplicatorr.sendNoThanksRequestToPendingUser(toUserID: toUserID){ (Data, error) -> Void in
+            if Data != nil {
+                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    callback(true,Data,nil)
+                }else{
+                    callback(false,Data,Data!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    func cancelDateRequest(toUserID: String, callback:@escaping (_ isSuccess:Bool,_ responseData:Dictionary<String,AnyObject>? , _ error: String? ) -> Void)   {
+        DatesRemoteReplicatorr.cancelDateRequest(toUserID: toUserID){ (Data, error) -> Void in
+            if Data != nil {
+                if (Data![APIConstants.isSuccess.rawValue] as? Bool)! == true{
+                    
+                    callback(true,Data,nil)
+                }else{
+                    callback(false,Data,Data!["error"] as? String)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 } //CLASS CLOSED

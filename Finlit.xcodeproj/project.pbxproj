@@ -35,6 +35,8 @@
 		4E0EEA302227D8B400BA953B /* TblView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA2F2227D8B400BA953B /* TblView.swift */; };
 		4E0EEA322227DFD100BA953B /* DatesRemoteReplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */; };
 		4E1559F92227E51E00C4AFDA /* DatesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559F82227E51E00C4AFDA /* DatesAPI.swift */; };
+		4E1559FB22293B3500C4AFDA /* BlockedUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559FA22293B3500C4AFDA /* BlockedUsersVC.swift */; };
+		4E1559FD22293B5C00C4AFDA /* BlockedUsersTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */; };
 		4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7932213F38000263A86 /* DatesTblCell.swift */; };
 		4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7952214148E00263A86 /* MeetUserVC.swift */; };
 		4E239F912189C88E00964CED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E239F902189C88000964CED /* CoreLocation.framework */; };
@@ -49,6 +51,9 @@
 		4E992FC2221426EE0062EA58 /* MyBlogsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */; };
 		4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03A220DAE4300A48D6F /* SplashVC.swift */; };
 		4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03D2211681200A48D6F /* DatesVC.swift */; };
+		4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */; };
+		4EE41D3B222956100092EC7E /* PendingDatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3A222956100092EC7E /* PendingDatesVC.swift */; };
+		4EE41D3D222C4DED0092EC7E /* DatingFiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */; };
 		931048E52174808700E09C3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E42174808700E09C3E /* HomeVC.swift */; };
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
@@ -166,6 +171,8 @@
 		4E0EEA2F2227D8B400BA953B /* TblView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblView.swift; sourceTree = "<group>"; };
 		4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesRemoteReplicator.swift; sourceTree = "<group>"; };
 		4E1559F82227E51E00C4AFDA /* DatesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesAPI.swift; sourceTree = "<group>"; };
+		4E1559FA22293B3500C4AFDA /* BlockedUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersVC.swift; sourceTree = "<group>"; };
+		4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersTblCell.swift; sourceTree = "<group>"; };
 		4E15C7932213F38000263A86 /* DatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTblCell.swift; sourceTree = "<group>"; };
 		4E15C7952214148E00263A86 /* MeetUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUserVC.swift; sourceTree = "<group>"; };
 		4E239F902189C88000964CED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -180,6 +187,9 @@
 		4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogsTblCell.swift; sourceTree = "<group>"; };
 		4E9AC03A220DAE4300A48D6F /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		4E9AC03D2211681200A48D6F /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
+		4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesTblCell.swift; sourceTree = "<group>"; };
+		4EE41D3A222956100092EC7E /* PendingDatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesVC.swift; sourceTree = "<group>"; };
+		4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingFiltersVC.swift; sourceTree = "<group>"; };
 		6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finlit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931048E42174808700E09C3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -376,6 +386,9 @@
 			children = (
 				4E9AC03D2211681200A48D6F /* DatesVC.swift */,
 				4E15C7952214148E00263A86 /* MeetUserVC.swift */,
+				4E1559FA22293B3500C4AFDA /* BlockedUsersVC.swift */,
+				4EE41D3A222956100092EC7E /* PendingDatesVC.swift */,
+				4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */,
 			);
 			path = DatesViewControllers;
 			sourceTree = "<group>";
@@ -426,6 +439,7 @@
 		939EB54E2175B6F900125C17 /* TblCell */ = {
 			isa = PBXGroup;
 			children = (
+				4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */,
 				939EB54A2175B66700125C17 /* MyFavouriteTblCell.swift */,
 				93996601216CE521007968FB /* QuickQuizTblCell.swift */,
 				939EB54C2175B6E400125C17 /* NearByTblCell.swift */,
@@ -439,6 +453,7 @@
 				4E15C7932213F38000263A86 /* DatesTblCell.swift */,
 				4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */,
 				4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */,
+				4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */,
 			);
 			name = TblCell;
 			path = ..;
@@ -919,6 +934,7 @@
 				4E992FC2221426EE0062EA58 /* MyBlogsTblCell.swift in Sources */,
 				93E75A302187315B004C30BC /* PlaceHolderTextColor.swift in Sources */,
 				93E75A2F2187315B004C30BC /* UIView.swift in Sources */,
+				4EE41D3B222956100092EC7E /* PendingDatesVC.swift in Sources */,
 				93E75A342187315B004C30BC /* UIViewController.swift in Sources */,
 				939F46E92181F0E80010D7EE /* Comment.swift in Sources */,
 				93A45B8721676E2600DA505B /* ViewController.swift in Sources */,
@@ -928,6 +944,7 @@
 				931048EF2174ADEC00E09C3E /* MyFavouritesVC.swift in Sources */,
 				93E75A1D2187315B004C30BC /* SkyFloatingLabelTextField.swift in Sources */,
 				2E25EC88219D77C5006DC6BD /* Participants.swift in Sources */,
+				4EE41D3D222C4DED0092EC7E /* DatingFiltersVC.swift in Sources */,
 				939EB5582175DEE700125C17 /* SettingVC.swift in Sources */,
 				93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */,
 				93E75A1E2187315B004C30BC /* UITextField+fixCaretPosition.swift in Sources */,
@@ -990,6 +1007,7 @@
 				939F46F52181F0E80010D7EE /* Media.swift in Sources */,
 				4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */,
 				93E75A1B2187315B004C30BC /* FileUpload.swift in Sources */,
+				4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */,
 				939F46EA2181F0E80010D7EE /* Like.swift in Sources */,
 				93E75A3F2187315B004C30BC /* VCHelper.swift in Sources */,
 				931048ED2174A6A600E09C3E /* MyCircleVC.swift in Sources */,
@@ -999,7 +1017,9 @@
 				4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */,
 				4E5E3164218B308100523400 /* Questions.swift in Sources */,
 				939EB54B2175B66700125C17 /* MyFavouriteTblCell.swift in Sources */,
+				4E1559FD22293B5C00C4AFDA /* BlockedUsersTblCell.swift in Sources */,
 				939EB5522175B7F400125C17 /* MyCircleTblCell.swift in Sources */,
+				4E1559FB22293B3500C4AFDA /* BlockedUsersVC.swift in Sources */,
 				931048E721748F8300E09C3E /* NearByVC.swift in Sources */,
 				93E75A312187315B004C30BC /* TxtFld.swift in Sources */,
 				931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */,

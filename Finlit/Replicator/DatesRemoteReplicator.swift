@@ -17,7 +17,10 @@ class DatesRemoteReplicator{
     private let verify = "users/verify"
     private let sendDateRequest = "users/userpending/"
     private let sendNoThanksRequestToAvailableUser = "users/userintrested/"
+    private let sendNoThanksRequestToPendingUser = "users/userthank/"
+    private let sendConfirmRequest = "users/userconfirmed/"
     private let create = "users/" //create/addprofile
+    private let cancelDate = "users/unconfirmed/"
     
     
 
@@ -59,6 +62,35 @@ class DatesRemoteReplicator{
     func sendNoThanksRequest(toUserID:String,dateDetials: Dictionary<String, AnyObject>, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
         let urlString =  "\(baseUrl1)\(sendNoThanksRequestToAvailableUser.html)" + toUserID
         remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: dateDetials) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    
+    //MARK: Create No Thanks Request
+    func sendConfirmRequest(toUserID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(sendConfirmRequest.html)" + toUserID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:]) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    
+    //MARK: Create No Thanks Request
+    func sendNoThanksRequestToPendingUser(toUserID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(sendNoThanksRequestToPendingUser.html)" + toUserID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:]) { (data, error) -> Void in
+            callback(data , error?.description )
+            
+        }
+    }
+    
+    //MARK: Cancel Date Request
+    func cancelDateRequest(toUserID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
+        let urlString =  "\(baseUrl1)\(cancelDate.html)" + toUserID
+        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:]) { (data, error) -> Void in
             callback(data , error?.description )
             
         }
