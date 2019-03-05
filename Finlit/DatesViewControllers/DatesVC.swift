@@ -23,6 +23,7 @@ class DatesVC: UIViewController {
     var cellHeight : CGFloat =  380
     var userMdlArry :  [User]!
     var datesAPI : DatesAPI!
+    var queryForFilterType  = "isInterest"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class DatesVC: UIViewController {
       self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
       self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
         
-        self.getallDatingUsers(type: "isInterest")
+        self.getallDatingUsers(type: queryForFilterType)
     }
     
     func ResetBtnProperties (){
@@ -61,8 +62,9 @@ class DatesVC: UIViewController {
         self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
         self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
         self.categoryType = "Available"
+        self.queryForFilterType = "isInterest"
         mDatesTblView.estimatedRowHeight = 380
-        self.getallDatingUsers(type: "isInterest")
+        self.getallDatingUsers(type: queryForFilterType)
     }
     
     
@@ -71,7 +73,8 @@ class DatesVC: UIViewController {
         self.mPendingBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
         self.mPinkBotmLbl2.backgroundColor = UIColor.pinkThemeColor()
         self.categoryType = "Pending"
-         self.getallDatingUsers(type: "isSendr")
+        self.queryForFilterType = "isSendr"
+         self.getallDatingUsers(type: queryForFilterType)
     }
     
     
@@ -80,7 +83,8 @@ class DatesVC: UIViewController {
         self.mConfirmedBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
         self.mPinkBotmLbl3.backgroundColor = UIColor.pinkThemeColor()
         self.categoryType = "Confirmed"
-         self.getallDatingUsers(type: "isConfirmed")
+        self.queryForFilterType = "isConfirmed"
+         self.getallDatingUsers(type: queryForFilterType)
  
     }
     
@@ -94,14 +98,15 @@ class DatesVC: UIViewController {
     
     @IBAction func mFilterBtnTapped(_ sender: UIBarButtonItem) {
         let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "DatingFiltersVCID") as! DatingFiltersVC
+        destinationVC.delegate = self
        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     
     //MARK: - Get All Users
-    func getallDatingUsers(type: String) {
+    func getallDatingUsers(type: String, minage:String = "",maxAge:String = "") {
         SVProgressHUD.show()
-        DatesAPI().getAllAvailableUsers(type: type){ (data, error) in
+        DatesAPI().getAllAvailableUsers(type: type,minAge:minage,maxAge: maxAge ){ (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
                     self.userMdlArry = [User]()
@@ -293,7 +298,8 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         
         let age = userr.ageGroup != nil ? String(describing: userr.ageGroup!) : " "
-        cell.mNameAgeLbl.text = userr.name! + " " + age
+        let name = userr.name != nil ? String(describing: userr.name!) : " "
+        cell.mNameAgeLbl.text = name + " " + age
         if userr.imgUrl != nil {
             cell.mProfileImgMain.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
             cell.mProfileImgSmall.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
@@ -313,15 +319,8 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         return 430
         }}
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
-//        let userDets = self.userMdlArry[indexPath.row]
-//        destinationVC.secondUserDetails = userDets
-//        self.navigationController?.pushViewController(destinationVC, animated: true)
-//    }
-//
-    
+
+   
     
     
     
@@ -402,6 +401,23 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
       }
     
+    
+    
+}
+
+
+extension DatesVC : DatingFiltersVCDelegate {
+    func sendAgeRangeValues(minAgeValue: Int, maxAgeValue: Int) {
+        let stringMinAge = "&agemin=" + String(minAgeValue)
+         let stringMaxAge = "&agemax=" + String(maxAgeValue)
+        self.getallDatingUsers(type: queryForFilterType, minage: stringMinAge, maxAge: stringMaxAge)
+    }
+    
+    func sendLocationRangeValues(minLocRangeValue: Int, maxLocRangeValue: Int) {
+        
+    }
+    
+
     
     
 }

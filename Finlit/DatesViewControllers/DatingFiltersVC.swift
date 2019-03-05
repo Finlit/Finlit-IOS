@@ -13,9 +13,15 @@ import TTRangeSlider
 
 protocol DatingFiltersVCDelegate: class {
     
-    func sendRangeValues(minAgeValue:Int,maxAgeValue:Int,minLocRangeValue:Int,maxLocRangeValue:Int)
+    func sendAgeRangeValues(minAgeValue:Int,maxAgeValue:Int)
+    func sendLocationRangeValues(minLocRangeValue:Int,maxLocRangeValue:Int)
     
 }
+
+
+
+
+
 
 class DatingFiltersVC: UIViewController,TTRangeSliderDelegate {
 
@@ -44,7 +50,19 @@ class DatingFiltersVC: UIViewController,TTRangeSliderDelegate {
     
     
     @IBAction func mTickBtnTapped(_ sender: UIBarButtonItem) {
-         self.delegate?.sendRangeValues(minAgeValue: minAgeVar, maxAgeValue: maxAgeVar, minLocRangeValue: minDistVar, maxLocRangeValue: maxDistVar)
+       
+        if self.minAgeVar != 0 && maxAgeVar != 0{
+       self.delegate?.sendAgeRangeValues(minAgeValue: minAgeVar, maxAgeValue: maxAgeVar)
+            self.navigationController?.popViewController(animated: true)
+            
+        
+        }
+        
+        if self.minDistVar != 0 && maxDistVar != 0{
+            self.delegate?.sendLocationRangeValues(minLocRangeValue: minDistVar, maxLocRangeValue: maxDistVar)
+            self.navigationController?.popViewController(animated: true)
+            
+        }
     }
     
     
@@ -53,16 +71,13 @@ class DatingFiltersVC: UIViewController,TTRangeSliderDelegate {
             self.minAgeVar = Int(selectedMinimum)
              self.maxAgeVar = Int(selectedMaximum)
            
-//            print("min age value is\(String(describing: minAgeVar))")
-//            print("max age value is\(String(describing: maxAgeVar))")
             return
         }
         
        else if sender == mLocRangeSlider {
             self.minDistVar = Int(selectedMinimum)
             self.maxDistVar = Int(selectedMaximum)
-//            print("min dist value is\(String(describing: minDistVar))")
-//            print("max dist value is\(String(describing: maxDistVar))")
+
             return
             
         }

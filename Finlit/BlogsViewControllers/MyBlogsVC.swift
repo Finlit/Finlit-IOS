@@ -17,6 +17,8 @@ class MyBlogsVC: UIViewController {
           self.blogsModelArray = [Blog]()
         self.mBlogsTblView.delegate = self
         self.mBlogsTblView.dataSource = self
+        mBlogsTblView.estimatedRowHeight = 320
+        mBlogsTblView.rowHeight = UITableViewAutomaticDimension
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -110,8 +112,12 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellD
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 320
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//          return 320
+//    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+         return UITableViewAutomaticDimension
     }
 }
 

@@ -66,9 +66,7 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
         
                 let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "SplashVCID") as! SplashVC
                 self.navigationController?.pushViewController(destinationvc, animated: true)
-//        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
-//        destinationvc.VCcheckInt = 0
-//        self.navigationController?.pushViewController(destinationvc, animated: true)
+
         
     }
     
@@ -96,13 +94,13 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     }
     
     
-    
     @IBAction func mNearByBtn(_ sender: UIButton) {
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "NearByVCID") as! NearByVC
         self.navigationController?.pushViewController(destinationvc, animated: true)
     }
     
-    @IBAction func mChatBtn(_ sender: UIButton) {
+    //FINLIT QUIZ BTN
+    @IBAction func mQuizBtnTapped(_ sender: UIButton) {
         let resultController = self.storyboard?.instantiateViewController(withIdentifier: "popupID") as? UINavigationController
         self.navigationController?.definesPresentationContext = true
         resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext

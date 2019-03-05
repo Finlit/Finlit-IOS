@@ -19,21 +19,21 @@ class MatchesVC: UIViewController{
     var opponentID = String()
     var Chatlistarr = NSMutableArray()
     var chatArr : [Chat]!
-    @IBOutlet weak var mMyCircleTblCell: UITableView!
+    @IBOutlet weak var mMyMatchesTblCell: UITableView!
     @IBOutlet weak var mSearchTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.mMyCircleTblCell.delegate = self
-//        self.mMyCircleTblCell.dataSource = self
+//        self.mMyMatchesTblCell.delegate = self
+//        self.mMyMatchesTblCell.dataSource = self
          self.navigationController?.navigationBar.isHidden = false
         //self.mSearchTextField.delegate = self
         self.userApi = UserAPI.sharedInstance
         self.questionApi = QuestionAPI.sharedInstance
         self.usersdata = [User]()
         self.chatArr = [Chat]()
-        mMyCircleTblCell.estimatedRowHeight = 165
-        mMyCircleTblCell.rowHeight = UITableViewAutomaticDimension
+        mMyMatchesTblCell.estimatedRowHeight = 165
+        mMyMatchesTblCell.rowHeight = UITableViewAutomaticDimension
         
         if VCcheckInt == 0 {
       
@@ -87,7 +87,7 @@ class MatchesVC: UIViewController{
                   
                     self.usersdata = User.modelsFromDictionaryArray(array: userList)
                     
-                    self.mMyCircleTblCell.reloadData()
+                    self.mMyMatchesTblCell.reloadData()
                     SVProgressHUD.dismiss()
                 }  }
             else{
@@ -132,7 +132,7 @@ class MatchesVC: UIViewController{
                     
                     self.usersdata = User.modelsFromDictionaryArray(array: userList)
                     
-                    self.mMyCircleTblCell.reloadData()
+                    self.mMyMatchesTblCell.reloadData()
                     SVProgressHUD.dismiss()
                 }}
             else{
@@ -173,7 +173,7 @@ class MatchesVC: UIViewController{
                     print(self.Chatlistarr)
                     self.chatArr.removeAll()
                     self.chatArr = Chat.modelsFromDictionaryArray(array: self.Chatlistarr)
-                    self.mMyCircleTblCell.reloadData()
+                    self.mMyMatchesTblCell.reloadData()
                     SVProgressHUD.dismiss()
                     }else{
                     print("Getting Error")
@@ -198,7 +198,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mMyCircleTblCell.dequeueReusableCell(withIdentifier: "MyCircleTblCellID", for: indexPath) as! MyCircleTblCell
+        let cell = mMyMatchesTblCell.dequeueReusableCell(withIdentifier: "MyMatchesTblCellID", for: indexPath) as! MyMatchesTblCell
         cell.mView.dropShadow(scale: true)
         
         cell.mMessageBtn.addTarget(self, action: #selector(mMessageBtnAct(sender:)), for: .touchUpInside)
@@ -247,7 +247,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
         return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = mMyCircleTblCell.cellForRow(at: indexPath)as! MyCircleTblCell
+        let cell = mMyMatchesTblCell.cellForRow(at: indexPath)as! MyMatchesTblCell
         cell.mImageView1.image = #imageLiteral(resourceName: "image-8")
         print(indexPath.row)
         if VCcheckInt == 0{
@@ -261,7 +261,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = mMyCircleTblCell.cellForRow(at: indexPath)as! MyCircleTblCell
+        let cell = mMyMatchesTblCell.cellForRow(at: indexPath)as! MyMatchesTblCell
         cell.mImageView1.image = #imageLiteral(resourceName: "icon_heart_unfilled")
         print(indexPath.row)
          if VCcheckInt == 0{
@@ -281,7 +281,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
         let otherUserId = self.usersdata[btnclick].id
         let otherUsername = self.usersdata[btnclick].name
         print(otherUserId!)
-        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
         vc.opponentID = otherUserId!
         vc.opponentName = otherUsername!
         if self.usersdata[btnclick].imgUrl != nil{
@@ -293,7 +293,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
             let otherUserId = self.chatArr[btnclick].id
             let otherUsername = self.chatArr[btnclick].name
             print(otherUserId!)
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
             vc.opponentID = otherUserId!
             vc.opponentName = otherUsername!
             if self.chatArr[btnclick].imgUrl != nil{

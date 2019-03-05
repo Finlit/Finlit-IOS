@@ -86,7 +86,7 @@ class UserProfileVC: UIViewController {
             let otherUserId = self.user?.id
             let otherUsername = self.user?.name
             print(otherUserId!)
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
             vc.opponentID = otherUserId!
             vc.opponentName = otherUsername!
             if self.user?.imgUrl != nil{
@@ -106,7 +106,7 @@ class UserProfileVC: UIViewController {
         userApi.getUserDetails(userId: UserID, pageNo: 1) { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
-                    //  self.hideProgress()
+                  
                      self.user = nil
                     let userlist = data[APIConstants.data.rawValue] as! NSDictionary
                     
@@ -114,7 +114,7 @@ class UserProfileVC: UIViewController {
                     self.putdataTofields()
                 }}
             else{
-                //      self.hideProgress()
+              
                 print("Getting Error")
             }
         }

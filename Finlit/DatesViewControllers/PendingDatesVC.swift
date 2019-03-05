@@ -71,7 +71,7 @@ class PendingDatesVC: UIViewController {
     //MARK: - Get All Users
     func getallDatingUsers(type: String) {
         SVProgressHUD.show()
-        DatesAPI().getAllAvailableUsers(type: type){ (data, error) in
+        DatesAPI().getAllAvailableUsers(type: type, minAge: "", maxAge: ""){ (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
                     self.userMdlArry = [User]()

@@ -11,9 +11,9 @@ import Foundation
 class DatesRemoteReplicator{
     
     //MARK:- API constants
-    private let availableUsers = "users?filter="
-    private let pendingUsers = "users/pending"
-    private let confirmedUsers = "users/confirmed"
+    private let getDatingUsers = "users?filter="
+//    private let pendingUsers = "users/pending"
+//    private let confirmedUsers = "users/confirmed"
     private let verify = "users/verify"
     private let sendDateRequest = "users/userpending/"
     private let sendNoThanksRequestToAvailableUser = "users/userintrested/"
@@ -35,12 +35,15 @@ class DatesRemoteReplicator{
     
     
     //MARK:- Get User Details
-    func getAllAvailableUsers(type:String = "",callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+    func getAllAvailableUsers(type:String = "", ageMinimum:String ,ageMaximum:String ,callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
         
-        let url = self.availableUsers
+        var url = self.getDatingUsers + type
         
+        if ageMinimum != "" && ageMaximum != "" {
+            url = url + ageMinimum + ageMaximum
+        }
         
-        let urlString =  "\(baseUrl1)\(url.html)" + type
+        let urlString =  "\(baseUrl1)\(url.html)"
         
         remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
             callback(data, error)

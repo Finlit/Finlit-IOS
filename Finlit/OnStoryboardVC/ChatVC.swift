@@ -113,7 +113,7 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
         let otherUserId = self.chatArr[indexPath.row].id
         let otherUsername = self.chatArr[indexPath.row].name
         print(otherUserId!)
-        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
         vc.opponentID = otherUserId!
         vc.opponentName = otherUsername!
         if self.chatArr[indexPath.row].imgUrl != nil{

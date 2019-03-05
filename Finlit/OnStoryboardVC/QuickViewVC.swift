@@ -61,7 +61,7 @@ class QuickViewVC: UIViewController{
         //        let otherUserId = self.nearByData[currentIndex].id
         //        let otherUsername = self.nearByData[currentIndex].name
         //        print(currentIndex)
-        //        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+        //        let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
         //        vc.opponentID = otherUserId!
         //        vc.opponentName = otherUsername!
         //        if self.nearByData[currentIndex].imgUrl != nil{
@@ -263,7 +263,7 @@ extension QuickViewVC: KolodaViewDelegate {
             print(otherUserId!)
             let otherUsername = self.nearByData[index].name
             print(otherUsername!)
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
             vc.opponentID = otherUserId!
             vc.opponentName = otherUsername!
             if self.nearByData[index].imgUrl != nil{

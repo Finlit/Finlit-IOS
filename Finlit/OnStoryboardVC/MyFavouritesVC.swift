@@ -153,7 +153,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = mMyFavouriteTblCell.cellForRow(at: indexPath)as! MyCircleTblCell
+        let cell = mMyFavouriteTblCell.cellForRow(at: indexPath)as! MyMatchesTblCell
         cell.mImageView1.image = #imageLiteral(resourceName: "image-8")
         print(indexPath.row)
             let otherUserId = self.usersdata[indexPath.row].id
@@ -162,7 +162,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
       
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = mMyFavouriteTblCell.cellForRow(at: indexPath)as! MyCircleTblCell
+        let cell = mMyFavouriteTblCell.cellForRow(at: indexPath)as! MyMatchesTblCell
         cell.mImageView1.image = #imageLiteral(resourceName: "icon_heart_unfilled")
         print(indexPath.row)
         
@@ -178,7 +178,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             let otherUserId = self.usersdata[btnclick].id
             let otherUsername = self.usersdata[btnclick].name
             print(otherUserId!)
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
             vc.opponentID = otherUserId!
             vc.opponentName = otherUsername!
             if self.usersdata[btnclick].imgUrl != nil{

@@ -65,6 +65,8 @@ class MyBlogsTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         mUserImgView.layer.cornerRadius = mUserImgView.frame.height/2
+        mDescriptionLbl.sizeToFit()
+        
       
     }
 

@@ -1,5 +1,5 @@
 //
-//  MyCircleTblCell.swift
+//  MyMatchesTblCell.swift
 //  Finlit
 //
 //  Created by Gurpreet Singh on 16/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCircleTblCell: UITableViewCell {
+class MyMatchesTblCell: UITableViewCell {
 
     @IBOutlet weak var mView: UIView!
     @IBOutlet weak var mFavBtnOut: UIButton!

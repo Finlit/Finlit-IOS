@@ -28,9 +28,9 @@ class DatesAPI{
     
     
     // MARK:-- getAllUsers
-    func getAllAvailableUsers(type:String,callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    func getAllAvailableUsers(type:String,minAge:String,maxAge:String,callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
     {
-        DatesRemoteReplicatorr.getAllAvailableUsers(type: type, callback:  { (Data, error) in
+        DatesRemoteReplicatorr.getAllAvailableUsers(type: type, ageMinimum: minAge,ageMaximum: maxAge, callback:  { (Data, error) in
             if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
                 callback(Data! , nil)
             }

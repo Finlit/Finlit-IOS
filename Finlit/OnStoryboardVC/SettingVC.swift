@@ -14,12 +14,17 @@ var GenderpickerView = UIPickerView()
     var GenderType : String?
     @IBOutlet weak var mGenderTextField: UITextField!
     
+    @IBOutlet weak var mNotificationsSwitch: UISwitch!
+    @IBOutlet weak var mSoundSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mGenderTextField.inputView = GenderpickerView
       self.GenderpickerView.delegate = self
         GenderpickerView.showsSelectionIndicator = true
+        self.setupSwitchUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +42,17 @@ var GenderpickerView = UIPickerView()
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
+    }
+    
+    func setupSwitchUI () {
+        self.mNotificationsSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.mSoundSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+     
+        
+        self.mNotificationsSwitch.onTintColor = UIColor.pinkThemeColor()
+        self.mSoundSwitch.onTintColor = UIColor.pinkThemeColor()
+    
+        
     }
     
     

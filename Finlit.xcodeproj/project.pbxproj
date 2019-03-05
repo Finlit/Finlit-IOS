@@ -42,6 +42,7 @@
 		4E239F912189C88E00964CED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E239F902189C88000964CED /* CoreLocation.framework */; };
 		4E241FA42215ABD80071CC61 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA32215ABD80071CC61 /* Blog.swift */; };
 		4E241FA82216FC4E0071CC61 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA72216FC4E0071CC61 /* CommentsVC.swift */; };
+		4E384ED4222E56480031C452 /* OtherUserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E384ED3222E56480031C452 /* OtherUserProfileVC.swift */; };
 		4E5E3160218ADD1700523400 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E315F218ADD1700523400 /* Location.swift */; };
 		4E5E3162218B2EC300523400 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E3161218B2EC300523400 /* Options.swift */; };
 		4E5E3164218B308100523400 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E3163218B308100523400 /* Questions.swift */; };
@@ -58,7 +59,7 @@
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
 		931048EB2174919E00E09C3E /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048EA2174919E00E09C3E /* ChatVC.swift */; };
-		931048ED2174A6A600E09C3E /* MyCircleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048EC2174A6A600E09C3E /* MyCircleVC.swift */; };
+		931048ED2174A6A600E09C3E /* MatchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048EC2174A6A600E09C3E /* MatchesVC.swift */; };
 		931048EF2174ADEC00E09C3E /* MyFavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048EE2174ADEC00E09C3E /* MyFavouritesVC.swift */; };
 		931048F32174C8C400E09C3E /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048F22174C8C400E09C3E /* NotificationVC.swift */; };
 		931048F52174CC5100E09C3E /* FiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048F42174CC5100E09C3E /* FiltersVC.swift */; };
@@ -80,7 +81,7 @@
 		939EB54B2175B66700125C17 /* MyFavouriteTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB54A2175B66700125C17 /* MyFavouriteTblCell.swift */; };
 		939EB54D2175B6E400125C17 /* NearByTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB54C2175B6E400125C17 /* NearByTblCell.swift */; };
 		939EB5502175B7BE00125C17 /* ChatTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB54F2175B7BE00125C17 /* ChatTblCell.swift */; };
-		939EB5522175B7F400125C17 /* MyCircleTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5512175B7F400125C17 /* MyCircleTblCell.swift */; };
+		939EB5522175B7F400125C17 /* MyMatchesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5512175B7F400125C17 /* MyMatchesTblCell.swift */; };
 		939EB5542175B89D00125C17 /* SubscriptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5532175B89D00125C17 /* SubscriptionsVC.swift */; };
 		939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5552175BF9500125C17 /* NotificationTblCell.swift */; };
 		939EB5582175DEE700125C17 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5572175DEE700125C17 /* SettingVC.swift */; };
@@ -178,6 +179,7 @@
 		4E239F902189C88000964CED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4E241FA32215ABD80071CC61 /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		4E241FA72216FC4E0071CC61 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
+		4E384ED3222E56480031C452 /* OtherUserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileVC.swift; sourceTree = "<group>"; };
 		4E5E315F218ADD1700523400 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4E5E3161218B2EC300523400 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		4E5E3163218B308100523400 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
 		931048E8217490A200E09C3E /* QuickViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickViewVC.swift; sourceTree = "<group>"; };
 		931048EA2174919E00E09C3E /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
-		931048EC2174A6A600E09C3E /* MyCircleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircleVC.swift; sourceTree = "<group>"; };
+		931048EC2174A6A600E09C3E /* MatchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesVC.swift; sourceTree = "<group>"; };
 		931048EE2174ADEC00E09C3E /* MyFavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavouritesVC.swift; sourceTree = "<group>"; };
 		931048F22174C8C400E09C3E /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		931048F42174CC5100E09C3E /* FiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersVC.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		939EB54A2175B66700125C17 /* MyFavouriteTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavouriteTblCell.swift; sourceTree = "<group>"; };
 		939EB54C2175B6E400125C17 /* NearByTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByTblCell.swift; sourceTree = "<group>"; };
 		939EB54F2175B7BE00125C17 /* ChatTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTblCell.swift; sourceTree = "<group>"; };
-		939EB5512175B7F400125C17 /* MyCircleTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCircleTblCell.swift; sourceTree = "<group>"; };
+		939EB5512175B7F400125C17 /* MyMatchesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMatchesTblCell.swift; sourceTree = "<group>"; };
 		939EB5532175B89D00125C17 /* SubscriptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsVC.swift; sourceTree = "<group>"; };
 		939EB5552175BF9500125C17 /* NotificationTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTblCell.swift; sourceTree = "<group>"; };
 		939EB5572175DEE700125C17 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -398,7 +400,7 @@
 			children = (
 				9354B8382188420300BA8D2A /* UpdatePasswordVC.swift */,
 				93400290217EFBD600D08E29 /* UserChatRoomVC.swift */,
-				931048EC2174A6A600E09C3E /* MyCircleVC.swift */,
+				931048EC2174A6A600E09C3E /* MatchesVC.swift */,
 				93A45B982167949400DA505B /* VerificationVC.swift */,
 				938CCEBF216CBD0800DFB8CC /* WelcomeVC.swift */,
 				938CCEBB216C71EB00DFB8CC /* CreateProfileVC.swift */,
@@ -422,6 +424,7 @@
 				2E6064E321AD661D00A9A6D8 /* CardVC.swift */,
 				2E18F4A521AE861300FF0E6E /* PayquizVC.swift */,
 				4E9AC03A220DAE4300A48D6F /* SplashVC.swift */,
+				4E384ED3222E56480031C452 /* OtherUserProfileVC.swift */,
 			);
 			path = OnStoryboardVC;
 			sourceTree = "<group>";
@@ -444,7 +447,7 @@
 				93996601216CE521007968FB /* QuickQuizTblCell.swift */,
 				939EB54C2175B6E400125C17 /* NearByTblCell.swift */,
 				939EB54F2175B7BE00125C17 /* ChatTblCell.swift */,
-				939EB5512175B7F400125C17 /* MyCircleTblCell.swift */,
+				939EB5512175B7F400125C17 /* MyMatchesTblCell.swift */,
 				939EB5552175BF9500125C17 /* NotificationTblCell.swift */,
 				93400294217EFEA300D08E29 /* ChatRoomTblCell.swift */,
 				93400298217EFF1C00D08E29 /* UserChatRoomTblCell.swift */,
@@ -987,6 +990,7 @@
 				93E75A352187315B004C30BC /* Color.swift in Sources */,
 				93E75A282187315B004C30BC /* TOCropView.m in Sources */,
 				93E75A232187315B004C30BC /* UIImage+CropRotate.m in Sources */,
+				4E384ED4222E56480031C452 /* OtherUserProfileVC.swift in Sources */,
 				939F46F12181F0E80010D7EE /* User.swift in Sources */,
 				4E6298C5218C25A800E39DB1 /* QuestionRemoteReplicator.swift in Sources */,
 				93E75A332187315B004C30BC /* String.swift in Sources */,
@@ -1010,7 +1014,7 @@
 				4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */,
 				939F46EA2181F0E80010D7EE /* Like.swift in Sources */,
 				93E75A3F2187315B004C30BC /* VCHelper.swift in Sources */,
-				931048ED2174A6A600E09C3E /* MyCircleVC.swift in Sources */,
+				931048ED2174A6A600E09C3E /* MatchesVC.swift in Sources */,
 				4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */,
 				93E75A1A2187315B004C30BC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				93E75A2A2187315B004C30BC /* TOCropToolbar.m in Sources */,
@@ -1018,7 +1022,7 @@
 				4E5E3164218B308100523400 /* Questions.swift in Sources */,
 				939EB54B2175B66700125C17 /* MyFavouriteTblCell.swift in Sources */,
 				4E1559FD22293B5C00C4AFDA /* BlockedUsersTblCell.swift in Sources */,
-				939EB5522175B7F400125C17 /* MyCircleTblCell.swift in Sources */,
+				939EB5522175B7F400125C17 /* MyMatchesTblCell.swift in Sources */,
 				4E1559FB22293B3500C4AFDA /* BlockedUsersVC.swift in Sources */,
 				931048E721748F8300E09C3E /* NearByVC.swift in Sources */,
 				93E75A312187315B004C30BC /* TxtFld.swift in Sources */,

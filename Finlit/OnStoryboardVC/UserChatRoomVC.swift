@@ -1,5 +1,5 @@
 //
-//  UserTakeQuizVC.swift
+//  UserChatRoomVC.swift
 //  Finlit
 //
 //  Created by Gurpreet Singh on 23/10/18.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import SVProgressHUD
-class UserTakeQuizVC: UIViewController {
+class UserChatRoomVC: UIViewController {
     
     var questionApi : QuestionAPI!
     var chatID = String()
@@ -243,7 +243,7 @@ class UserTakeQuizVC: UIViewController {
     }
 }
 
-extension UserTakeQuizVC: UITableViewDelegate, UITableViewDataSource
+extension UserChatRoomVC: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(chatArry.count)

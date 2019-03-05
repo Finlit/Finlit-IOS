@@ -28,9 +28,7 @@ class SplashVC: UIViewController {
                         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "DatesVCID") as! DatesVC
                         self.navigationController?.pushViewController(destinationvc, animated: true)
             
-//            let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "MatchesVCID") as! MatchesVC
-//            destinationvc.VCcheckInt = 0
-//            self.navigationController?.pushViewController(destinationvc, animated: true)
+
         }
      
     }

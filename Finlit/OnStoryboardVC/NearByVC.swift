@@ -33,7 +33,6 @@ class NearByVC: UIViewController {
         self.mNearByTblCell.delegate = self
         self.mNearByTblCell.dataSource = self
        
-       
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -242,11 +241,14 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
         let btnclick : Int = sender.tag
         
             let otherUserId = self.nearByData[btnclick].id
-            let otherUsername = self.nearByData[btnclick].name
+        //HANDLING NIL VALUE
+         let otherusersname = self.nearByData[btnclick].name != nil ? String(describing: self.nearByData[btnclick].name!) : "NA"
+        
+            let otherUsername = otherusersname
             print(otherUserId!)
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserTakeQuizVCID")as! UserTakeQuizVC
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
             vc.opponentID = otherUserId!
-            vc.opponentName = otherUsername!
+            vc.opponentName = otherUsername
             if self.nearByData[btnclick].imgUrl != nil{
                 let otherImgUrl = self.nearByData[btnclick].imgUrl
                 vc.opponentImgUrl = otherImgUrl!
@@ -258,9 +260,12 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
     @objc func mViewProfile(sender: UIButton){
         let btnclick : Int = sender.tag
             let otherUserId = self.nearByData[btnclick].id
-            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserProfileVCID")as! UserProfileVC
+        
+             let vc  = storyboard?.instantiateViewController(withIdentifier: "OtherUserProfileVCID")as! OtherUserProfileVC
+        
+//            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserProfileVCID")as! UserProfileVC
             vc.opponentId = otherUserId!
-            vc.VCcheckInt = 1
+           // vc.VCcheckInt = 1
             navigationController?.pushViewController(vc, animated: true)
             
         

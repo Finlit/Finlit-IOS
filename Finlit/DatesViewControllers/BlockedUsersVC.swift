@@ -101,7 +101,7 @@ class BlockedUsersVC: UIViewController {
 extension BlockedUsersVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.userMdlArry.count == 0 || self.userMdlArry.isEmpty == true || self.userMdlArry == nil {
-            self.mBlockedUsersTblView.setEmptyMessage("No Comments Yet", tablename: self.mBlockedUsersTblView)
+            self.mBlockedUsersTblView.setEmptyMessage("No Users Yet", tablename: self.mBlockedUsersTblView)
         }
         else {
             self.mBlockedUsersTblView.restoreWithNoSeparator()
