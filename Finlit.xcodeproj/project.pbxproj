@@ -10,7 +10,6 @@
 		2E18F4A621AE861300FF0E6E /* PayquizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18F4A521AE861300FF0E6E /* PayquizVC.swift */; };
 		2E18F4A821AEC44B00FF0E6E /* WhatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18F4A721AEC44B00FF0E6E /* WhatsTableViewCell.swift */; };
 		2E25EC88219D77C5006DC6BD /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E25EC87219D77C5006DC6BD /* Participants.swift */; };
-		2E4A659F21A035F00074B0FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A659E21A035F00074B0FF /* GoogleService-Info.plist */; };
 		2E4F15A121D0E8E400FC8FF6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4F15A021D0E8E400FC8FF6 /* Accelerate.framework */; };
 		2E4F15A321D0E8ED00FC8FF6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4F15A221D0E8ED00FC8FF6 /* AudioToolbox.framework */; };
 		2E4F15A521D0E8F400FC8FF6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4F15A421D0E8F400FC8FF6 /* AVFoundation.framework */; };
@@ -39,6 +38,7 @@
 		4E1559FD22293B5C00C4AFDA /* BlockedUsersTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */; };
 		4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7932213F38000263A86 /* DatesTblCell.swift */; };
 		4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15C7952214148E00263A86 /* MeetUserVC.swift */; };
+		4E2090D822314ACD00E9B01C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E2090D722314ACD00E9B01C /* GoogleService-Info.plist */; };
 		4E239F912189C88E00964CED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E239F902189C88000964CED /* CoreLocation.framework */; };
 		4E241FA42215ABD80071CC61 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA32215ABD80071CC61 /* Blog.swift */; };
 		4E241FA82216FC4E0071CC61 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E241FA72216FC4E0071CC61 /* CommentsVC.swift */; };
@@ -140,7 +140,6 @@
 		2E18F4A521AE861300FF0E6E /* PayquizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayquizVC.swift; sourceTree = "<group>"; };
 		2E18F4A721AEC44B00FF0E6E /* WhatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsTableViewCell.swift; sourceTree = "<group>"; };
 		2E25EC87219D77C5006DC6BD /* Participants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
-		2E4A659E21A035F00074B0FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E4F15A021D0E8E400FC8FF6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		2E4F15A221D0E8ED00FC8FF6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2E4F15A421D0E8F400FC8FF6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -176,6 +175,7 @@
 		4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersTblCell.swift; sourceTree = "<group>"; };
 		4E15C7932213F38000263A86 /* DatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesTblCell.swift; sourceTree = "<group>"; };
 		4E15C7952214148E00263A86 /* MeetUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUserVC.swift; sourceTree = "<group>"; };
+		4E2090D722314ACD00E9B01C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E239F902189C88000964CED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4E241FA32215ABD80071CC61 /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		4E241FA72216FC4E0071CC61 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
@@ -499,7 +499,6 @@
 			children = (
 				2E4F15FA21D0EADC00FC8FF6 /* PayPalMobile */,
 				939FB5BE21833AFA0073055A /* iCarousel */,
-				2E4A659E21A035F00074B0FF /* GoogleService-Info.plist */,
 				93A45B8321676E2600DA505B /* Finlit */,
 				93A45B8221676E2600DA505B /* Products */,
 				28A895C82A749162671E43AE /* Pods */,
@@ -518,6 +517,7 @@
 		93A45B8321676E2600DA505B /* Finlit */ = {
 			isa = PBXGroup;
 			children = (
+				4E2090D722314ACD00E9B01C /* GoogleService-Info.plist */,
 				4E992FBE221424AD0062EA58 /* BlogsViewControllers */,
 				4E9AC03C221167E900A48D6F /* DatesViewControllers */,
 				93A45B8821676E2600DA505B /* Main.storyboard */,
@@ -812,11 +812,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A45B8F21676E2700DA505B /* LaunchScreen.storyboard in Resources */,
+				4E2090D822314ACD00E9B01C /* GoogleService-Info.plist in Resources */,
 				93A45B8C21676E2700DA505B /* Assets.xcassets in Resources */,
 				93A45B8A21676E2600DA505B /* Main.storyboard in Resources */,
 				2E6064E221AD639E00A9A6D8 /* OverlayView.xib in Resources */,
 				93E75A212187315B004C30BC /* TOCropViewControllerLocalizable.strings in Resources */,
-				2E4A659F21A035F00074B0FF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

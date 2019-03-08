@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Toast_Swift
 
 class SignUpVC: UIViewController, UITextFieldDelegate {
      var validator:Validators!
@@ -116,7 +117,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             //                print(dToken)
             //            }
             
-            self.user?.email = self.mEmailTextField.text
+            self.user?.email = FbEmail //self.mEmailTextField.text
             self.user?.deviceId = Constants.kUserDefaults.value(forKey: appConstants.fcmToken) as? String
             self.user?.deviceType = "iOS"
             self.user?.facebookId = FbUserID
@@ -196,6 +197,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             else{
                 SVProgressHUD.dismiss()
                 if error != nil{
+                    self.view.makeToast(error!)
                     kAppDelegate.showNotification(text: error!)
                 }else{
                     kAppDelegate.showNotification(text: "Something went wrong!")
