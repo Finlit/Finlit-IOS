@@ -24,13 +24,13 @@ class ChatVC: UIViewController,UITextFieldDelegate {
          self.navigationController?.navigationBar.isHidden = false
         self.mSearchHereTextField.delegate = self
          self.chatArr = [Chat]()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         GetChatlist()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//TEXT FIELD DELEGATE
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         self.view.endEditing(true)
@@ -92,17 +92,17 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTblCellID", for: indexPath) as! ChatTblCell
-         cell.mView.dropShadow(scale: true)
+         //cell.mView.dropShadow(scale: true)
         cell.mNameLbl.text = self.chatArr[indexPath.row].name
         cell.mLabel1.text = String(describing:self.chatArr[indexPath.row].unreadCount!)
-        //cell.mLabel.text = self.chatArr[indexPath.row].aboutUs
         cell.mLabel.text = self.chatArr[indexPath.row].lastMessage
         
         let url = self.chatArr[indexPath.row].imgUrl
+        
         if url != nil{
             let urlimage = URL(string: url!)
             cell.mImageView.af_setImage(withURL: urlimage!)
-        }else{
+        } else{
             cell.mImageView.image = #imageLiteral(resourceName: "default_user_square")
         }
        
@@ -135,7 +135,7 @@ extension UIView {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: -1, height: 0.5)
+        layer.shadowOffset = CGSize(width: -1, height: 1.5)
         layer.shadowRadius = 3
         
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath

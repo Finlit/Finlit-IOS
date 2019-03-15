@@ -58,24 +58,37 @@ class UserChatRoomVC: UIViewController {
     
     @IBAction func mSendMsgBtnAct(_ sender: Any) {
      createchat()
+    self.view.endEditing(true)
         
     }
     
     @IBAction func mMorebtnAct(_ sender: Any) {
         let alert=UIAlertController(title:"Finlit", message: "What would you like to do?", preferredStyle:UIAlertControllerStyle.alert )
         
-        alert.addAction(UIAlertAction(title: blockStr, style: UIAlertActionStyle.default, handler: {
-            _ in print("FOO ")
-            if self.chatBlockBool == true{
-                self.blockchat()
-                self.chatBlockBool = false
-                self.blockStr = "Unblock"
-            }else{
-                self.unblockchat()
-                self.chatBlockBool = true
-                self.blockStr = "Block"
-            }
-        }))
+        let blockButton = UIAlertAction(title: "Block", style: .default, handler: { (action) -> Void in
+            print("Block button tapped")
+            self.blockUser(userDict: ["userId":self.UserDict?.id! as AnyObject])
+            })
+        
+        alert.addAction(blockButton)
+            
+        
+//        alert.addAction(UIAlertAction(title: blockStr, style: UIAlertActionStyle.default, handler: {
+//            _ in print("FOO")
+//
+//            if self.chatBlockBool == true{
+//                self.blockchat()
+//                self.chatBlockBool = false
+//                self.blockStr = "Unblock"
+//            }else{
+//                self.unblockchat()
+//                self.chatBlockBool = true
+//                self.blockStr = "Block"
+//            }
+//        }))
+        
+        
+       
         alert.addAction(UIAlertAction(title: "Report", style: UIAlertActionStyle.default, handler: {
             _ in print("FOO ")
         }))
@@ -85,6 +98,39 @@ class UserChatRoomVC: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    
+    
+    //MARK: Block User
+    func blockUser(userDict:Dictionary<String, AnyObject>)
+        
+    {
+        userApi.blockUser(userDetails: userDict as Dictionary<String, AnyObject> ){ (isSuccess,response, error) -> Void in
+            SVProgressHUD.dismiss()
+            
+            if (isSuccess){
+                SVProgressHUD.dismiss()
+                self.view.makeToast("User Blocked Successfully")
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+            else{
+                SVProgressHUD.dismiss()
+                if error != nil{
+                    self.view.makeToast(error!)
+                    
+                }else{
+                    self.view.makeToast("Something Went Wrong")
+                    
+                }
+            }
+            
+        }
+        
+        
+    }
+    
+    
     
     
     // MARK:- Chat Model Data
@@ -97,9 +143,9 @@ class UserChatRoomVC: UIViewController {
         
         self.chatDictionary = Chat.init(dictionary: NSDictionary())
         self.chatDictionary.chatType = "normal"
-      //  self.chatDictionary.text = "text"
+  
         self.chatDictionary.lastMessage = "last message"
-// "participants":[["userId":opponentID]]
+
         var dict = ["chatType":"normal" as AnyObject,"lastMessage":"last" as AnyObject] as [String:Any]
         var participants = [[String:String]]()
         participants.append(["userId":opponentID])
@@ -111,7 +157,11 @@ class UserChatRoomVC: UIViewController {
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {
        self.navigationController?.popViewController(animated: true)
     }
-    // MARK:- Chat Api
+    
+    
+    
+    
+    // MARK:- Get Chat Id from API
     func chatidentity(Chats: [String:Any]){
         QuestionAPI().Chatadd(postDetials: Chats) { (isSuccess,response, error) in
             print(response!)
@@ -145,7 +195,7 @@ class UserChatRoomVC: UIViewController {
     }
     
     
-    
+    // MARK:- Create Chat on Firebase
     func createchat(){
                        self.chatID = chatDictionary.chatId!
                         print(self.chatID)
@@ -154,6 +204,8 @@ class UserChatRoomVC: UIViewController {
                         self.ref = Database.database().reference()
                         let AutoID = self.ref.childByAutoId()
                         print(AutoID.key!)
+        
+        
                         let dict:Dictionary<String, Any>? = ["chatId": self.chatID,
                                                              "imgUrl": opponentImgUrl,
                                                              "message":self.mMsgtxtfld.text!,
@@ -168,10 +220,9 @@ class UserChatRoomVC: UIViewController {
                         let ref2 = refs.child(AutoID.key!)
                         print(ref2)
                         ref2.setValue(dict)
-                        //    self.ref.child("messages").child(chatID).child(AutoID.key!).setValue(dict!)
+        
         
                        self.chatDictionary = Chat.init(dictionary: NSDictionary())!
-//                       self.chatDictionary.message = self.mMsgtxtfld.text!
                        self.chatDictionary.lastMessage = self.mMsgtxtfld.text!
 
                        self.incUnreadCount(userDetails : chatDictionary!)

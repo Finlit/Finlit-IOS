@@ -182,7 +182,7 @@ class QuestionRemoteReplicator{
     // MARK: blockChat
     func blockChat(PostID:String, callback:@escaping (_ responsedata: Dictionary<String, AnyObject>?, _ error: String? ) -> Void)   {
         let urlString =  "\(baseUrl1)\(blockcht.html)" + PostID
-        remoteRepo.remotePOSTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
+        remoteRepo.remotePUTServiceWithParameters(urlString: urlString, params: [:] as Dictionary<String, AnyObject>) { (data, error) -> Void in
             callback(data , error?.description )
             
         }

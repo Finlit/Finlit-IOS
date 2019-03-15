@@ -25,6 +25,14 @@ class PendingDatesVC: UIViewController {
         self.datesAPI = DatesAPI.sharedInstance
         self.userMdlArry = [User]()
         
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +66,32 @@ class PendingDatesVC: UIViewController {
         self.mReceivedBtnOutl.setTitleColor(UIColor.black, for: .normal)
         self.categName = "Sent"
   
+    }
+    
+    
+    
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            print("Swipe Right")
+            if self.categName == "Sent" {
+                self.resetBtnProperties()
+                self.setReceivedBtnProperties()
+                return
+            }
+            
+        }
+            
+        else if gesture.direction == UISwipeGestureRecognizerDirection.left {
+            print("Swipe Left")
+            if self.categName == "Received" {
+                self.resetBtnProperties()
+                self.setSentBtnProperties()
+                return
+            }
+                
+    
+        }
         
     }
   

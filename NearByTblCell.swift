@@ -32,13 +32,24 @@ class NearByTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.mImageView.contentMode = .scaleToFill
-        // Initialization code
+       
+ 
+        self.mView.layer.masksToBounds = false
+    
+        self.mView.layer.shadowColor = UIColor.lightGray.cgColor
+
+        mView.layer.shadowOffset = .zero
+        mView.layer.shadowRadius = 6.0
+        
+        self.mView.layer.shadowOpacity = 1.5
+        self.mView.borderWidth = 0.4
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

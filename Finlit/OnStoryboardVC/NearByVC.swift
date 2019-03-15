@@ -147,7 +147,7 @@ class NearByVC: UIViewController {
         QuestionAPI().getallSearchdetails(postId: Name, lat: lat, long: long) { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
-//                    self.hideProgress()
+
                     self.nearByData.removeAll()
                     let nearlist = data[APIConstants.items.rawValue] as! NSArray
 
@@ -157,13 +157,13 @@ class NearByVC: UIViewController {
                     
                 }}
             else{
-             //   self.hideProgress()
+            
                 print("Getting Error")
             }
         }
     }
     func getfilterdata(latitude: String, longitude: String, range: String, filterBy: String, ageMin: String, ageMax: String) {
-        // self.showProgress(title: "Processing")
+     
         QuestionAPI().getfilter(latitude: latitude, longitude: longitude, range: range, filterBy: filterBy, ageMin: ageMin, ageMax: ageMax){ (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
@@ -178,7 +178,7 @@ class NearByVC: UIViewController {
                 }
             }
             else{
-                //   self.hideProgress()
+           
                 print("Getting Error")
             }
         }
@@ -198,7 +198,7 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NearByTblCellID", for: indexPath) as! NearByTblCell
-        cell.mView.dropShadow(scale: true)
+        //cell.mView.dropShadow(scale: true)
         cell.mMessageBtn.addTarget(self, action: #selector(mMessageBtnAct(sender:)), for: .touchUpInside)
         cell.mMessageBtn.tag = indexPath.row
         cell.mViewProfileBtn.addTarget(self, action: #selector(mViewProfile(sender:)), for: .touchUpInside)

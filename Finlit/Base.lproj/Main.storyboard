@@ -2536,11 +2536,6 @@ whatever I put my mind to.</string>
                                                         <constraint firstItem="BZN-6Y-WfD" firstAttribute="leading" secondItem="Lo1-31-Pc4" secondAttribute="trailing" constant="30" id="dkz-za-Dxe"/>
                                                         <constraint firstItem="cnC-Wr-y2W" firstAttribute="leading" secondItem="LnS-sh-iWW" secondAttribute="trailing" constant="8" id="mHa-mx-XDU"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -2969,7 +2964,7 @@ whatever I put my mind to.</string>
                                     <action selector="mFilterBtnAct:" destination="WXW-Gn-UWe" eventType="touchUpInside" id="AcU-gN-h9o"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cpz-IH-OoY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cpz-IH-OoY">
                                 <rect key="frame" x="15" y="173.5" width="290" height="379.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -3044,11 +3039,10 @@ whatever I put my mind to.</string>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2th-zY-Qpe">
-                                                    <rect key="frame" x="10" y="111" width="100" height="35"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="10" y="112" width="120" height="32"/>
+                                                    <color key="backgroundColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="VXg-Qe-lsc"/>
-                                                        <constraint firstAttribute="width" constant="100" id="emh-4c-hBx"/>
+                                                        <constraint firstAttribute="height" constant="32" id="VXg-Qe-lsc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Message">
@@ -3061,12 +3055,14 @@ whatever I put my mind to.</string>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dja-7i-DN6">
-                                                    <rect key="frame" x="170" y="111" width="100" height="35"/>
+                                                    <rect key="frame" x="150" y="112" width="120" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="AO8-1I-y4V"/>
+                                                        <constraint firstAttribute="height" constant="32" id="AO8-1I-y4V"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <state key="normal" title="View Profile"/>
+                                                    <state key="normal" title="View Profile">
+                                                        <color key="titleColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="8"/>
@@ -3098,9 +3094,10 @@ whatever I put my mind to.</string>
                                                 <constraint firstItem="rFS-W1-5Ym" firstAttribute="top" secondItem="w4H-hY-3B1" secondAttribute="bottom" constant="8" id="gdx-zK-RbO"/>
                                                 <constraint firstItem="42S-Fw-fKf" firstAttribute="top" secondItem="ut4-lR-C4H" secondAttribute="topMargin" constant="15" id="hSv-S1-GuV"/>
                                                 <constraint firstItem="42S-Fw-fKf" firstAttribute="leading" secondItem="Ene-JF-qtu" secondAttribute="trailing" constant="8" id="i2F-Vh-LKG"/>
-                                                <constraint firstItem="dja-7i-DN6" firstAttribute="top" secondItem="42S-Fw-fKf" secondAttribute="bottom" constant="15" id="khY-kJ-ci1"/>
+                                                <constraint firstItem="dja-7i-DN6" firstAttribute="top" secondItem="42S-Fw-fKf" secondAttribute="bottom" constant="16" id="khY-kJ-ci1"/>
                                                 <constraint firstItem="rFS-W1-5Ym" firstAttribute="leading" secondItem="w4H-hY-3B1" secondAttribute="leading" id="kwg-gG-OcS"/>
                                                 <constraint firstItem="Ene-JF-qtu" firstAttribute="top" secondItem="42S-Fw-fKf" secondAttribute="top" id="nZK-gV-3Qn"/>
+                                                <constraint firstItem="dja-7i-DN6" firstAttribute="leading" secondItem="2th-zY-Qpe" secondAttribute="trailing" constant="20" id="qcW-WL-aB5"/>
                                                 <constraint firstItem="kui-wf-Lsj" firstAttribute="centerY" secondItem="rFS-W1-5Ym" secondAttribute="centerY" id="rf8-mf-MYB"/>
                                                 <constraint firstItem="w4H-hY-3B1" firstAttribute="top" secondItem="kqx-uT-2un" secondAttribute="bottom" constant="8" id="rv6-SS-k9O"/>
                                                 <constraint firstAttribute="bottom" secondItem="C1A-Uo-eFe" secondAttribute="bottom" constant="10" id="skT-zl-vvc"/>
@@ -4692,7 +4689,7 @@ happen to bond prices?</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBE-fc-w59">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="429.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-YF-YQr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-YF-YQr">
                                                             <rect key="frame" x="12" y="8" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="55" id="R2y-5G-wIr"/>
@@ -4711,7 +4708,7 @@ happen to bond prices?</string>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-V5-Cee">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-V5-Cee">
                                                             <rect key="frame" x="10" y="71" width="300" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XVt-V5-Cee" secondAttribute="height" multiplier="2:1" id="OtY-9Y-sa7"/>
@@ -4763,7 +4760,9 @@ happen to bond prices?</string>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-ej-k8U">
                                                             <rect key="frame" x="170" y="316" width="138" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                            <state key="normal" title="No Thanks"/>
+                                                            <state key="normal" title="No Thanks">
+                                                                <color key="titleColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5128,7 +5127,7 @@ happen to bond prices?</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvp-Zn-IfQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="429.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="65F-mJ-I4U">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="65F-mJ-I4U">
                                                             <rect key="frame" x="12" y="8" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="55" id="53H-lE-w8J"/>
@@ -5147,7 +5146,7 @@ happen to bond prices?</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="ENZ-88-z1G">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="ENZ-88-z1G">
                                                             <rect key="frame" x="10" y="71" width="300" height="200"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="200" id="PB6-dO-5fn"/>
@@ -5199,7 +5198,9 @@ happen to bond prices?</string>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiM-n8-m6m">
                                                             <rect key="frame" x="170" y="366" width="138" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                            <state key="normal" title="No Thanks"/>
+                                                            <state key="normal" title="No Thanks">
+                                                                <color key="titleColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -8898,7 +8899,7 @@ graduation and working in C.A</string>
         <image name="Logoicon" width="187" height="190"/>
         <image name="PLUSICON" width="23" height="23"/>
         <image name="Pasted_image" width="187" height="190"/>
-        <image name="Three dot" width="30" height="30"/>
+        <image name="Three dot" width="15" height="15"/>
         <image name="Untitled-1" width="703" height="872"/>
         <image name="arrow" width="25" height="25"/>
         <image name="backgroundblue" width="758" height="1250"/>

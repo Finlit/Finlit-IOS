@@ -68,7 +68,7 @@ class MyBlogsVC: UIViewController {
 }
     
 
-extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellDelegate {
+extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -142,6 +142,11 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellD
       
           return 300 + labelHeight
     
+    }
+    
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300 + labelHeight
     }
     
     
@@ -263,15 +268,7 @@ extension MyBlogsVC {
     
     
     
-    // MARK: - my cell delegate
-    func moreTapped(cell: MyBlogsTblCell) {
-        
-        mBlogsTblView.beginUpdates()
-        mBlogsTblView.endUpdates()
-        
-  
-        
-    }
+
     
     
         

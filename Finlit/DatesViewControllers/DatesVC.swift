@@ -297,6 +297,15 @@ class DatesVC: UIViewController {
 
 extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.userMdlArry.count == 0 || self.userMdlArry.isEmpty == true  {
+            self.mDatesTblView.setEmptyMessage("No Users Yet", tablename: self.mDatesTblView)
+        }
+            
+            
+        else {
+            self.mDatesTblView.restore()
+        }
+        
         return self.userMdlArry.count
     }
     
