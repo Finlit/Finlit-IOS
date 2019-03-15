@@ -163,7 +163,7 @@ import Foundation
       //MARK:- Get User Details
         func getAllUsers(type:String = "",callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
         
-        let url = "users" + type
+        let url = "users/list/search" + type
         
         
         let urlString =  "\(baseUrl1)\(url.html)"

@@ -30,6 +30,15 @@ class DatesVC: UIViewController {
         self.datesAPI = DatesAPI.sharedInstance
          self.userMdlArry = [User]()
         
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        
     }
 
     
@@ -46,6 +55,40 @@ class DatesVC: UIViewController {
         self.getallDatingUsers(type: queryForFilterType)
     }
     
+    
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            print("Swipe Right")
+            if self.categoryType == "Confirmed" {
+                self.ResetBtnProperties()
+                self.setPendingProperties()
+                return
+            }
+            else if self.categoryType == "Pending" {
+                self.ResetBtnProperties()
+                self.setAvailableProperties()
+                return
+            }
+
+        }
+        else if gesture.direction == UISwipeGestureRecognizerDirection.left {
+            print("Swipe Left")
+            if self.categoryType == "Available" {
+                self.ResetBtnProperties()
+                self.setPendingProperties()
+                return
+            }
+            
+            else if self.categoryType == "Pending" {
+                self.ResetBtnProperties()
+                self.setConfirmedProperties()
+                return
+            }
+        }
+    
+    }
+    
     func ResetBtnProperties (){
         self.mAvailableBtnOutl.setTitleColor(UIColor.black, for: .normal)
          self.mPendingBtnOutl.setTitleColor(UIColor.black, for: .normal)
@@ -56,35 +99,52 @@ class DatesVC: UIViewController {
         
     }
     
-    
-    @IBAction func mAvailableBtnTapped(_ sender: UIButton) {
-        self.ResetBtnProperties()
+    func setAvailableProperties () {
         self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
         self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
         self.categoryType = "Available"
         self.queryForFilterType = "isInterest"
-        mDatesTblView.estimatedRowHeight = 380
+        //mDatesTblView.estimatedRowHeight = 380
         self.getallDatingUsers(type: queryForFilterType)
+        
+    }
+    
+    
+    func setPendingProperties () {
+        self.mPendingBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
+        self.mPinkBotmLbl2.backgroundColor = UIColor.pinkThemeColor()
+        self.categoryType = "Pending"
+        self.queryForFilterType = "isSendr"
+        self.getallDatingUsers(type: queryForFilterType)
+        
+    }
+    func setConfirmedProperties () {
+        self.mConfirmedBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
+        self.mPinkBotmLbl3.backgroundColor = UIColor.pinkThemeColor()
+        self.categoryType = "Confirmed"
+        self.queryForFilterType = "isConfirmed"
+        self.getallDatingUsers(type: queryForFilterType)
+        
+    }
+    
+    @IBAction func mAvailableBtnTapped(_ sender: UIButton) {
+        self.ResetBtnProperties()
+        self.setAvailableProperties()
+       
     }
     
     
     @IBAction func mPendingBtnTapped(_ sender: UIButton) {
         self.ResetBtnProperties()
-        self.mPendingBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
-        self.mPinkBotmLbl2.backgroundColor = UIColor.pinkThemeColor()
-        self.categoryType = "Pending"
-        self.queryForFilterType = "isSendr"
-         self.getallDatingUsers(type: queryForFilterType)
+        self.setPendingProperties()
+    
     }
     
     
     @IBAction func mConfirmedBtnTapped(_ sender: Any) {
         self.ResetBtnProperties()
-        self.mConfirmedBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
-        self.mPinkBotmLbl3.backgroundColor = UIColor.pinkThemeColor()
-        self.categoryType = "Confirmed"
-        self.queryForFilterType = "isConfirmed"
-         self.getallDatingUsers(type: queryForFilterType)
+        self.setConfirmedProperties()
+
  
     }
     

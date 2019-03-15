@@ -30,15 +30,35 @@ class PendingDatesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.getallDatingUsers(type: "isSendr")
         self.navigationController?.navigationBar.isHidden = false
-        self.setTopBtn1UI()
+        self.setReceivedBtnProperties()
        
     }
     
-    func setTopBtn1UI () {
+    func resetBtnProperties () {
+        
+        self.mBottomPinkLbl1.backgroundColor = UIColor.clear
+        self.mReceivedBtnOutl.setTitleColor(UIColor.black, for: .normal)
+        self.mBottomPinkLbl2.backgroundColor = UIColor.clear
+        self.mSentBtnOutl.setTitleColor(UIColor.black, for: .normal)
+        
+    }
+    
+    func setReceivedBtnProperties () {
         self.mBottomPinkLbl1.backgroundColor = UIColor.pinkThemeColor()
         self.mReceivedBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
         self.mBottomPinkLbl2.backgroundColor = UIColor.clear
         self.mSentBtnOutl.setTitleColor(UIColor.black, for: .normal)
+          self.categName = "Received"
+    }
+    
+    func setSentBtnProperties () {
+        self.mBottomPinkLbl2.backgroundColor = UIColor.pinkThemeColor()
+        self.mSentBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
+        self.mBottomPinkLbl1.backgroundColor = UIColor.clear
+        self.mReceivedBtnOutl.setTitleColor(UIColor.black, for: .normal)
+        self.categName = "Sent"
+  
+        
     }
   
     
@@ -47,22 +67,18 @@ class PendingDatesVC: UIViewController {
     }
     
     @IBAction func mReceivedTapped(_ sender: UIButton) {
-       self.setTopBtn1UI()
-        self.categName = "Received"
-        self.mPendingDatesTblView.reloadData()
+        self.resetBtnProperties()
+       self.setReceivedBtnProperties()
         self.getallDatingUsers(type: "isSendr")
         
     }
     
     
     @IBAction func mSentTapped(_ sender: UIButton) {
-        self.mBottomPinkLbl2.backgroundColor = UIColor.pinkThemeColor()
-        self.mSentBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
-        self.mBottomPinkLbl1.backgroundColor = UIColor.clear
-        self.mReceivedBtnOutl.setTitleColor(UIColor.black, for: .normal)
-        self.categName = "Sent"
-        self.mPendingDatesTblView.reloadData()
-         //self.getallDatingUsers(type: "isSendr")
+        
+        self.resetBtnProperties()
+        self.setSentBtnProperties()
+          self.getallDatingUsers(type: "isSend")
         
     }
     
@@ -91,6 +107,8 @@ class PendingDatesVC: UIViewController {
             SVProgressHUD.dismiss()
         }
     }
+    
+    
     
     //MARK: - Send Confirm Request
     func sendConfirmRequest(IdofUser:String)
@@ -149,6 +167,14 @@ class PendingDatesVC: UIViewController {
 
 extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.userMdlArry.count == 0 || self.userMdlArry.isEmpty == true || self.userMdlArry == nil {
+            self.mPendingDatesTblView.setEmptyMessage("No Users Yet", tablename: self.mPendingDatesTblView)
+        }
+        else {
+            self.mPendingDatesTblView.restore()
+        }
+        
         return self.userMdlArry.count
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class SettingVC: UIViewController {
 let Gender = ["male","female"]
@@ -37,7 +38,15 @@ var GenderpickerView = UIPickerView()
         }
         
         
+        
     }
+    
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        let frameSize: CGPoint = CGPoint(x: UIScreen.main.bounds.size.width*0.5,y: UIScreen.main.bounds.size.height*0.5)
+//        self.view.makeToastActivity(frameSize)
+//        self.view.hideToastActivity()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -12,18 +12,24 @@ class MyBlogsVC: UIViewController {
 
     @IBOutlet weak var mBlogsTblView: UITableView!
     var blogsModelArray = [Blog]()
+    var labelHeight : CGFloat = 0
+    var selectedCellIndex : IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
           self.blogsModelArray = [Blog]()
-        self.mBlogsTblView.delegate = self
-        self.mBlogsTblView.dataSource = self
-        mBlogsTblView.estimatedRowHeight = 320
-        mBlogsTblView.rowHeight = UITableViewAutomaticDimension
+     
+     
         
     }
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
-        self.getAllBlogs()
+     
+        DispatchQueue.global(qos: .background).async {
+            self.getAllBlogs()
+        }
+     
+        //self.getAllBlogs()
+       
     }
     
 
@@ -43,7 +49,11 @@ class MyBlogsVC: UIViewController {
                     
                     let blogList = data[APIConstants.items.rawValue] as! NSArray
                     self.blogsModelArray = Blog.modelsFromDictionaryArray(array: blogList)
-                    self.mBlogsTblView.reloadData()
+                    self.mBlogsTblView.delegate = self
+                    self.mBlogsTblView.dataSource = self
+//                    mBlogsTblView.estimatedRowHeight = 320
+//                    mBlogsTblView.rowHeight = UITableViewAutomaticDimension
+                       self.mBlogsTblView.reloadData()
                     
                 }}
             else{
@@ -61,6 +71,16 @@ class MyBlogsVC: UIViewController {
 extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.blogsModelArray.count == 0 || self.blogsModelArray.isEmpty == true  {
+            self.mBlogsTblView.setEmptyMessage("No Blogs Yet", tablename: self.mBlogsTblView)
+        }
+            
+            
+        else {
+            self.mBlogsTblView.restore()
+        }
+        
         return self.blogsModelArray.count
     }
     
@@ -72,6 +92,9 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellD
         let blog = self.blogsModelArray[indexPath.row]
         cell.mHeadlineLbl.text = blog.title
         cell.mDescriptionLbl.text = blog.description
+        self.labelHeight = cell.mDescriptionLbl.bounds.size.height
+ 
+    
     
   
         if blog.isLike == true {
@@ -106,19 +129,22 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource, MyBlogsTblCellD
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let blog = blogsModelArray[indexPath.row]
-        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CommentsVCID") as! CommentsVC
-        destinationVC.blogID = blog.id!
-        self.navigationController?.pushViewController(destinationVC, animated: true)
+//        let blog = blogsModelArray[indexPath.row]
+//        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CommentsVCID") as! CommentsVC
+//        destinationVC.blogID = blog.id!
+//        self.navigationController?.pushViewController(destinationVC, animated: true)
+        
+         self.selectedCellIndex = indexPath
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//          return 320
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         print("Height of the label is \(self.labelHeight) at indexpath = \(indexPath.row)")
+      
+          return 300 + labelHeight
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-         return UITableViewAutomaticDimension
     }
+    
+    
 }
 
 
@@ -127,7 +153,7 @@ extension MyBlogsVC {
     
     // MARK: Like Function
     func likeBlog(IdOfBLog:String){
-        //SVProgressHUD.show(withStatus: "Please Wait")
+     
         QuestionAPI().likeBlog(blogID: IdOfBLog){ (isSuccess, response, error) -> Void in
             SVProgressHUD.dismiss()
             
@@ -240,50 +266,16 @@ extension MyBlogsVC {
     // MARK: - my cell delegate
     func moreTapped(cell: MyBlogsTblCell) {
         
-        // this will "refresh" the row heights, without reloading
         mBlogsTblView.beginUpdates()
         mBlogsTblView.endUpdates()
         
-        // do anything else you want because the switch was changed
+  
         
     }
     
     
         
-        
-//        //self.didTap = !didTap
-//        if post.like != nil {
-//
-//            cell.mLikeBtnOutl.setBackgroundImage(#imageLiteral(resourceName: "heartUnfilled"), for: .normal)
-//            post.likeCount = post.likeCount! - 1
-//            post.like = nil
-//            let newLikeCount = post.likeCount
-//            cell.mLikesLbl.text = String(describing:newLikeCount!)
-//            self.disLikePost(IdOfPost: post.id!)
-//
-//            postArry.remove(at: tag)
-//            postArry.insert(post, at: tag)
-//            self.mHomeTblView.reloadData()
-//
-//        }
-        
-            
-//        else if post.like == nil {
-//            cell.mLikeBtnOutl.setBackgroundImage(#imageLiteral(resourceName: "heartFilled"), for: .normal)
-//            post.likeCount = post.likeCount! + 1
-//            post.like = Like.init(dictionary: NSDictionary())
-//            post.like?.type = "heart"
-//            let newLikeCount = post.likeCount
-//            cell.mLikesLbl.text = String(describing:newLikeCount!)
-//            self.likePost(IdOfPost: post.id!, likeType: "heart")
-//            print(post.like?.type)
-//            postArry.remove(at: tag)
-//            postArry.insert(post, at: tag)
-//            self.mHomeTblView.reloadData()
-//
-//
-//
-//        }
+
         
         
     

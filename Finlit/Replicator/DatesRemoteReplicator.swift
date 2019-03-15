@@ -17,10 +17,10 @@ class DatesRemoteReplicator{
     private let verify = "users/verify"
     private let sendDateRequest = "users/userpending/"
     private let sendNoThanksRequestToAvailableUser = "users/userintrested/"
-    private let sendNoThanksRequestToPendingUser = "users/userthank/"
+    private let sendNoThanksRequestToPendingUser = "users/usertruethank/"
     private let sendConfirmRequest = "users/userconfirmed/"
     private let create = "users/" //create/addprofile
-    private let cancelDate = "users/unconfirmed/"
+    private let cancelDate = "users/userconfirmthank/"
     
     
 
@@ -49,6 +49,14 @@ class DatesRemoteReplicator{
             callback(data, error)
         }
     }
+    
+    
+    
+    
+    
+
+    
+    
     
     
     //MARK: Create Date Request
@@ -98,6 +106,13 @@ class DatesRemoteReplicator{
             
         }
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     

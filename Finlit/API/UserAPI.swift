@@ -195,6 +195,9 @@ class UserAPI{
       {
         userRemoteReplicator.getUserDetails(query: userId,pageNo: pageNo) { (Data, error) in
           if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+            let data = Data![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
+            let dataProfile = NSKeyedArchiver.archivedData(withRootObject: data)
+            Constants.kUserDefaults.set(dataProfile, forKey: appConstants.profile)
             callback(Data! , nil)
           }
           else{

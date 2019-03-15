@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import SVProgressHUD
+import Toast_Swift
 class UserChatRoomVC: UIViewController {
     
     var questionApi : QuestionAPI!
@@ -51,7 +52,6 @@ class UserChatRoomVC: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -130,12 +130,22 @@ class UserChatRoomVC: UIViewController {
                     self.setZeroUnreadCount(userDetails: self.chatDictionary)
                     self.getChat()
 
-                }else{
                 }
-            }else{
+                
+                else{
+                }
+                
+            }
+            else{
+                
+                self.view.makeToast("An Error Occurred.Try Again")
+                
             }
         }
     }
+    
+    
+    
     func createchat(){
                        self.chatID = chatDictionary.chatId!
                         print(self.chatID)
@@ -170,18 +180,26 @@ class UserChatRoomVC: UIViewController {
         
       
     }
+    
+    
+    //MARK :GET CHAT FROM FIREBASE
     func getChat(){
         print(chatID)
-//        self.showProgress(title: "Loading Chat")
+
+       
         SVProgressHUD.show(withStatus: "Loading Chat")
+  
+        
         self.ref = Database.database().reference()
         self.ref.child("messages").child(chatID).queryOrdered(byChild: "timeStamp").observe(.value, with: { (data) in
             print(data)
             
-            if data.value! is NSNull{
+            if data.value! is NSNull {
             SVProgressHUD.dismiss()
                 
-            }else{
+            }
+            
+            else{
                 let values = data.value as? NSDictionary
                 print(values!)
                 self.chatobjectarray.removeAllObjects()
@@ -198,9 +216,12 @@ class UserChatRoomVC: UIViewController {
                 self.mUserChatRoomTblCell.reloadData()
                 self.scrollToBottom()
             }
-        }) { (error) in
+            
+            
+        })
+        { (error) in
             print(error.localizedDescription)
-          //  self.hideProgress()
+      
         }
     }
     
@@ -246,7 +267,6 @@ class UserChatRoomVC: UIViewController {
 extension UserChatRoomVC: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(chatArry.count)
         return chatArry.count
     }
     
@@ -259,6 +279,8 @@ extension UserChatRoomVC: UITableViewDelegate, UITableViewDataSource
             cell.mlabel1.text! = coverttime
 
         }
+        
+        
         if (Constants.kUserDefaults.value(forKey: appConstants.id)as! String) != chatArry[indexPath.row].opponentId{
             cell.mSenderImg.isHidden = false
             cell.mUserImage.isHidden = true

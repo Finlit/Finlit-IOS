@@ -12,6 +12,8 @@ import Toast_Swift
 
 class CommentsVC: UIViewController {
 
+   
+    @IBOutlet weak var mRootViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mUserProfPic: UIImageView!
     @IBOutlet weak var mCommentTxtFld: UITextField!
     @IBOutlet weak var mCommentsTblView: UITableView!
@@ -24,12 +26,17 @@ class CommentsVC: UIViewController {
     var commentMdlVar :Comment!
     var commentModlArry : [Comment]!
     var questionAPI : QuestionAPI!
+    var labelHeight : CGFloat = 0
+    var cellHeight = [CGFloat]()
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.labelHeight = mDescriptionLbl.bounds.height
         self.questionAPI = QuestionAPI.sharedInstance
         self.commentModlArry = [Comment]()
         setupUI()
+         self.mCommentsTblView.tableFooterView = UIView(frame: .zero)
+        self.mCommentsTblView.contentInset = UIEdgeInsets.zero
         if self.blogID != nil{
             self.getPostDetailsByID(idOfBlog: self.blogID!)}
     }
@@ -71,6 +78,26 @@ class CommentsVC: UIViewController {
         return false
         
     }
+    
+    
+    
+    
+    func refreshContrainsts() {
+        var tableFrame = mCommentsTblView.bounds
+        tableFrame.size.height = mCommentsTblView.contentSize.height
+        
+        var cellSize:CGFloat = 0
+        for i in self.cellHeight{
+            cellSize = cellSize + i
+        }
+        
+        if cellSize > 200 {
+            self.mRootViewHeight.constant = 350 + cellSize
+            self.view.layoutIfNeeded()
+        }
+        
+        
+    }
 
     
     
@@ -102,6 +129,12 @@ class CommentsVC: UIViewController {
                 self.blog = Blog.init(dictionary: postData)
                 self.mHeadlineLbl.text = self.blog?.title
                 self.mDescriptionLbl.text = self.blog?.description
+                self.labelHeight = self.mDescriptionLbl.intrinsicContentSize.height
+                self.mRootViewHeight.constant = self.mRootViewHeight.constant + self.labelHeight
+                self.view.layoutIfNeeded()
+                
+                
+                
                 if self.blog!.imgUrl != nil {
                     self.mBlogImg.sd_setImage(with: URL.init(string:(self.blog!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
             }
@@ -125,9 +158,10 @@ class CommentsVC: UIViewController {
                     self.mCommentsTblView.setEmptyMessage("", tablename: self.mCommentsTblView)
                    self.mCommentsTblView.delegate = self
                   self.mCommentsTblView.dataSource = self
-
+                    
+                    self.cellHeight = [CGFloat]()
                     self.mCommentsTblView.reloadData()
-                   // self.refreshContrainsts()
+//                   self.refreshContrainsts()
                     
                 }}
             else{
@@ -182,7 +216,7 @@ class CommentsVC: UIViewController {
                     let userlist = data[APIConstants.data.rawValue] as! NSDictionary
                     self.userMdlVar = User.init(dictionary: userlist)
                     
-                     self.mBlogImg.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                     self.mUserProfPic.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
                 }
                 
             else{
@@ -234,12 +268,16 @@ extension CommentsVC : UITableViewDataSource, UITableViewDelegate {
         cell.mNameLbl.text = comment.user?.name
         cell.mTimeLbl.text = comment.createdAt?.utcStringToDayName
         cell.mCommentLbl.text = comment.text
-        if comment.user!.imgUrl != nil {
+        if comment.user?.imgUrl != nil {
             cell.mUserImg.sd_setImage(with: URL.init(string:(comment.user!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
         
         let view = UIView()
         view.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = view
+        
+        cellHeight.append(cell.frame.height)
+        
+        self.refreshContrainsts()
         
         return cell
     }
@@ -247,6 +285,9 @@ extension CommentsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
+    
+    
+    
     
     
     

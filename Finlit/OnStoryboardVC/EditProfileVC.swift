@@ -179,23 +179,16 @@ class EditProfileVC: UIViewController {
         userApi.getUserDetails(userId: UserID, pageNo: 1) { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
-                    //  self.hideProgress()
+                 
                     self.user = nil
                     let userlist = data[APIConstants.data.rawValue] as! NSDictionary
                     print(userlist)
-//                    let profile = userlist.value(forKey: "imgUrl")
-//                    print(profile)
-//                    if profile != nil{
-//                        let urlimage = URL(string: profile! as! String)
-//                        print(urlimage)
-//                        self.mprofileImgs.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-//                        self.mCoverProfileImg.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-//                    }else{}
+
                     self.user = User.init(dictionary: userlist)
                     self.putdataTofields()
                 }}
             else{
-                //      self.hideProgress()
+              
                 print("Getting Error")
             }
         }
@@ -423,7 +416,7 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
     }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     //  indexInt = indexPath.row
+
     
     }
     
@@ -447,10 +440,7 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
         }else{
             checkarrMenu.add([clickedButtonIndexPath])
             indexInt = (clickedButtonIndexPath?.row)!
-//            let index = IndexPath(row: (clickedButtonIndexPath?.row)!, section: 0)
-//            let cell = mEdittableView.cellForRow(at: index) as? EditProfileTableViewCell
-//            let text = cell?.mtxtfld.text
-//            print(text)
+
 
         }
         let indexPosition = IndexPath(row: (clickedButtonIndexPath?.row)!, section: 0)
