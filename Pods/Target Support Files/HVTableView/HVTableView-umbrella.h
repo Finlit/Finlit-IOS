@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "HVTableView.h"
 
-FOUNDATION_EXPORT double ReadMoreTextViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char ReadMoreTextViewVersionString[];
+FOUNDATION_EXPORT double HVTableViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char HVTableViewVersionString[];
 

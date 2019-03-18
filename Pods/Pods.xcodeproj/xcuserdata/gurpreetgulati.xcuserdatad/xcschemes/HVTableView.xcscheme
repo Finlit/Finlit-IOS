@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3C4B015A704C17B963FAF00D56067A61"
-               BlueprintName = "ReadMoreTextView"
+               BlueprintIdentifier = "6B2263DA4D695BC36D7A0D7354B08012"
+               BlueprintName = "HVTableView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ReadMoreTextView.framework">
+               BuildableName = "HVTableView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

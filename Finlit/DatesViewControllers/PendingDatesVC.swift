@@ -57,6 +57,7 @@ class PendingDatesVC: UIViewController {
         self.mBottomPinkLbl2.backgroundColor = UIColor.clear
         self.mSentBtnOutl.setTitleColor(UIColor.black, for: .normal)
           self.categName = "Received"
+         self.getallDatingUsers(type: "isSendr")
     }
     
     func setSentBtnProperties () {
@@ -65,6 +66,7 @@ class PendingDatesVC: UIViewController {
         self.mBottomPinkLbl1.backgroundColor = UIColor.clear
         self.mReceivedBtnOutl.setTitleColor(UIColor.black, for: .normal)
         self.categName = "Sent"
+         self.getallDatingUsers(type: "isSend")
   
     }
     
@@ -103,7 +105,7 @@ class PendingDatesVC: UIViewController {
     @IBAction func mReceivedTapped(_ sender: UIButton) {
         self.resetBtnProperties()
        self.setReceivedBtnProperties()
-        self.getallDatingUsers(type: "isSendr")
+       
         
     }
     
@@ -112,7 +114,7 @@ class PendingDatesVC: UIViewController {
         
         self.resetBtnProperties()
         self.setSentBtnProperties()
-          self.getallDatingUsers(type: "isSend")
+        
         
     }
     
@@ -247,8 +249,8 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         let age = userr.ageGroup != nil ? String(describing: userr.ageGroup!) : " "
         cell.mNameAgeLbl.text = userr.name! + " " + age
         if userr.imgUrl != nil {
-            cell.mProfileImgMain.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
-            cell.mProfileImgSmall.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
+            cell.mProfileImgMain.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "default_user_square"))
+            cell.mProfileImgSmall.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "default_user_square"))
         }
         
         return cell

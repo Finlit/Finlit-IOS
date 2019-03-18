@@ -30,6 +30,15 @@ class DatesVC: UIViewController {
         self.datesAPI = DatesAPI.sharedInstance
          self.userMdlArry = [User]()
         
+//        self.mTopCategView.layer.masksToBounds = false
+//    
+//        self.mTopCategView.layer.shadowColor = UIColor.lightGray.cgColor
+//
+//        mTopCategView.layer.shadowOffset = .zero
+//        mTopCategView.layer.shadowRadius = 5.0
+//        
+//        self.mTopCategView.layer.shadowOpacity = 1.0
+        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
@@ -369,9 +378,10 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         let age = userr.ageGroup != nil ? String(describing: userr.ageGroup!) : " "
         let name = userr.name != nil ? String(describing: userr.name!) : " "
         cell.mNameAgeLbl.text = name + " " + age
+      
         if userr.imgUrl != nil {
-            cell.mProfileImgMain.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
-            cell.mProfileImgSmall.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "portrait2"))
+            cell.mProfileImgMain.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "default_user_square"))
+            cell.mProfileImgSmall.sd_setImage(with: URL.init(string:((userr.imgUrl!.httpsExtend))), placeholderImage: #imageLiteral(resourceName: "default_user_square"))
         }
         
          return cell
@@ -381,12 +391,12 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if self.categoryType == "Available" {
-            return 360
+            return 340
         }
         
         else {
         
-        return 430
+        return 390
         }}
 
    

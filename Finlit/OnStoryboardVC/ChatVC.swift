@@ -23,11 +23,13 @@ class ChatVC: UIViewController,UITextFieldDelegate {
         self.mChatTblView.dataSource = self
          self.navigationController?.navigationBar.isHidden = false
         self.mSearchHereTextField.delegate = self
-         self.chatArr = [Chat]()
+        self.chatArr = [Chat]()
+        GetChatlist()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        GetChatlist()
+     
     }
 
 //TEXT FIELD DELEGATE

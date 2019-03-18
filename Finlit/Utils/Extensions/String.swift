@@ -12,6 +12,16 @@ import UIKit
 
 extension String{
     
+    
+
+        func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+            let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+            let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedStringKey.font: font], context: nil)
+            return boundingBox.height
+        }
+    
+    
+    
     //MARK:Length of String
     var length :Int{
         return (self as NSString).length

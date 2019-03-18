@@ -5096,6 +5096,16 @@ happen to bond prices?</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-t5-eZ7">
+                                        <rect key="frame" x="159.5" y="8" width="1" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="z4d-9C-bvL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -5103,12 +5113,16 @@ happen to bond prices?</string>
                                     <constraint firstItem="u0Z-30-zYb" firstAttribute="centerY" secondItem="ltd-T3-i0Q" secondAttribute="centerY" id="6Lk-qg-tgb"/>
                                     <constraint firstItem="Obk-Fx-IIe" firstAttribute="centerY" secondItem="ltd-T3-i0Q" secondAttribute="centerY" id="Ap8-fS-tvw"/>
                                     <constraint firstAttribute="bottom" secondItem="dLT-Ie-2V1" secondAttribute="bottom" id="CqB-7p-ueM"/>
+                                    <constraint firstItem="bBX-t5-eZ7" firstAttribute="centerY" secondItem="ltd-T3-i0Q" secondAttribute="centerY" id="GF1-4m-erv"/>
                                     <constraint firstAttribute="bottom" secondItem="bwu-wC-T3U" secondAttribute="bottom" id="Jwb-ZH-MaH"/>
                                     <constraint firstItem="dLT-Ie-2V1" firstAttribute="width" secondItem="bwu-wC-T3U" secondAttribute="width" id="KNW-zC-1GV"/>
+                                    <constraint firstItem="bBX-t5-eZ7" firstAttribute="centerX" secondItem="ltd-T3-i0Q" secondAttribute="centerX" id="R6D-s8-dly"/>
+                                    <constraint firstItem="bBX-t5-eZ7" firstAttribute="top" secondItem="ltd-T3-i0Q" secondAttribute="top" constant="8" id="UnM-hF-Llu"/>
                                     <constraint firstItem="dLT-Ie-2V1" firstAttribute="leading" secondItem="ltd-T3-i0Q" secondAttribute="leading" id="Uxr-Qb-7TA"/>
                                     <constraint firstItem="bwu-wC-T3U" firstAttribute="leading" secondItem="dLT-Ie-2V1" secondAttribute="trailing" constant="25" id="aDf-NX-YYW"/>
                                     <constraint firstItem="u0Z-30-zYb" firstAttribute="centerX" secondItem="dLT-Ie-2V1" secondAttribute="centerX" id="i06-6d-0ad"/>
                                     <constraint firstItem="Obk-Fx-IIe" firstAttribute="centerX" secondItem="bwu-wC-T3U" secondAttribute="centerX" id="mxw-N5-QFA"/>
+                                    <constraint firstAttribute="bottom" secondItem="bBX-t5-eZ7" secondAttribute="bottom" constant="8" id="rqY-GU-s3j"/>
                                     <constraint firstItem="u0Z-30-zYb" firstAttribute="leading" secondItem="ltd-T3-i0Q" secondAttribute="leading" constant="30" id="wmM-lk-Tdo"/>
                                     <constraint firstAttribute="trailing" secondItem="bwu-wC-T3U" secondAttribute="trailing" id="wtt-Kh-eRU"/>
                                 </constraints>
@@ -5258,7 +5272,7 @@ happen to bond prices?</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQd-Z7-L5D">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQd-Z7-L5D">
                                 <rect key="frame" x="0.0" y="115" width="320" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -5472,19 +5486,19 @@ happen to bond prices?</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-R7-Wol">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-R7-Wol" customClass="HVTableView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyBlogsTblCellID" rowHeight="320" id="eDa-XR-nf0" customClass="MyBlogsTblCell" customModule="Finlit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="320"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyBlogsTblCellID" rowHeight="330" id="eDa-XR-nf0" customClass="MyBlogsTblCell" customModule="Finlit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eDa-XR-nf0" id="XdS-qk-ZVr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="319.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="329.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7S-Jk-wua">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="319.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="329.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait2" translatesAutoresizingMaskIntoConstraints="NO" id="Zng-TU-Cbx">
                                                             <rect key="frame" x="10" y="8" width="55" height="55"/>
@@ -5511,20 +5525,20 @@ happen to bond prices?</string>
                                                             <color key="textColor" red="1" green="0.25834153085918765" blue="0.1715686239102473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the Ultimate News app template you can write your article in Rich text format or even in HTML." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-HW-28D">
-                                                            <rect key="frame" x="10" y="71" width="300" height="50.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the Ultimate News app template you can write your article in Rich text format or even in HTML." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-HW-28D">
+                                                            <rect key="frame" x="10" y="71" width="300" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blogdefaultimg" translatesAutoresizingMaskIntoConstraints="NO" id="sGY-Wg-umy">
-                                                            <rect key="frame" x="10" y="131.5" width="300" height="150"/>
+                                                            <rect key="frame" x="10" y="114.5" width="300" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sGY-Wg-umy" secondAttribute="height" multiplier="2:1" id="HFc-wS-b7z"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQh-1c-dcE">
-                                                            <rect key="frame" x="10" y="291.5" width="85" height="32"/>
+                                                            <rect key="frame" x="10" y="274.5" width="85" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="awG-6w-RDP">
                                                                     <rect key="frame" x="12.5" y="10" width="60.5" height="12"/>
@@ -5566,7 +5580,7 @@ happen to bond prices?</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-Rv-t4D">
-                                                            <rect key="frame" x="103" y="291.5" width="116" height="32"/>
+                                                            <rect key="frame" x="103" y="274.5" width="116" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hps-Z6-gSj">
                                                                     <rect key="frame" x="-2.5" y="10" width="121" height="12"/>
@@ -5606,7 +5620,7 @@ happen to bond prices?</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMr-2T-ZJj">
-                                                            <rect key="frame" x="227" y="291.5" width="85" height="32"/>
+                                                            <rect key="frame" x="227" y="274.5" width="85" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-8V-mIi">
                                                                     <rect key="frame" x="15" y="10" width="55.5" height="12"/>
@@ -5718,6 +5732,7 @@ happen to bond prices?</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mBlogHVTbl" destination="bMq-R7-Wol" id="VcN-j4-Tla"/>
                         <outlet property="mBlogsTblView" destination="bMq-R7-Wol" id="AZv-oZ-VYI"/>
                         <segue destination="IvY-yI-UVo" kind="show" id="Q30-cj-UBu"/>
                     </connections>

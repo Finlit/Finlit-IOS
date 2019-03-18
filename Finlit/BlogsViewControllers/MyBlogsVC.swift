@@ -7,28 +7,32 @@
 //
 
 import UIKit
+import HVTableView
 
 class MyBlogsVC: UIViewController {
 
+    @IBOutlet weak var mBlogHVTbl: HVTableView!
     @IBOutlet weak var mBlogsTblView: UITableView!
     var blogsModelArray = [Blog]()
     var labelHeight : CGFloat = 0
     var selectedCellIndex : IndexPath?
+    var descriptlblWidth : CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.descriptlblWidth = self.view.bounds.width - 20
           self.blogsModelArray = [Blog]()
-     
+    
      
         
     }
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
      
+   
+     
         DispatchQueue.global(qos: .background).async {
             self.getAllBlogs()
         }
-     
-        //self.getAllBlogs()
        
     }
     
@@ -49,11 +53,13 @@ class MyBlogsVC: UIViewController {
                     
                     let blogList = data[APIConstants.items.rawValue] as! NSArray
                     self.blogsModelArray = Blog.modelsFromDictionaryArray(array: blogList)
-                    self.mBlogsTblView.delegate = self
-                    self.mBlogsTblView.dataSource = self
-//                    mBlogsTblView.estimatedRowHeight = 320
-//                    mBlogsTblView.rowHeight = UITableViewAutomaticDimension
-                       self.mBlogsTblView.reloadData()
+//                    self.mBlogsTblView.delegate = self
+//                    self.mBlogsTblView.dataSource = self
+                    self.mBlogHVTbl.hvTableViewDelegate = self
+                    self.mBlogHVTbl.hvTableViewDataSource = self
+                    
+                    
+                  self.mBlogsTblView.reloadData()
                     
                 }}
             else{
@@ -87,12 +93,14 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBlogsTblCellID", for: indexPath) as! MyBlogsTblCell
-        
+        //self.labelHeight = cell.mDescriptionLbl.bounds.size.height
         cell.selectionStyle = .none
         let blog = self.blogsModelArray[indexPath.row]
+        //let lblwidth = self.view.bounds.width - 20
+        self.labelHeight = (blog.description?.heightWithConstrainedWidth(width: self.descriptlblWidth, font: UIFont.systemFont(ofSize: 14)))!
         cell.mHeadlineLbl.text = blog.title
         cell.mDescriptionLbl.text = blog.description
-        self.labelHeight = cell.mDescriptionLbl.bounds.size.height
+        
  
     
     
@@ -129,25 +137,29 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let blog = blogsModelArray[indexPath.row]
-//        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CommentsVCID") as! CommentsVC
-//        destinationVC.blogID = blog.id!
-//        self.navigationController?.pushViewController(destinationVC, animated: true)
-        
+        let blog = blogsModelArray[indexPath.row]
+        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CommentsVCID") as! CommentsVC
+        destinationVC.blogID = blog.id!
+        self.navigationController?.pushViewController(destinationVC, animated: true)
          self.selectedCellIndex = indexPath
+        
+        
+        
+  
     }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         print("Height of the label is \(self.labelHeight) at indexpath = \(indexPath.row)")
-      
-          return 300 + labelHeight
-    
+        
+//         print("Height of the label is \(self.labelHeight) at indexpath = \(indexPath.row)")
+        print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
+          return 325 + labelHeight
+
     }
     
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300 + labelHeight
-    }
+
     
     
 }
@@ -160,16 +172,15 @@ extension MyBlogsVC {
     func likeBlog(IdOfBLog:String){
      
         QuestionAPI().likeBlog(blogID: IdOfBLog){ (isSuccess, response, error) -> Void in
-            SVProgressHUD.dismiss()
+         
             
             if (isSuccess){
                 print("Blog Liked")
-                SVProgressHUD.dismiss()
-                self.getAllBlogs()
+               
                 self.mBlogsTblView.reloadData()
                 
             }else{
-                SVProgressHUD.dismiss()
+               
                 if error != nil{
                     kAppDelegate.showNotification(text: error!)
                 }else{
@@ -185,18 +196,17 @@ extension MyBlogsVC {
     // MARK: DisLike Function
     
     func dislikeBlog(IdOfBLog:String){
-        //SVProgressHUD.show(withStatus: "Please Wait")
+        
         QuestionAPI().dislikeBlog(blogID: IdOfBLog){ (isSuccess, response, error) -> Void in
-            SVProgressHUD.dismiss()
+          
             
             if (isSuccess){
                 print("blog Disliked")
-                SVProgressHUD.dismiss()
-                self.getAllBlogs()
+            
                 self.mBlogsTblView.reloadData()
                 
             }else{
-                SVProgressHUD.dismiss()
+           
                 if error != nil{
                     kAppDelegate.showNotification(text: error!)
                 }else{
@@ -219,6 +229,7 @@ extension MyBlogsVC {
         let cell = mBlogsTblView.cellForRow(at: i)  as! MyBlogsTblCell
         if blog.isLike == false{
         let newCount = blog.likeCount! + 1
+            blog.isLike = true
             blog.likeCount = newCount
             cell.mHeartImgView.image = UIImage(named: "filledHeart")
         cell.mLikeLbl.text = "Like " + String(describing:newCount)
@@ -229,6 +240,7 @@ extension MyBlogsVC {
    
         else if blog.isLike == true && blog.likeCount != 0 {
             let newCount = blog.likeCount! - 1
+            blog.isLike = false
             blog.likeCount = newCount
               cell.mHeartImgView.image = UIImage(named: "unfilledHeart")
             cell.mLikeLbl.text = "Like " + String(describing:newCount)
@@ -246,12 +258,7 @@ extension MyBlogsVC {
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won’t crash
-        
-        //            // exclude some activity types from the list (optional)
-        //            activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-        
-        // present the view controller
+        activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
     
@@ -280,3 +287,83 @@ extension MyBlogsVC {
     
     
 } //EXTENSION CLOSED
+
+
+extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
+    func tableView(_ tableView: UITableView!, cellForRowAt indexPath: IndexPath!, isExpanded: Bool) -> UITableViewCell! {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyBlogsTblCellID", for: indexPath) as! MyBlogsTblCell
+
+        cell.selectionStyle = .none
+        cell.mDescriptionLbl.numberOfLines = 2
+        let blog = self.blogsModelArray[indexPath.row]
+      
+        self.labelHeight = (blog.description?.heightWithConstrainedWidth(width: self.descriptlblWidth, font: UIFont.systemFont(ofSize: 14)))!
+        cell.mHeadlineLbl.text = blog.title
+        cell.mDescriptionLbl.text = blog.description
+        
+        
+        
+        
+        
+        if blog.isLike == true {
+            cell.mHeartImgView.image = UIImage(named: "filledHeart")
+            
+        }
+            
+        else if blog.isLike == false {
+            cell.mHeartImgView.image = UIImage(named: "unfilledHeart")
+            
+        }
+        
+        if blog.user?.imgUrl != nil {
+            cell.mUserImgView.sd_setImage(with: URL.init(string:((blog.user?.imgUrl!.httpsExtend)!)), placeholderImage: #imageLiteral(resourceName: "portrait2")) }
+        if blog.imgUrl != nil {
+            cell.mBlogImgView.sd_setImage(with: URL.init(string:(blog.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+        
+        
+        cell.mLikeLbl.text = "Like " + String(describing:blog.likeCount!)
+        cell.mCommentsLbl.text = "Comments " + "(\(String(describing:blog.commentCount!)))"
+        cell.mBlogImgView.contentMode = .scaleToFill
+        cell.mBlogImgView.clipsToBounds = true
+        
+        cell.mLikeBtn.tag = indexPath.row
+        cell.mShareBtn.tag = indexPath.row
+        cell.mCommentsBtn.tag = indexPath.row
+        cell.mLikeBtn.addTarget(self, action: #selector(likeBtnAction), for: .touchUpInside)
+        cell.mShareBtn.addTarget(self, action: #selector(shareBtnAction), for: .touchUpInside)
+        cell.mCommentsBtn.addTarget(self, action: #selector(commentBtnAction), for: .touchUpInside)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView!, collapse cell: UITableViewCell!, with indexPath: IndexPath!) {
+        print("inside collapse cell")
+         let cell = tableView.cellForRow(at: indexPath) as? MyBlogsTblCell
+       
+    }
+    
+    func tableView(_ tableView: UITableView!, expand cell: UITableViewCell!, with indexPath: IndexPath!) {
+        print("inside expand cell")
+        let cell = tableView.cellForRow(at: indexPath) as? MyBlogsTblCell
+        cell?.mDescriptionLbl.numberOfLines = 0
+        
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView!) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView!, heightForRowAt indexPath: IndexPath!, isExpanded: Bool) -> CGFloat {
+        if isExpanded == true {
+        
+            print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
+             return 330 + labelHeight
+        }
+        
+        else{
+            return 330
+        }
+    }
+    
+    
+}

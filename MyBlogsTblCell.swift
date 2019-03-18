@@ -8,17 +8,24 @@
 
 import UIKit
 
-protocol MyBlogsTblCellDelegate {
-    func moreTapped(cell: MyBlogsTblCell)
+
+
+
+protocol MyBlogsTblCellDelegate: NSObjectProtocol {
+    func exampleTableViewCellDidTapPurchaseButton(_ cell: MyBlogsTblCell?)
 }
+
+
 
 class MyBlogsTblCell: UITableViewCell {
     
-    var delegate: MyBlogsTblCellDelegate?
+
+    
+    weak var delegate: MyBlogsTblCellDelegate?
     
     var isExpanded: Bool = false
 
-    @IBOutlet weak var mReadMoreOutl: UIButton!
+
     @IBOutlet weak var mHeadlineLbl: UILabel!
     @IBOutlet weak var mUserImgView: UIImageView!
     @IBOutlet weak var mAuthorLbl: UILabel!
@@ -33,39 +40,22 @@ class MyBlogsTblCell: UITableViewCell {
     @IBOutlet weak var mCommentsLbl: UILabel!
     @IBOutlet weak var mLikeLbl: UILabel!
     
-    @IBOutlet weak var mDescriptionHeight: NSLayoutConstraint!
-    
-    
-    @IBAction func mReadMoreBtnAct(_ sender: Any) {
-        if sender is UIButton {
-            isExpanded = !isExpanded
-            
-            mDescriptionLbl.numberOfLines = isExpanded ? 0 : 2
-            mReadMoreOutl.setTitle(isExpanded ? "Read less..." : "Read more...", for: .normal)
-            delegate?.moreTapped(cell: self)
-        }
-    }
+ 
     
     
     
-    public func myInit(theTitle: String, theBody: String) {
-        
-        isExpanded = false
-        
-        mDescriptionLbl.text = theTitle
-        mDescriptionLbl.text = theBody
-        
-        mDescriptionLbl.numberOfLines = 0
-        
-        mDescriptionLbl.text = theBody
-        mDescriptionLbl.numberOfLines = 2
-        
-    }
+   
+    
+    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         mUserImgView.layer.cornerRadius = mUserImgView.frame.height/2
-        mDescriptionLbl.sizeToFit()
+        
+    
+        mDescriptionLbl.adjustsFontSizeToFitWidth = false
+        mDescriptionLbl.lineBreakMode = .byTruncatingTail
         
       
     }
@@ -75,5 +65,10 @@ class MyBlogsTblCell: UITableViewCell {
 
        
     }
+    
+    
+    
+
+    
 
 }

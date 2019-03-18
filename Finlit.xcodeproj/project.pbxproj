@@ -85,14 +85,10 @@
 		939EB5542175B89D00125C17 /* SubscriptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5532175B89D00125C17 /* SubscriptionsVC.swift */; };
 		939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5552175BF9500125C17 /* NotificationTblCell.swift */; };
 		939EB5582175DEE700125C17 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EB5572175DEE700125C17 /* SettingVC.swift */; };
-		939F46E72181F0E80010D7EE /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D22181F0E70010D7EE /* Amount.swift */; };
 		939F46E92181F0E80010D7EE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D42181F0E70010D7EE /* Comment.swift */; };
 		939F46EA2181F0E80010D7EE /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46D52181F0E70010D7EE /* Like.swift */; };
 		939F46EE2181F0E80010D7EE /* Countryy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DA2181F0E70010D7EE /* Countryy.swift */; };
 		939F46F12181F0E80010D7EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DD2181F0E70010D7EE /* User.swift */; };
-		939F46F22181F0E80010D7EE /* Invites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46DE2181F0E70010D7EE /* Invites.swift */; };
-		939F46F52181F0E80010D7EE /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E12181F0E70010D7EE /* Media.swift */; };
-		939F46FA2181F0E80010D7EE /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939F46E62181F0E70010D7EE /* Route.swift */; };
 		93A45B8521676E2600DA505B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A45B8421676E2600DA505B /* AppDelegate.swift */; };
 		93A45B8721676E2600DA505B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A45B8621676E2600DA505B /* ViewController.swift */; };
 		93A45B8A21676E2600DA505B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A45B8821676E2600DA505B /* Main.storyboard */; };
@@ -226,14 +222,10 @@
 		939EB5532175B89D00125C17 /* SubscriptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsVC.swift; sourceTree = "<group>"; };
 		939EB5552175BF9500125C17 /* NotificationTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTblCell.swift; sourceTree = "<group>"; };
 		939EB5572175DEE700125C17 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		939F46D22181F0E70010D7EE /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		939F46D42181F0E70010D7EE /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		939F46D52181F0E70010D7EE /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		939F46DA2181F0E70010D7EE /* Countryy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countryy.swift; sourceTree = "<group>"; };
 		939F46DD2181F0E70010D7EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		939F46DE2181F0E70010D7EE /* Invites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invites.swift; sourceTree = "<group>"; };
-		939F46E12181F0E70010D7EE /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		939F46E62181F0E70010D7EE /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		93A45B8121676E2600DA505B /* Finlit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finlit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A45B8421676E2600DA505B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A45B8621676E2600DA505B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -465,14 +457,10 @@
 		939F46D12181F0E70010D7EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				939F46D22181F0E70010D7EE /* Amount.swift */,
 				939F46D42181F0E70010D7EE /* Comment.swift */,
 				939F46D52181F0E70010D7EE /* Like.swift */,
 				939F46DA2181F0E70010D7EE /* Countryy.swift */,
 				939F46DD2181F0E70010D7EE /* User.swift */,
-				939F46DE2181F0E70010D7EE /* Invites.swift */,
-				939F46E12181F0E70010D7EE /* Media.swift */,
-				939F46E62181F0E70010D7EE /* Route.swift */,
 				4E5E315F218ADD1700523400 /* Location.swift */,
 				4E5E3161218B2EC300523400 /* Options.swift */,
 				4E5E3163218B308100523400 /* Questions.swift */,
@@ -839,10 +827,10 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/HVTableView/HVTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReadMoreTextView/ReadMoreTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
@@ -865,10 +853,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HVTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReadMoreTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
@@ -1008,7 +996,6 @@
 				9340028D217C4D8800D08E29 /* EditProfileVC.swift in Sources */,
 				2EF992032199AC7B003C44B4 /* NearBySearch.swift in Sources */,
 				93E75A2E2187315B004C30BC /* Date.swift in Sources */,
-				939F46F52181F0E80010D7EE /* Media.swift in Sources */,
 				4E15C7942213F38000263A86 /* DatesTblCell.swift in Sources */,
 				93E75A1B2187315B004C30BC /* FileUpload.swift in Sources */,
 				4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */,
@@ -1028,11 +1015,8 @@
 				93E75A312187315B004C30BC /* TxtFld.swift in Sources */,
 				931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */,
 				4E241FA82216FC4E0071CC61 /* CommentsVC.swift in Sources */,
-				939F46FA2181F0E80010D7EE /* Route.swift in Sources */,
 				93D2EC38216B735000D0C984 /* ForgetPasswordVC.swift in Sources */,
-				939F46F22181F0E80010D7EE /* Invites.swift in Sources */,
 				93E759BE218730F2004C30BC /* constants.swift in Sources */,
-				939F46E72181F0E80010D7EE /* Amount.swift in Sources */,
 				931048EB2174919E00E09C3E /* ChatVC.swift in Sources */,
 				93621B18216B2A9800D86A27 /* SignInVC.swift in Sources */,
 				93400291217EFBD600D08E29 /* UserChatRoomVC.swift in Sources */,

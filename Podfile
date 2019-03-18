@@ -26,6 +26,6 @@ pod 'Koloda'
 pod 'PayPal-iOS-SDK'
 pod 'FacebookCore'
 pod 'FacebookLogin'
-pod 'ReadMoreTextView'
 pod ‘Toast-Swift', '~> 3.0.0’
+pod "HVTableView"
 end

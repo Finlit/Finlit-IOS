@@ -99,6 +99,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
+  - HVTableView (0.2.1)
   - IQKeyboardManagerSwift (6.2.0)
   - Koloda (4.5):
     - pop (~> 1.0)
@@ -116,7 +117,6 @@ PODS:
   - PayPal-iOS-SDK/Core (2.18.1)
   - pop (1.0.12)
   - Protobuf (3.6.1)
-  - ReadMoreTextView (3.0.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -140,10 +140,10 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - HVTableView
   - IQKeyboardManagerSwift
   - Koloda
   - PayPal-iOS-SDK
-  - ReadMoreTextView
   - SDWebImage (~> 4.0)
   - SVProgressHUD
   - SwiftLocation (~> 3.2.3)
@@ -175,6 +175,7 @@ SPEC REPOS:
     - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
+    - HVTableView
     - IQKeyboardManagerSwift
     - Koloda
     - leveldb-library
@@ -182,7 +183,6 @@ SPEC REPOS:
     - PayPal-iOS-SDK
     - pop
     - Protobuf
-    - ReadMoreTextView
     - SDWebImage
     - SVProgressHUD
     - SwiftLocation
@@ -214,6 +214,7 @@ SPEC CHECKSUMS:
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  HVTableView: 87bcd048e8c1f3262ff55aca2cdc348c9b04a4ce
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Koloda: b1983d795f005f1436f9aaf1911bc287af82348f
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -221,7 +222,6 @@ SPEC CHECKSUMS:
   PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  ReadMoreTextView: 19147adf93abce6d7271e14031a00303fe28720d
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
@@ -230,6 +230,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
 
-PODFILE CHECKSUM: 6a38ebe616ee3cb4d7c1e3142c631645611abf46
+PODFILE CHECKSUM: 89c5aeb28c852e66ef49463b3e573db6af7f4e63
 
 COCOAPODS: 1.5.3

@@ -39,8 +39,11 @@ class UserAPI{
                 if (responseData?[APIConstants.isSuccess.rawValue] as? Bool)! == true{
                     let data = responseData![APIConstants.data.rawValue] as! Dictionary<String, AnyObject>
                     Constants.kUserDefaults.set(data[appConstants.id]! as! String, forKey: appConstants.userId)
+                    Constants.kUserDefaults.set(data[appConstants.id] , forKey: appConstants.id)
                     Constants.kUserDefaults.set(data[appConstants.token] , forKey: appConstants.token)
-                       print(Constants.kUserDefaults.string(forKey: appConstants.userId))
+                    
+                    let dataProfile = NSKeyedArchiver.archivedData(withRootObject: data)
+                    Constants.kUserDefaults.set(dataProfile, forKey: appConstants.profile)
                    
                     
                     

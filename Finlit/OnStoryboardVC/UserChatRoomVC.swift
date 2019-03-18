@@ -67,7 +67,10 @@ class UserChatRoomVC: UIViewController {
         
         let blockButton = UIAlertAction(title: "Block", style: .default, handler: { (action) -> Void in
             print("Block button tapped")
-            self.blockUser(userDict: ["userId":self.UserDict?.id! as AnyObject])
+            if  self.opponentID != ""   {
+                self.blockUser(userDict: ["userId":self.opponentID as AnyObject])
+            }
+          
             })
         
         alert.addAction(blockButton)
