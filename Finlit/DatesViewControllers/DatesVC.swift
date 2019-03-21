@@ -335,6 +335,8 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
            
              let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  " is looking for a date"
+            cell.mLocationLbl.text = userr.location?.address
+            
             cell.mCalendarIcon.isHidden = true
             cell.mLocationIcon.isHidden = true
             cell.mPlaceLbl.isHidden = true
@@ -391,12 +393,12 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if self.categoryType == "Available" {
-            return 340
+            return 360
         }
         
         else {
         
-        return 390
+        return 410
         }}
 
    

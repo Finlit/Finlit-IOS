@@ -17,14 +17,16 @@ class MyBlogsVC: UIViewController {
     var labelHeight : CGFloat = 0
     var selectedCellIndex : IndexPath?
     var descriptlblWidth : CGFloat = 0
+    var descriptionStringArry = [String]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descriptlblWidth = self.view.bounds.width - 20
           self.blogsModelArray = [Blog]()
     
-     
-        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
      
@@ -53,10 +55,10 @@ class MyBlogsVC: UIViewController {
                     
                     let blogList = data[APIConstants.items.rawValue] as! NSArray
                     self.blogsModelArray = Blog.modelsFromDictionaryArray(array: blogList)
-//                    self.mBlogsTblView.delegate = self
-//                    self.mBlogsTblView.dataSource = self
-                    self.mBlogHVTbl.hvTableViewDelegate = self
-                    self.mBlogHVTbl.hvTableViewDataSource = self
+                    self.mBlogsTblView.delegate = self
+                    self.mBlogsTblView.dataSource = self
+//                    self.mBlogHVTbl.hvTableViewDelegate = self
+//                    self.mBlogHVTbl.hvTableViewDataSource = self
                     
                     
                   self.mBlogsTblView.reloadData()
@@ -152,7 +154,6 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-//         print("Height of the label is \(self.labelHeight) at indexpath = \(indexPath.row)")
         print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
           return 325 + labelHeight
 
@@ -294,12 +295,17 @@ extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBlogsTblCellID", for: indexPath) as! MyBlogsTblCell
 
         cell.selectionStyle = .none
-        cell.mDescriptionLbl.numberOfLines = 2
+  
         let blog = self.blogsModelArray[indexPath.row]
       
         self.labelHeight = (blog.description?.heightWithConstrainedWidth(width: self.descriptlblWidth, font: UIFont.systemFont(ofSize: 14)))!
         cell.mHeadlineLbl.text = blog.title
         cell.mDescriptionLbl.text = blog.description
+        
+//        let subSt = blog.description?.prefix(25)
+//        cell.mDescriptionLbl.text = String(subSt!)
+        
+  
         
         
         
@@ -336,15 +342,22 @@ extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView!, collapse cell: UITableViewCell!, with indexPath: IndexPath!) {
-        print("inside collapse cell")
-         let cell = tableView.cellForRow(at: indexPath) as? MyBlogsTblCell
+//         let blog = self.blogsModelArray[indexPath.row]
+//        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
+//        let subSt = blog.description?.prefix(25)
+//        cell.mDescriptionLbl.text = String(subSt!) + "..."
+//        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+      
        
     }
     
     func tableView(_ tableView: UITableView!, expand cell: UITableViewCell!, with indexPath: IndexPath!) {
-        print("inside expand cell")
-        let cell = tableView.cellForRow(at: indexPath) as? MyBlogsTblCell
-        cell?.mDescriptionLbl.numberOfLines = 0
+
+//        let blog = self.blogsModelArray[indexPath.row]
+//        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
+//        cell.mDescriptionLbl.text = blog.description
+//        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        
         
     }
     
@@ -354,15 +367,10 @@ extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView!, heightForRowAt indexPath: IndexPath!, isExpanded: Bool) -> CGFloat {
-        if isExpanded == true {
+      
+        return 340 + self.labelHeight
+     
         
-            print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
-             return 330 + labelHeight
-        }
-        
-        else{
-            return 330
-        }
     }
     
     

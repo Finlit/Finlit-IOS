@@ -1713,6 +1713,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## Inapptics
+
+Inapptics License
+
+Copyright (c) 2018 Inapptics, Inc.
+
+Detailed content at https://inapptics.com/terms-of-use/
+
 ## Koloda
 
 The MIT License (MIT)

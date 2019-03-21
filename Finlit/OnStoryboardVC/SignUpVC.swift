@@ -20,6 +20,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.validator = Validators()
         self.userApi = UserAPI.sharedInstance
         self.user = User.init(dictionary: NSDictionary())

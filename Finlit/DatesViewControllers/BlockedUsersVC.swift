@@ -114,7 +114,11 @@ extension BlockedUsersVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlockedUsersTblCellID", for: indexPath) as! BlockedUsersTblCell
         let userr = userMdlArry[indexPath.row]
         cell.mNameLbl.text = userr.name
-        cell.mIntrestLbl.text = userr.interest![0].answer
+       // cell.mIntrestLbl.text = userr.interest![0].answer
+        if let age = userr.ageGroup {
+            cell.mIntrestLbl.text = String(describing: age)
+            
+        }
         cell.mUnblockBtn.tag = indexPath.row
         cell.mUnblockBtn.addTarget(self, action: #selector(unBlockBtnTapped), for: .touchUpInside)
         

@@ -23,6 +23,7 @@ class OtherUserProfileVC: UIViewController {
     @IBOutlet weak var mAgeTextFiled: UITextField!
     @IBOutlet weak var mLocationTextFiled: UITextField!
   
+   
     
     
     private var fileUploadAPI:FileUpload!
@@ -37,6 +38,7 @@ class OtherUserProfileVC: UIViewController {
            self.userApi = UserAPI.sharedInstance
           self.navigationController?.navigationBar.isHidden = true
          getUserDetail(UserID: opponentId )
+        self.mcoverImage.alpha = 0.7
     }
     
     

@@ -45,11 +45,14 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mPasswordTextField: UITextField!
     @IBOutlet weak var maboutYouTextField: UITextField!
     
+    var currentGenderOnPicker : String?
+    var currentAgeOnPicker : String?
+    
     var isFbLogin : Bool = false
     let Gender = ["male","female"]
     let Whatru = ["Credit Card Churning","Stock Trading","Real estate","Retirement planning","Budget planning","Personal investment","Futures/Forex Trading","Crypto Trading","Vacation planning"]
      var GenderpickerView = UIPickerView()
-    var Whatrupickerview = UIPickerView()
+    var agePickerView = UIPickerView()
      var locCor: [Double]!
       private var fileUploadAPI:FileUpload!
     var picUrl:String?
@@ -57,7 +60,7 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     var LoctionDict : Location?
     var latDouble = Double()
     var lngDouble = Double()
-    var CountArr = NSMutableArray()
+    var ageValuesArry = NSMutableArray()
     var whatsarr = NSMutableArray()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,12 +69,12 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
         self.navigationController?.navigationBar.isHidden = true
         self.GenderpickerView.delegate = self
         self.GenderpickerView.dataSource = self
-        self.Whatrupickerview.dataSource = self
-        self.Whatrupickerview.delegate = self
+        self.agePickerView.dataSource = self
+        self.agePickerView.delegate = self
         mFintableView.isHidden = true
         mBlackbtnOut.isHidden = true
         mGenderTextField.inputView = GenderpickerView
-        mAgeTextField.inputView = Whatrupickerview
+        mAgeTextField.inputView = agePickerView
         
         self.mNameTextField.delegate = self
         self.mAgeTextField.delegate = self
@@ -86,6 +89,11 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
         if self.isFbLogin == true {
             self.fillInputs()
         }
+        
+        self.createDoneButtonForPickers()
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,7 +138,7 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     func count(){
         for i in 16...100{
             let num = String(describing: i)
-            CountArr.add(num)
+            ageValuesArry.add(num)
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -292,26 +300,27 @@ extension  CreateProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
             return Gender.count
         }
         
-        return self.CountArr.count
+        return self.ageValuesArry.count
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == self.GenderpickerView {
+            self.currentGenderOnPicker = Gender[row]
             return Gender[row]
         }
             
-        else if pickerView == self.Whatrupickerview{
-            
-            return CountArr[row] as! String
+        else if pickerView == self.agePickerView{
+            self.currentAgeOnPicker = String(describing:ageValuesArry[row])
+            return ageValuesArry[row] as! String
         }
         return "empty"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if pickerView == self.Whatrupickerview {
-            self.mAgeTextField.text = CountArr[row] as! String
+        if pickerView == self.agePickerView {
+            self.mAgeTextField.text = ageValuesArry[row] as! String
             self.mAgeTextField.resignFirstResponder()
         }
         else if pickerView == self.GenderpickerView{
@@ -321,7 +330,38 @@ extension  CreateProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
         
         
     }
-}
+    
+    
+    func createDoneButtonForPickers() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        
+        mGenderTextField.inputAccessoryView = toolbar
+        mGenderTextField.inputView = GenderpickerView
+        
+        mAgeTextField.inputAccessoryView = toolbar
+        mAgeTextField.inputView = agePickerView
+        
+        
+    }
+    
+    
+    @objc func donePressed() {
+        mGenderTextField.text = self.currentGenderOnPicker
+        mAgeTextField.text = self.currentAgeOnPicker
+        self.view.endEditing(true)
+        
+        
+    }}
+    
+    
+    
+    
+    
+
 
 
 

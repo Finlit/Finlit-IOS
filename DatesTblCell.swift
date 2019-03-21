@@ -13,6 +13,7 @@ import UIKit
 
 class DatesTblCell: UITableViewCell {
 
+    @IBOutlet weak var mLocationLbl: UILabel!
     @IBOutlet weak var mConfirmInterestBtn: UIButton!
     @IBOutlet weak var mNoThanksBtn: UIButton!
     @IBOutlet weak var mProfileImgSmall: UIImageView!

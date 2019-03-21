@@ -112,6 +112,7 @@ public class Chat {
         isAdmin = dictionary["isAdmin"] as? Int
         isBlocked = dictionary["isBlocked"] as? Int
         unreadCount = dictionary["unreadCount"] as? Int
+        lastMessage = dictionary["lastMessage"] as? String
     }
     
     

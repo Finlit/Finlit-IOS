@@ -26,6 +26,7 @@ class MyBlogsTblCell: UITableViewCell {
     var isExpanded: Bool = false
 
 
+    @IBOutlet weak var mDescriptionHeight: NSLayoutConstraint!
     @IBOutlet weak var mHeadlineLbl: UILabel!
     @IBOutlet weak var mUserImgView: UIImageView!
     @IBOutlet weak var mAuthorLbl: UILabel!

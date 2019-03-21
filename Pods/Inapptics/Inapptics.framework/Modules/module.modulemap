@@ -1,0 +1,6 @@
+framework module Inapptics {
+  umbrella header "Inapptics.h"
+
+  export *
+  module * { export * }
+}

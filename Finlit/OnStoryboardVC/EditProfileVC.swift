@@ -24,11 +24,15 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var mBlackbtnOut: UIButton!
     @IBOutlet weak var mDoneBtnOut: UIButton!
     
+    var currentGenderOnPicker : String?
+    var currentAgeOnPicker : String?
+    let ageValuesArry = Array(16...100)
     let Gender = ["male","female"]
     let Whatru = ["Credit Card Churning","Stock Trading","Real estate","Retirement planning","Budget planning","Personal investment","Futures/Forex Trading","Cryptocurrency Trading","Vacation planning"]
     var QuestionArr = ["What common interests would you like to share with other members?","Who are you looking for?","What is your eye color?","What is your hair color?","What is your faith?","What’s your level of education?","How often do you exercise?","Do you smoke?","How often do you drink?","Do you have any kids?","Do you want children?","What’s your current annual income?","What are you saving for?","What kind of exercise do you enjoy?"]
     var GenderpickerView = UIPickerView()
     var Whatrupickerview = UIPickerView()
+    var agesPickerView = UIPickerView()
     var locCor: [Double]!
     private var fileUploadAPI:FileUpload!
     var picUrl:String?
@@ -44,10 +48,10 @@ class EditProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mNameTextField.delegate = self
-        self.mAgeTextField.delegate = self
-        self.mGenderTextField.delegate = self
+//        self.mAgeTextField.delegate = self
+//        self.mGenderTextField.delegate = self
         self.mLocationTextField.delegate = self
-        self.mWhatRUTextField.delegate = self
+        //self.mWhatRUTextField.delegate = self
         self.mAboutYouTextField.delegate = self
         
         self.userApi = UserAPI.sharedInstance
@@ -58,14 +62,21 @@ class EditProfileVC: UIViewController {
         self.GenderpickerView.dataSource = self
         self.Whatrupickerview.dataSource = self
         self.Whatrupickerview.delegate = self
+        self.agesPickerView.delegate = self
+        self.agesPickerView.dataSource =  self
+       
         mGenderTextField.inputView = GenderpickerView
         mWhatRUTextField.inputView = Whatrupickerview
+        mAgeTextField.inputView = agesPickerView
+       
         mBlackbtnOut.isHidden = true
         mEdittableView.isHidden = true
         mDoneBtnOut.isHidden = true
       
         let userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
         self.getUserDetail(UserID:userId!)
+        self.createDoneButtonForPickers()
+        self.mCoverProfileImg.alpha = 0.7
     }
 
     override func didReceiveMemoryWarning() {
@@ -219,20 +230,30 @@ extension  EditProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
             return Gender.count
         }
         
+        else if pickerView == self.agesPickerView {
+            return ageValuesArry.count
+        }
+        
         return self.Whatru.count
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == self.GenderpickerView {
+            self.currentGenderOnPicker = Gender[row]
             return Gender[row]
         }
             
-        else if pickerView == self.Whatrupickerview{
             
+        else if pickerView == self.agesPickerView{
+            self.currentAgeOnPicker = String(describing:ageValuesArry[row])
+            return String(describing:ageValuesArry[row])
+        }
+            
+        else {
             return Whatru[row]
         }
-        return "empty"
+     
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -242,14 +263,74 @@ extension  EditProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
             self.mWhatRUTextField.resignFirstResponder()
         }
         else if pickerView == self.GenderpickerView{
+            self.currentGenderOnPicker = Gender[row]
             mGenderTextField.text = Gender[row]
             mGenderTextField.resignFirstResponder()
+        }
+        
+        else if pickerView == self.agesPickerView {
+            self.currentAgeOnPicker = String(describing:ageValuesArry[row])
+            mAgeTextField.text = String(describing:ageValuesArry[row])
+            mAgeTextField.resignFirstResponder()
         }
         
         
     }
     
-}
+    
+    func createDoneButtonForPickers() {
+        let toolbarForGenderPicker = UIToolbar()
+        toolbarForGenderPicker.sizeToFit()
+        
+        let toolbarForAgePicker = UIToolbar()
+        toolbarForAgePicker.sizeToFit()
+        
+        let doneForGender = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForGender))
+        toolbarForGenderPicker.setItems([doneForGender], animated: false)
+        
+        
+        let doneForAge = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForAge))
+        toolbarForAgePicker.setItems([doneForAge], animated: false)
+        
+        mGenderTextField.inputAccessoryView = toolbarForGenderPicker
+        mGenderTextField.inputView = GenderpickerView
+        
+        mAgeTextField.inputAccessoryView = toolbarForAgePicker
+        mAgeTextField.inputView = agesPickerView
+        
+        
+//        mWhatRUTextField.inputAccessoryView = toolbar
+//        mWhatRUTextField.inputView = Whatrupickerview
+        
+        
+    }
+    
+    
+    @objc func donePressedForGender() {
+     
+            mGenderTextField.text = self.currentGenderOnPicker
+             self.view.endEditing(true)
+            return
+        }
+        
+     
+        
+        @objc func donePressedForAge() {
+         
+         
+                mAgeTextField.text = self.currentAgeOnPicker
+                self.view.endEditing(true)
+                return
+       
+        
+        
+    }
+    
+    
+    
+}//CLASS CLOSED
+    
+
 
 
 

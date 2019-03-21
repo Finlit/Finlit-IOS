@@ -3031,7 +3031,7 @@ whatever I put my mind to.</string>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="novicesmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ene-JF-qtu">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="novicesmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ene-JF-qtu">
                                                     <rect key="frame" x="162" y="26" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="0LT-Ed-OKS"/>
@@ -4709,45 +4709,45 @@ happen to bond prices?</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-V5-Cee">
-                                                            <rect key="frame" x="10" y="71" width="300" height="150"/>
+                                                            <rect key="frame" x="10" y="79" width="300" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XVt-V5-Cee" secondAttribute="height" multiplier="2:1" id="OtY-9Y-sa7"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karina wants to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwh-DH-eRg">
-                                                            <rect key="frame" x="12" y="229" width="163" height="17"/>
+                                                            <rect key="frame" x="12" y="237" width="163" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOCATION" translatesAutoresizingMaskIntoConstraints="NO" id="TZ9-fy-R0m">
-                                                            <rect key="frame" x="12" y="254" width="20" height="20"/>
+                                                            <rect key="frame" x="12" y="262" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="Mof-5c-SUt"/>
                                                                 <constraint firstAttribute="height" constant="20" id="ipd-3w-TGG"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calandericon" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-t4-PDd">
-                                                            <rect key="frame" x="12" y="284" width="18" height="18"/>
+                                                            <rect key="frame" x="12" y="292" width="18" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="70N-cA-MRc"/>
                                                                 <constraint firstAttribute="height" constant="18" id="KD5-Vm-gAq"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggest a place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU9-gi-GzQ">
-                                                            <rect key="frame" x="42" y="257" width="91" height="14.5"/>
+                                                            <rect key="frame" x="42" y="265" width="91" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggest a time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-dv-xnE">
-                                                            <rect key="frame" x="42" y="286" width="85" height="14.5"/>
+                                                            <rect key="frame" x="42" y="294" width="85" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giS-wf-IT5">
-                                                            <rect key="frame" x="12" y="316" width="138" height="35"/>
+                                                            <rect key="frame" x="12" y="324" width="138" height="35"/>
                                                             <color key="backgroundColor" red="0.91372549020000005" green="0.2156862745" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="H8Z-D7-vbq"/>
@@ -4758,12 +4758,18 @@ happen to bond prices?</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-ej-k8U">
-                                                            <rect key="frame" x="170" y="316" width="138" height="35"/>
+                                                            <rect key="frame" x="170" y="324" width="138" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                             <state key="normal" title="No Thanks">
                                                                 <color key="titleColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-Bb-Uqm">
+                                                            <rect key="frame" x="83" y="53" width="48.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -4771,11 +4777,13 @@ happen to bond prices?</string>
                                                         <constraint firstItem="XVt-V5-Cee" firstAttribute="leading" secondItem="lBE-fc-w59" secondAttribute="leading" constant="10" id="3RH-SU-kp3"/>
                                                         <constraint firstItem="zK0-7S-bcO" firstAttribute="leading" secondItem="5QO-tU-grv" secondAttribute="leading" id="4ao-AB-xzi"/>
                                                         <constraint firstItem="Qwh-DH-eRg" firstAttribute="leading" secondItem="lBE-fc-w59" secondAttribute="leading" constant="12" id="4yb-H3-T0M"/>
-                                                        <constraint firstItem="XVt-V5-Cee" firstAttribute="top" secondItem="wEM-YF-YQr" secondAttribute="bottom" constant="8" id="7Ul-1d-tMx"/>
+                                                        <constraint firstItem="hVS-Bb-Uqm" firstAttribute="top" secondItem="zK0-7S-bcO" secondAttribute="bottom" constant="2" id="6wt-ZR-8KR"/>
+                                                        <constraint firstItem="XVt-V5-Cee" firstAttribute="top" secondItem="wEM-YF-YQr" secondAttribute="bottom" constant="16" id="7Ul-1d-tMx"/>
                                                         <constraint firstItem="cUl-dv-xnE" firstAttribute="centerY" secondItem="dRS-t4-PDd" secondAttribute="centerY" id="9CJ-0h-NzG"/>
                                                         <constraint firstItem="zK0-7S-bcO" firstAttribute="top" secondItem="5QO-tU-grv" secondAttribute="bottom" constant="1" id="EKC-dR-Uka"/>
                                                         <constraint firstItem="wEM-YF-YQr" firstAttribute="leading" secondItem="lBE-fc-w59" secondAttribute="leading" constant="12" id="F8V-8p-ZuL"/>
                                                         <constraint firstItem="JU9-gi-GzQ" firstAttribute="leading" secondItem="TZ9-fy-R0m" secondAttribute="trailing" constant="10" id="GZU-3b-Waa"/>
+                                                        <constraint firstItem="hVS-Bb-Uqm" firstAttribute="leading" secondItem="zK0-7S-bcO" secondAttribute="leading" id="Hwc-qc-M4c"/>
                                                         <constraint firstItem="dRS-t4-PDd" firstAttribute="leading" secondItem="lBE-fc-w59" secondAttribute="leading" constant="12" id="LsG-n0-Vx0"/>
                                                         <constraint firstItem="5QO-tU-grv" firstAttribute="leading" secondItem="wEM-YF-YQr" secondAttribute="trailing" constant="16" id="OCu-QL-oFg"/>
                                                         <constraint firstItem="giS-wf-IT5" firstAttribute="top" secondItem="dRS-t4-PDd" secondAttribute="bottom" constant="14" id="OMA-UI-xbS"/>
@@ -4809,6 +4817,7 @@ happen to bond prices?</string>
                                             <outlet property="mConfirmInterestBtn" destination="giS-wf-IT5" id="Efh-QA-d8f"/>
                                             <outlet property="mInterestLbl" destination="zK0-7S-bcO" id="TTs-tv-38W"/>
                                             <outlet property="mLocationIcon" destination="TZ9-fy-R0m" id="LfC-XY-etG"/>
+                                            <outlet property="mLocationLbl" destination="hVS-Bb-Uqm" id="nZR-Q2-TLs"/>
                                             <outlet property="mNameAgeLbl" destination="5QO-tU-grv" id="x3n-Fk-3in"/>
                                             <outlet property="mNoThanksBtn" destination="Naq-ej-k8U" id="Hfh-JB-p6g"/>
                                             <outlet property="mPlaceLbl" destination="JU9-gi-GzQ" id="zg1-jm-0wO"/>
@@ -5525,20 +5534,20 @@ happen to bond prices?</string>
                                                             <color key="textColor" red="1" green="0.25834153085918765" blue="0.1715686239102473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the Ultimate News app template you can write your article in Rich text format or even in HTML." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-HW-28D">
-                                                            <rect key="frame" x="10" y="71" width="300" height="33.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the Ultimate News app template you can write your article in Rich text format or even in HTML." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-HW-28D">
+                                                            <rect key="frame" x="10" y="71" width="300" height="50.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blogdefaultimg" translatesAutoresizingMaskIntoConstraints="NO" id="sGY-Wg-umy">
-                                                            <rect key="frame" x="10" y="114.5" width="300" height="150"/>
+                                                            <rect key="frame" x="10" y="131.5" width="300" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sGY-Wg-umy" secondAttribute="height" multiplier="2:1" id="HFc-wS-b7z"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQh-1c-dcE">
-                                                            <rect key="frame" x="10" y="274.5" width="85" height="32"/>
+                                                            <rect key="frame" x="10" y="291.5" width="85" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="awG-6w-RDP">
                                                                     <rect key="frame" x="12.5" y="10" width="60.5" height="12"/>
@@ -5580,7 +5589,7 @@ happen to bond prices?</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-Rv-t4D">
-                                                            <rect key="frame" x="103" y="274.5" width="116" height="32"/>
+                                                            <rect key="frame" x="103" y="291.5" width="116" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hps-Z6-gSj">
                                                                     <rect key="frame" x="-2.5" y="10" width="121" height="12"/>
@@ -5620,7 +5629,7 @@ happen to bond prices?</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMr-2T-ZJj">
-                                                            <rect key="frame" x="227" y="274.5" width="85" height="32"/>
+                                                            <rect key="frame" x="227" y="291.5" width="85" height="32"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ip8-8V-mIi">
                                                                     <rect key="frame" x="15" y="10" width="55.5" height="12"/>

@@ -1870,6 +1870,20 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Inapptics License
+
+Copyright (c) 2018 Inapptics, Inc.
+
+Detailed content at https://inapptics.com/terms-of-use/</string>
+			<key>License</key>
+			<string>Custom</string>
+			<key>Title</key>
+			<string>Inapptics</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2017 Yalantis

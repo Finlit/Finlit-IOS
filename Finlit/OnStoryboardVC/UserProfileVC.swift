@@ -43,6 +43,7 @@ class UserProfileVC: UIViewController {
         self.userApi = UserAPI.sharedInstance
         mGenderTextFiled.inputView = GenderpickerView
         mFinancialInterestTextFiled.inputView = Whatrupickerview
+         self.mcoverImage.alpha = 0.7
         
         
     }

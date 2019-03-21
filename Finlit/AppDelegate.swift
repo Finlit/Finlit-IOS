@@ -17,6 +17,9 @@ import UserNotifications
 import FirebaseInstanceID
 import FirebaseMessaging
 import IQKeyboardManagerSwift
+import Inapptics
+
+
 struct DataNotif: Codable {
     var title: String?
     var body: String?
@@ -43,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         FirebaseApp.configure()
         Messaging.messaging().shouldEstablishDirectChannel = true
         Messaging.messaging().delegate = self
+        
+        
+       Inapptics.letsGo(withAppToken: "8043b4b04ace11e99b475b5aadde95e7")
+        
+        
+        
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (isGranted, err) in
