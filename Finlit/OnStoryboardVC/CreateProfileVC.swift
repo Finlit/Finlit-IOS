@@ -98,7 +98,6 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -242,7 +241,9 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
                 Constants.kUserDefaults.set("active", forKey: UserAttributes.status.rawValue)
                 //self.performSegue(withIdentifier: "segueToHome", sender: self)
                 
-                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeVCID") as! WelcomeVC
+//                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeVCID") as! WelcomeVC
+                
+                  let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                 self.navigationController?.pushViewController(destinationvc, animated: true)
                 return
                 

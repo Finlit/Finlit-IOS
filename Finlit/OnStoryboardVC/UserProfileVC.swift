@@ -73,6 +73,20 @@ class UserProfileVC: UIViewController {
         return false
     }
     
+    
+    
+    @IBAction func mSelectedIntrestsBtnTapped(_ sender: UIButton) {
+        let resultController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedInterestsPopUpVCID") as? SelectedInterestsPopUpVC
+        self.navigationController?.definesPresentationContext = true
+        resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        resultController?.modalTransitionStyle = .crossDissolve
+        resultController?.InteresrMdlArry = self.user?.interest
+        //        resultController?.delegate = self
+        self.present(resultController!, animated: true, completion: nil)
+    }
+    
+    
+    
     @IBAction func mBackBtn(_ sender: UIButton) {
          self.navigationController?.popViewController(animated: true)
     }

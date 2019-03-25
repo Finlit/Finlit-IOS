@@ -231,7 +231,11 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
             cell.mConfirmInterestBtn.setTitle("Confirm", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "\(username.capitalized)" +  " wants to meet you"
-            cell.mPlaceLbl.text = userr.location?.address
+            if userr.location?.address != nil {cell.mPlaceLbl.text = userr.location?.address}
+            else if userr.userlocation?.address != nil {
+                cell.mPlaceLbl.text = userr.userlocation?.address
+            }
+            
             cell.mTimeLbl.text = userr.createdAt?.utcStringToLocalDateTimeForNotification
 
         }
@@ -267,12 +271,26 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         let tag = sender.tag
         let datess = userMdlArry[tag]
         let i = IndexPath(row: tag, section: 0)
+        
+        if self.categName == "Received" {
         self.userMdlArry.remove(at: i.row)
         
         if let idd = datess.id {
             self.sendConfirmRequest(IdofUser: idd)
             self.mPendingDatesTblView.reloadData()
+            
+            }
+            return
         }
+        
+        if self.categName == "Sent" {
+            let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
+            destinationVc.secondUserDetails = userMdlArry[tag]
+            self.navigationController?.pushViewController(destinationVc, animated: true)
+            
+        }
+        
+        
         
         
     }

@@ -9,6 +9,8 @@
 import UIKit
 import GooglePlaces
 import SDWebImage
+import Toast_Swift
+
 class EditProfileVC: UIViewController {
     @IBOutlet weak var mNameTextField: UITextField!
     @IBOutlet weak var mAgeTextField: UITextField!
@@ -93,8 +95,8 @@ class EditProfileVC: UIViewController {
             SDImageCache.shared().clearMemory()
             SDImageCache.shared().clearDisk()
             Constants.kUserDefaults.set(url, forKey: appConstants.UserImage)
-            mprofileImgs.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
-            mCoverProfileImg.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "default_user_square"))
+            mprofileImgs.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "cameraicon"))
+            mCoverProfileImg.sd_setImage(with: urlimage, placeholderImage: #imageLiteral(resourceName: "squareimage"))
         }
         
         mGenderTextField.text = user?.gender
@@ -109,6 +111,9 @@ class EditProfileVC: UIViewController {
         mGenderTextField.text = user?.gender
         mAboutYouTextField.text = user?.aboutUs
     }
+    
+    
+    
     @IBAction func mInterestBtnAct(_ sender: Any) {
         mBlackbtnOut.isHidden = false
         mEdittableView.isHidden = false
@@ -128,7 +133,7 @@ class EditProfileVC: UIViewController {
         mDoneBtnOut.isHidden = true
         user?.interest = interestArr
         self.user?.userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
-        userUpdateProfile(userDict: user!)
+        //userUpdateProfile(userDict: user!)
         
     }
     
@@ -147,11 +152,17 @@ class EditProfileVC: UIViewController {
         if picUrl != nil{
             self.user?.picUrl = nil
             self.user?.picUrl = picUrl!
-            print(picUrl)
+            print("Pic URL is \(String(describing: picUrl))")
         }
+        
+        self.user?.interest = interestArr
         
         self.userUpdateProfile(userDict: user!)
     }
+    
+    
+    
+    
     // MARK: User SignUp Function
     func userUpdateProfile(userDict:User)
         
@@ -162,12 +173,15 @@ class EditProfileVC: UIViewController {
             
             if (isSuccess){
                 SVProgressHUD.dismiss()
-                kAppDelegate.showNotification(text: "Profile Updated Successfully")
+                self.view.makeToast("Profile Updated Successfully")
                 Constants.kUserDefaults.set("active", forKey: UserAttributes.status.rawValue)
                 //self.performSegue(withIdentifier: "segueToHome", sender: self)
-               let userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
-                self.getUserDetail(UserID:userId!)
-//                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCID") as! HomeVC
+              // let userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
+                  self.navigationController?.popViewController(animated: true)
+                //self.getUserDetail(UserID:userId!)
+
+                
+                //                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCID") as! HomeVC
 //                self.navigationController?.pushViewController(destinationvc, animated: true)
                 return
                 
@@ -176,9 +190,10 @@ class EditProfileVC: UIViewController {
             }else{
                 SVProgressHUD.dismiss()
                 if error != nil{
-                    kAppDelegate.showNotification(text: error!)
+                    self.view.makeToast(error!)
+                    
                 }else{
-                    kAppDelegate.showNotification(text: "Something went wrong!")
+                    self.view.makeToast("Something went wrong!")
                 }
             }
             
@@ -191,25 +206,26 @@ class EditProfileVC: UIViewController {
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
                  
-                    self.user = nil
+                   //self.user = nil
+                  
+                    self.user =  User.init(dictionary: NSDictionary())
                     let userlist = data[APIConstants.data.rawValue] as! NSDictionary
                     print(userlist)
 
                     self.user = User.init(dictionary: userlist)
                     self.putdataTofields()
+                  
                 }}
             else{
               
-                print("Getting Error")
+                print("Something went wrong in getUserDetail API")
+               self.view.makeToast("Something went wrong!")
             }
         }
         
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        self.view.endEditing(true)
-        return false
-    }
+    
+  
     
     func pickAddress() {
         let autocompleteController = GMSAutocompleteViewController()
@@ -217,7 +233,9 @@ class EditProfileVC: UIViewController {
         present(autocompleteController, animated: true, completion: nil)
     }
  
-}
+} //CLASS CLOSED
+
+//PICKER VIEW DELEGATES SETUP
 extension  EditProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -285,11 +303,11 @@ extension  EditProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
         let toolbarForAgePicker = UIToolbar()
         toolbarForAgePicker.sizeToFit()
         
-        let doneForGender = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForGender))
+        let doneForGender = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForGenderPicker))
         toolbarForGenderPicker.setItems([doneForGender], animated: false)
         
         
-        let doneForAge = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForAge))
+        let doneForAge = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForAgePicker))
         toolbarForAgePicker.setItems([doneForAge], animated: false)
         
         mGenderTextField.inputAccessoryView = toolbarForGenderPicker
@@ -306,29 +324,22 @@ extension  EditProfileVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
-    @objc func donePressedForGender() {
-     
+    @objc func donePressedForGenderPicker() {
             mGenderTextField.text = self.currentGenderOnPicker
              self.view.endEditing(true)
             return
         }
         
-     
-        
-        @objc func donePressedForAge() {
-         
-         
+    
+        @objc func donePressedForAgePicker() {
                 mAgeTextField.text = self.currentAgeOnPicker
                 self.view.endEditing(true)
                 return
-       
-        
-        
     }
     
     
     
-}//CLASS CLOSED
+}
     
 
 
@@ -461,7 +472,7 @@ extension EditProfileVC : CropViewControllerDelegate {
 }
 
 
-
+//TABLEVIEW DELEGATE METHODS AND SETUP
 extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -496,19 +507,20 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
         
     }
    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//
+//    }
 
+//    @objc func mdonebtn(sender: UIButton){
+//
+//
+//    }
     
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-  
-    }
-
-    @objc func mdonebtn(sender: UIButton){
-   
-
-    }
     @objc func checkbtn(sender: UIButton){
         
         let touchPoint: CGPoint = sender.convert(CGPoint.zero, to: mEdittableView)
@@ -518,12 +530,14 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
             checkarrMenu.remove([clickedButtonIndexPath])
             
             
-        }else{
-            checkarrMenu.add([clickedButtonIndexPath])
-            indexInt = (clickedButtonIndexPath?.row)!
-
-
         }
+        
+        else{
+            checkarrMenu.add([clickedButtonIndexPath])
+            self.indexInt = (clickedButtonIndexPath?.row)!
+        }
+        
+        
         let indexPosition = IndexPath(row: (clickedButtonIndexPath?.row)!, section: 0)
         mEdittableView.reloadRows(at: [indexPosition], with: .none)
     }
@@ -554,7 +568,7 @@ extension EditProfileVC: UITextFieldDelegate {
        // let indexof = QuestionArr.index(of:textField.placeholder!)
     }
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print("ok")
+        print("Inside text field should end editing delegate method")
          let index = IndexPath(row: indexInt, section: 0)
         print(index)
         let cell = mEdittableView.cellForRow(at: index) as? EditProfileTableViewCell
@@ -564,7 +578,7 @@ extension EditProfileVC: UITextFieldDelegate {
         interestDict.question = ques
         interestDict.answer = text!
         interestArr.append(interestDict)
-       // print(text!)
+      
         
         return true
     }
@@ -575,6 +589,14 @@ extension EditProfileVC: UITextFieldDelegate {
         let text = cell?.mtxtfld.text
         print(cell?.mtxtfld.text)
     
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        return false
     }
    
 }

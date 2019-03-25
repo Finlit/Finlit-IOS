@@ -71,6 +71,7 @@ class CongratsVC: UIViewController {
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCID") as! HomeVC
         self.navigationController?.pushViewController(destinationvc, animated: true)
     }
+    
     func userUpdateProfile(userDict:User)
         
     {

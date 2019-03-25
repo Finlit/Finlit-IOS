@@ -110,6 +110,7 @@ public class User {
     public var lastName : String?
     public var phone : String?
     public var location : Location?
+     public var userlocation : Location?
     public var interest : [InterestModel]?
     public var address : String?
     public var isFavourite : Int?
@@ -212,6 +213,11 @@ public class User {
         if questarr?.count != 0{
         question = questarr?.object(at: 0) as? String
         }
+        
+           if (dictionary["userlocation"] != nil) { userlocation = Location(dictionary: dictionary["userlocation"] as! NSDictionary) }
+        
+        
+        
 	}
 
 		
@@ -256,6 +262,9 @@ public class User {
         dictionary.setValue(self.isProfileCompleted, forKey: "isProfileCompleted")
         dictionary.setValue(self.role, forKey: "role")
         dictionary.setValue(self.question, forKey: "question")
+        
+         dictionary.setValue(self.userlocation?.dictionaryRepresentation(), forKey: "userlocation")
+        
         
         var arr = [NSDictionary]()
         if self.interest != nil{

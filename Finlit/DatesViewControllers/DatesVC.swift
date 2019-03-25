@@ -393,12 +393,12 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if self.categoryType == "Available" {
-            return 360
+            return 350
         }
         
         else {
         
-        return 410
+        return 400
         }}
 
    

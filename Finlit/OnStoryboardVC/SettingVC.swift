@@ -17,16 +17,33 @@ var GenderpickerView = UIPickerView()
     
     @IBOutlet weak var mNotificationsSwitch: UISwitch!
     @IBOutlet weak var mSoundSwitch: UISwitch!
-    
+    @IBOutlet weak var mFindMeDateSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if  Constants.kUserDefaults.value(forKey: appConstants.findMeADate) != nil {
+            if  Constants.kUserDefaults.value(forKey: appConstants.findMeADate) as! Bool == false {
+                mFindMeDateSwitch.isOn = false
+            }
+                
+            else {
+                mFindMeDateSwitch.isOn = true
+            }
+            
+        }
+      
+      
         mGenderTextField.inputView = GenderpickerView
       self.GenderpickerView.delegate = self
         GenderpickerView.showsSelectionIndicator = true
         self.setupSwitchUI()
     }
+    
+    
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = false
@@ -42,6 +59,21 @@ var GenderpickerView = UIPickerView()
     }
     
     
+    
+    @IBAction func mDateSwitchToggled(_ sender: UISwitch) {
+        if sender.isOn == false {
+             Constants.kUserDefaults.setValue(false, forKey: appConstants.findMeADate)
+        }
+        
+        else {
+             Constants.kUserDefaults.setValue(true, forKey: appConstants.findMeADate)
+            
+        }
+    }
+    
+    
+    
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //        let frameSize: CGPoint = CGPoint(x: UIScreen.main.bounds.size.width*0.5,y: UIScreen.main.bounds.size.height*0.5)
 //        self.view.makeToastActivity(frameSize)
@@ -54,12 +86,15 @@ var GenderpickerView = UIPickerView()
     }
     
     func setupSwitchUI () {
-        self.mNotificationsSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        self.mSoundSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.mNotificationsSwitch.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
+        self.mSoundSwitch.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
+        self.mFindMeDateSwitch.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
+        
      
         
-        self.mNotificationsSwitch.onTintColor = UIColor.pinkThemeColor()
-        self.mSoundSwitch.onTintColor = UIColor.pinkThemeColor()
+        self.mNotificationsSwitch.onTintColor = UIColor.switchSeaGreenColor()
+        self.mSoundSwitch.onTintColor = UIColor.switchSeaGreenColor()
+        self.mFindMeDateSwitch.onTintColor = UIColor.switchSeaGreenColor()
     
         
     }
@@ -74,11 +109,12 @@ var GenderpickerView = UIPickerView()
     
     @IBAction func mAllButtonAct(_ sender: UIButton) {
         switch sender.tag {
-        case 0:
-            let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "QuickQuizVCID") as! QuickQuizVC
-            destinationvc.VCcheck = 0
-            self.navigationController?.pushViewController(destinationvc, animated: true)
-            break
+//        case 0:
+//            let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "QuickQuizVCID") as! QuickQuizVC
+//            destinationvc.VCcheck = 0
+//            self.navigationController?.pushViewController(destinationvc, animated: true)
+//            break
+        
         case 1:
             let vc = storyboard?.instantiateViewController(withIdentifier: "UpdatePasswordVCID")as! UpdatePasswordVC
             navigationController?.pushViewController(vc, animated: true)

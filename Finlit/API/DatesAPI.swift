@@ -141,6 +141,22 @@ class DatesAPI{
     
     
     
+    //MARK:-- Get Notifications
+    func getAllNotifications(callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    {
+        DatesRemoteReplicatorr.getAllNotifications() { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+            else{
+                print("Getting Error")
+                
+            }
+            
+        }
+    }
+    
+    
     
     
     

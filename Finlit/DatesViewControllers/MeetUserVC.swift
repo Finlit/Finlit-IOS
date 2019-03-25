@@ -145,7 +145,7 @@ class MeetUserVC: UIViewController {
     func setupUI(){
         self.sendbuttonFrame = self.mSendBtnOutl.accessibilityFrame
         self.mUserImage1.layer.cornerRadius = mUserImage1.frame.height / 2
-        self.mUserImg2.layer.cornerRadius = mUserImage1.frame.height / 2
+        self.mUserImg2.layer.cornerRadius = mUserImg2.frame.height / 2
         self.mUserImage1.clipsToBounds = true
         self.mUserImg2.clipsToBounds = true
         let font = UIFont.systemFont(ofSize: 16)

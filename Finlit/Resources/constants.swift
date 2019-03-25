@@ -53,6 +53,7 @@ struct appConstants{
    static let isLoggedIn = "isLoggedIn"
   static let isCorrect = "isCorrect"
   static let totalQuestionCount = "totalQuestionCount"
+     static let findMeADate  = "findMeADate"
     
 }
 struct AppConstants{

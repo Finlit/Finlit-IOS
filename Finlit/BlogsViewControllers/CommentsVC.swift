@@ -112,6 +112,7 @@ class CommentsVC: UIViewController {
             commentMdlVar.text = self.mCommentTxtFld.text
             commentMdlVar.blogId = self.blogID
              self.createComment(commentDict: commentMdlVar!)
+            self.view.endEditing(true)
             
         }
         
@@ -269,7 +270,7 @@ extension CommentsVC : UITableViewDataSource, UITableViewDelegate {
         cell.mTimeLbl.text = comment.createdAt?.utcStringToDayName
         cell.mCommentLbl.text = comment.text
         if comment.user?.imgUrl != nil {
-            cell.mUserImg.sd_setImage(with: URL.init(string:(comment.user!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+            cell.mUserImg.sd_setImage(with: URL.init(string:(comment.user!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
         
         let view = UIView()
         view.backgroundColor = UIColor.clear

@@ -13,20 +13,20 @@ class NotificationTblCell: UITableViewCell {
     @IBOutlet weak var mView: UIView!
     @IBOutlet weak var mImageView: UIImageView!
     
-    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var mDescriptionLbl: UILabel!
     
     @IBOutlet weak var mSwipeToReactLbl: UILabel!
     
-    @IBOutlet weak var mYesterdayLbl: UILabel!
+    @IBOutlet weak var mTimeLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+      
     }
 
 }

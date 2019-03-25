@@ -39,6 +39,7 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.navigationController?.navigationBar.isHidden = true
     
         // Set up payPalConfig
@@ -101,11 +102,16 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     
     //FINLIT QUIZ BTN
     @IBAction func mQuizBtnTapped(_ sender: UIButton) {
-        let resultController = self.storyboard?.instantiateViewController(withIdentifier: "popupID") as? UINavigationController
-        self.navigationController?.definesPresentationContext = true
-        resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        resultController?.modalTransitionStyle = .crossDissolve
-        self.present(resultController!, animated: true, completion: nil)
+        
+        
+        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "NotificationVCID") as! NotificationVC
+        self.navigationController?.pushViewController(destinationvc, animated: true)
+        
+//        let resultController = self.storyboard?.instantiateViewController(withIdentifier: "popupID") as? UINavigationController
+//        self.navigationController?.definesPresentationContext = true
+//        resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        resultController?.modalTransitionStyle = .crossDissolve
+//        self.present(resultController!, animated: true, completion: nil)
         
         
         

@@ -33,6 +33,7 @@
 		4E0EEA2A2227B6ED00BA953B /* CommentsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */; };
 		4E0EEA302227D8B400BA953B /* TblView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA2F2227D8B400BA953B /* TblView.swift */; };
 		4E0EEA322227DFD100BA953B /* DatesRemoteReplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */; };
+		4E12FC22224500810079CB26 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12FC21224500810079CB26 /* Notification.swift */; };
 		4E1559F92227E51E00C4AFDA /* DatesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559F82227E51E00C4AFDA /* DatesAPI.swift */; };
 		4E1559FB22293B3500C4AFDA /* BlockedUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559FA22293B3500C4AFDA /* BlockedUsersVC.swift */; };
 		4E1559FD22293B5C00C4AFDA /* BlockedUsersTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */; };
@@ -55,6 +56,7 @@
 		4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */; };
 		4EE41D3B222956100092EC7E /* PendingDatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3A222956100092EC7E /* PendingDatesVC.swift */; };
 		4EE41D3D222C4DED0092EC7E /* DatingFiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */; };
+		4EE9D80F2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */; };
 		931048E52174808700E09C3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E42174808700E09C3E /* HomeVC.swift */; };
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
@@ -166,6 +168,7 @@
 		4E0EEA292227B6ED00BA953B /* CommentsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTblCell.swift; sourceTree = "<group>"; };
 		4E0EEA2F2227D8B400BA953B /* TblView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblView.swift; sourceTree = "<group>"; };
 		4E0EEA312227DFD100BA953B /* DatesRemoteReplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesRemoteReplicator.swift; sourceTree = "<group>"; };
+		4E12FC21224500810079CB26 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		4E1559F82227E51E00C4AFDA /* DatesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesAPI.swift; sourceTree = "<group>"; };
 		4E1559FA22293B3500C4AFDA /* BlockedUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersVC.swift; sourceTree = "<group>"; };
 		4E1559FC22293B5C00C4AFDA /* BlockedUsersTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersTblCell.swift; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 		4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesTblCell.swift; sourceTree = "<group>"; };
 		4EE41D3A222956100092EC7E /* PendingDatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesVC.swift; sourceTree = "<group>"; };
 		4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingFiltersVC.swift; sourceTree = "<group>"; };
+		4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedInterestsPopUpVC.swift; sourceTree = "<group>"; };
 		6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finlit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931048E42174808700E09C3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -417,6 +421,7 @@
 				2E18F4A521AE861300FF0E6E /* PayquizVC.swift */,
 				4E9AC03A220DAE4300A48D6F /* SplashVC.swift */,
 				4E384ED3222E56480031C452 /* OtherUserProfileVC.swift */,
+				4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */,
 			);
 			path = OnStoryboardVC;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 		939F46D12181F0E70010D7EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4E12FC21224500810079CB26 /* Notification.swift */,
 				939F46D42181F0E70010D7EE /* Comment.swift */,
 				939F46D52181F0E70010D7EE /* Like.swift */,
 				939F46DA2181F0E70010D7EE /* Countryy.swift */,
@@ -942,6 +948,7 @@
 				93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */,
 				93E75A1E2187315B004C30BC /* UITextField+fixCaretPosition.swift in Sources */,
 				93A45B972167758700DA505B /* SignUpVC.swift in Sources */,
+				4E12FC22224500810079CB26 /* Notification.swift in Sources */,
 				4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */,
 				4E6298C3218C257A00E39DB1 /* QuestionAPI.swift in Sources */,
 				939EB5562175BF9500125C17 /* NotificationTblCell.swift in Sources */,
@@ -1007,6 +1014,7 @@
 				4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */,
 				93E75A1A2187315B004C30BC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				93E75A2A2187315B004C30BC /* TOCropToolbar.m in Sources */,
+				4EE9D80F2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift in Sources */,
 				4E15C7962214148E00263A86 /* MeetUserVC.swift in Sources */,
 				4E5E3164218B308100523400 /* Questions.swift in Sources */,
 				939EB54B2175B66700125C17 /* MyFavouriteTblCell.swift in Sources */,

@@ -111,7 +111,15 @@ class DatesRemoteReplicator{
     
     
     
-    
+    func getAllNotifications(callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+        let url = "notifications"
+        
+        let urlString =  "\(baseUrl1)\(url.html)"
+        
+        remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+            callback(data, error)
+        }
+    }
     
     
     

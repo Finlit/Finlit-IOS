@@ -11,6 +11,7 @@ import MapKit
 import SDWebImage
 class NearByVC: UIViewController {
 
+    var refreshControl = UIRefreshControl()
     var NearByDict : NearBySearch?
     private var questionAPI : QuestionAPI!
     private var userApi : UserAPI!
@@ -30,11 +31,27 @@ class NearByVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl.attributedTitle = NSAttributedString(string: "")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        mNearByTblCell.addSubview(refreshControl)
         self.mNearByTblCell.delegate = self
         self.mNearByTblCell.dataSource = self
        
         
     }
+    
+    
+    @objc func refresh(sender:AnyObject) {
+        
+        if Constants.kUserDefaults.value(forKey:appConstants.selecttype) != nil{
+            let type =  Constants.kUserDefaults.value(forKey:appConstants.selecttype)as! String
+            getallUsers(type: "?gender=\(type)")
+        }else{
+            getallUsers(type: "")
+        }
+
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         self.mQuickViewBtnOutl.isHidden = true
@@ -125,12 +142,13 @@ class NearByVC: UIViewController {
         UserAPI().getAllUsers(type: type){ (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
+                     self.refreshControl.endRefreshing()
                     self.nearByData.removeAll()
                     let nearlist = data[APIConstants.items.rawValue] as! NSArray
             
                     self.nearByData = NearBySearch.modelsFromDictionaryArray(array: nearlist)
-
                     self.mNearByTblCell.reloadData()
+                   
                      SVProgressHUD.dismiss()
                 }}
             else{

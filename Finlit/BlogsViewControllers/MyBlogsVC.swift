@@ -155,7 +155,7 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
-          return 325 + labelHeight
+          return 320 + labelHeight
 
     }
     
@@ -362,9 +362,9 @@ extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
     }
     
     
-    func numberOfSections(in tableView: UITableView!) -> Int {
-        return 1
-    }
+//    func numberOfSections(in tableView: UITableView!) -> Int {
+//        return 1
+//    }
     
     func tableView(_ tableView: UITableView!, heightForRowAt indexPath: IndexPath!, isExpanded: Bool) -> CGFloat {
       
