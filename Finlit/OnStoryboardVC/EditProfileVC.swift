@@ -45,8 +45,14 @@ class EditProfileVC: UIViewController {
     var lngDouble = Double()
     var indexInt = Int()
      var checkarrMenu = NSMutableArray()
+
     var interestArr : [InterestModel]!
     var interestDict : InterestModel!
+    
+    var interestMdlArryForAlreadyAnsweredQuests : [InterestModel]!
+    var indexPathsOfSelectedQuestions = [IndexPath]()
+    var answersDictionary = [IndexPath:String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mNameTextField.delegate = self
@@ -59,6 +65,10 @@ class EditProfileVC: UIViewController {
         self.userApi = UserAPI.sharedInstance
         interestArr = [InterestModel]()
         interestDict = InterestModel.init(dictionary: NSDictionary())
+        self.interestMdlArryForAlreadyAnsweredQuests = [InterestModel]()
+        
+      
+        
         self.fileUploadAPI = FileUpload.sharedInstance
         self.GenderpickerView.delegate = self
         self.GenderpickerView.dataSource = self
@@ -110,7 +120,38 @@ class EditProfileVC: UIViewController {
         mNameTextField.text = user?.name
         mGenderTextField.text = user?.gender
         mAboutYouTextField.text = user?.aboutUs
+        
+        self.interestMdlArryForAlreadyAnsweredQuests = user?.interest
+        
+        if self.interestMdlArryForAlreadyAnsweredQuests != nil || self.interestMdlArryForAlreadyAnsweredQuests.count != 0 {
+            for i in self.interestMdlArryForAlreadyAnsweredQuests {
+                self.interestArr.append(i)
+                
+            }
+            self.getIndexPathsAndAnswersOfAlreadyAnsweredQuests()
+        }
+        
+        self.mEdittableView.delegate = self
+        self.mEdittableView.dataSource = self
+       
     }
+    
+    
+    func getIndexPathsAndAnswersOfAlreadyAnsweredQuests() {
+       
+            for i in interestMdlArryForAlreadyAnsweredQuests! {
+                if self.QuestionArr.contains(i.question!) {
+                    let indexOfContainingQues = QuestionArr.firstIndex(of: i.question!)
+                    let indexPathOfContainingQuestion = IndexPath(row: indexOfContainingQues!, section: 0)
+                    self.indexPathsOfSelectedQuestions.append(indexPathOfContainingQuestion)
+                    self.answersDictionary[indexPathOfContainingQuestion] = i.answer
+                    
+                    print("The index of the containing question is \(String(describing: indexOfContainingQues))")
+                }
+                
+            }
+        }
+    
     
     
     
@@ -133,7 +174,7 @@ class EditProfileVC: UIViewController {
         mDoneBtnOut.isHidden = true
         user?.interest = interestArr
         self.user?.userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
-        //userUpdateProfile(userDict: user!)
+   
         
     }
     
@@ -492,12 +533,30 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
          cell.mtxtfld.setLeftPaddingPoints(10)
             cell.mlbl2.text = QuestionArr[indexPath.row]
             cell.mCheckbtn.addTarget(self, action: #selector(checkbtn(sender:)), for: .touchUpInside)
+      
         if checkarrMenu.contains([indexPath]){
             cell.mImg2.image = #imageLiteral(resourceName: "pinkTick")
             cell.mtxtfld.isHidden = false
             cell.mlbl2.frame.size.height = 32
             cell.mBottomConstant.constant = 16
-        }else{
+        }
+            
+            
+
+        if self.indexPathsOfSelectedQuestions.contains(indexPath){
+            cell.mImg2.image = #imageLiteral(resourceName: "pinkTick")
+            cell.mtxtfld.isHidden = false
+            cell.mlbl2.frame.size.height = 32
+            cell.mBottomConstant.constant = 16
+//            cell.mtxtfld.isUserInteractionEnabled = false
+
+            if self.answersDictionary.keys.contains(indexPath){
+                cell.mtxtfld.text = self.answersDictionary[indexPath]
+            }}
+            
+        
+        
+        else{
             cell.mImg2.image = nil
             cell.mtxtfld.isHidden = true
             cell.mlbl2.frame.size.height = 0
@@ -507,19 +566,7 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
         
     }
    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//
-//    }
-//
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//
-//    }
 
-//    @objc func mdonebtn(sender: UIButton){
-//
-//
-//    }
     
     @objc func checkbtn(sender: UIButton){
         
@@ -543,6 +590,8 @@ extension EditProfileVC: UITableViewDelegate, UITableViewDataSource
     }
 
 }
+
+
 extension EditProfileVC: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -553,10 +602,8 @@ extension EditProfileVC: UITextFieldDelegate {
             self.pickAddress()
             return false
             
-            
-            
         default:
-            print("abc")
+            print("Inside didbeginediting default case of switch")
         }
         
         UIView.animate(withDuration: 0.5) {
@@ -564,31 +611,23 @@ extension EditProfileVC: UITextFieldDelegate {
         }
         return true
     }
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-       // let indexof = QuestionArr.index(of:textField.placeholder!)
-    }
+    
+    
+ 
+    
+    
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         print("Inside text field should end editing delegate method")
          let index = IndexPath(row: indexInt, section: 0)
         print(index)
         let cell = mEdittableView.cellForRow(at: index) as? EditProfileTableViewCell
-        let text = cell?.mtxtfld.text
-        print(text)
+        let answertext = cell?.mtxtfld.text
         let ques = QuestionArr[index.row]
-        interestDict.question = ques
-        interestDict.answer = text!
+        self.interestDict.question = ques
+        self.interestDict.answer = answertext!
         interestArr.append(interestDict)
-      
-        
+        self.interestDict = InterestModel.init(dictionary: NSDictionary())
         return true
-    }
-    public func textFieldDidBeginEditing(_ textField1: UITextField) {
-        print("TextField did begin editing method called")
-        let index = IndexPath(row: indexInt, section: 0)
-        let cell = mEdittableView.cellForRow(at: index) as? EditProfileTableViewCell
-        let text = cell?.mtxtfld.text
-        print(cell?.mtxtfld.text)
-    
     }
     
     

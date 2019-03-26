@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Toast_Swift
 
 class SignInVC: UIViewController
 {
@@ -135,16 +136,17 @@ class SignInVC: UIViewController
         Constants.kUserDefaults.set("active", forKey: UserAttributes.status.rawValue)
         Constants.kUserDefaults.set(self.mEmailTextField.text! as String, forKey: appConstants.email)
         Constants.kUserDefaults.set(self.mPasswordTextField.text! as String, forKey: appConstants.password)
-        
-        kAppDelegate.showNotification(text: "Login Successfully")
+        self.view.makeToast("Success")
         self.navigateToHome()
       }
       else{
         SVProgressHUD.dismiss()
         if error != nil{
-          kAppDelegate.showNotification(text: error!)
+             self.view.makeToast(error!)
+        
         }else{
-          kAppDelegate.showNotification(text: "Something went wrong!")
+             self.view.makeToast("Something went wrong!")
+
         }
       }
       

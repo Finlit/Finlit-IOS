@@ -76,12 +76,20 @@ class UserProfileVC: UIViewController {
     
     
     @IBAction func mSelectedIntrestsBtnTapped(_ sender: UIButton) {
+       
+        if self.user?.interest == nil || self.user?.interest?.count == 0{
+            let alert = UIAlertController(title: "No Interests", message: "No interests have been selected yet.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        
         let resultController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedInterestsPopUpVCID") as? SelectedInterestsPopUpVC
         self.navigationController?.definesPresentationContext = true
         resultController?.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         resultController?.modalTransitionStyle = .crossDissolve
         resultController?.InteresrMdlArry = self.user?.interest
-        //        resultController?.delegate = self
         self.present(resultController!, animated: true, completion: nil)
     }
     

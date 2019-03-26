@@ -24,8 +24,7 @@ class SelectedInterestsPopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        self.mInterestTblView.delegate = self
-        self.mInterestTblView.dataSource = self
+        
 
     }
     
@@ -34,15 +33,20 @@ class SelectedInterestsPopUpVC: UIViewController {
             for i in InteresrMdlArry! {
                 if self.QuestionArr.contains(i.question!) {
                     let indexOfContainingQues = QuestionArr.firstIndex(of: i.question!)
-                    let indexPathOfContainingQuestions = IndexPath(row: indexOfContainingQues!, section: 0)
-                    self.indexPathsOfSelectedQuestions.append(indexPathOfContainingQuestions)
-                    self.answersDictionary[indexPathOfContainingQuestions] = i.answer
+                    let indexPathOfContainingQuestion = IndexPath(row: indexOfContainingQues!, section: 0)
+                    self.indexPathsOfSelectedQuestions.append(indexPathOfContainingQuestion)
+                    self.answersDictionary[indexPathOfContainingQuestion] = i.answer
                     
                     print("The index of the containing question is \(String(describing: indexOfContainingQues))")
                 }
                 
             }
         }
+        
+        
+        self.mInterestTblView.delegate = self
+        self.mInterestTblView.dataSource = self
+        
     }
     
 

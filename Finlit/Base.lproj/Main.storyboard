@@ -7260,10 +7260,6 @@ Request</string>
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Mpc-3D-vqE" id="l94-Uy-cUc"/>
-                                    <outlet property="delegate" destination="Mpc-3D-vqE" id="fCA-kn-fDV"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yux-q4-Wus">
                                 <rect key="frame" x="64" y="738" width="192" height="42"/>
@@ -8734,7 +8730,7 @@ graduation and working in C.A</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lRv-AW-KGO">
-                                                            <rect key="frame" x="237" y="15.5" width="24" height="24"/>
+                                                            <rect key="frame" x="207" y="15.5" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="JCK-4J-hq2"/>
                                                                 <constraint firstAttribute="width" constant="24" id="jrc-vR-zrs"/>
@@ -8749,10 +8745,10 @@ graduation and working in C.A</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1f-2I-M5W">
-                                                            <rect key="frame" x="234" y="12.5" width="30" height="30"/>
+                                                            <rect key="frame" x="204" y="12.5" width="30" height="30"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-R7-4eY">
-                                                            <rect key="frame" x="0.0" y="98" width="280" height="1"/>
+                                                            <rect key="frame" x="0.0" y="98" width="250" height="1"/>
                                                             <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="FwK-G3-5Ds"/>
@@ -8762,7 +8758,7 @@ graduation and working in C.A</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-ON-x8u">
-                                                            <rect key="frame" x="10" y="53.5" width="255" height="32"/>
+                                                            <rect key="frame" x="10" y="53.5" width="225" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="xC3-o2-8if"/>
                                                             </constraints>
@@ -8788,7 +8784,7 @@ graduation and working in C.A</string>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAD-aJ-wRz">
-                                                            <rect key="frame" x="10" y="9" width="221" height="36.5"/>
+                                                            <rect key="frame" x="10" y="9" width="191" height="36.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
