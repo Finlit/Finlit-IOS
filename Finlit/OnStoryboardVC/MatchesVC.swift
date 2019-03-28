@@ -199,7 +199,7 @@ extension MatchesVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mMyMatchesTblCell.dequeueReusableCell(withIdentifier: "MyMatchesTblCellID", for: indexPath) as! MyMatchesTblCell
-        cell.mView.dropShadow(scale: true)
+        //cell.mView.dropShadow(scale: true)
         
         cell.mMessageBtn.addTarget(self, action: #selector(mMessageBtnAct(sender:)), for: .touchUpInside)
         cell.mMessageBtn.tag = indexPath.row

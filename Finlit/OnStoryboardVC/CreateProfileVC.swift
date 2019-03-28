@@ -135,7 +135,7 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     
     
     func count(){
-        for i in 16...100{
+        for i in 18...100{
             let num = String(describing: i)
             ageValuesArry.add(num)
         }
@@ -243,7 +243,7 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
                 
 //                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeVCID") as! WelcomeVC
                 
-                  let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                  let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCID") as! HomeVC
                 self.navigationController?.pushViewController(destinationvc, animated: true)
                 return
                 

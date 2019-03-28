@@ -28,7 +28,7 @@ class EditProfileVC: UIViewController {
     
     var currentGenderOnPicker : String?
     var currentAgeOnPicker : String?
-    let ageValuesArry = Array(16...100)
+    let ageValuesArry = Array(18...100)
     let Gender = ["male","female"]
     let Whatru = ["Credit Card Churning","Stock Trading","Real estate","Retirement planning","Budget planning","Personal investment","Futures/Forex Trading","Cryptocurrency Trading","Vacation planning"]
     var QuestionArr = ["What common interests would you like to share with other members?","Who are you looking for?","What is your eye color?","What is your hair color?","What is your faith?","What’s your level of education?","How often do you exercise?","Do you smoke?","How often do you drink?","Do you have any kids?","Do you want children?","What’s your current annual income?","What are you saving for?","What kind of exercise do you enjoy?"]

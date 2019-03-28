@@ -400,6 +400,18 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         return 400
         }}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   
+        guard let idOfOtherUser = self.userMdlArry[indexPath.row].id else {
+            return
+        }
+        let vc  = storyboard?.instantiateViewController(withIdentifier: "OtherUserProfileVCID")as! OtherUserProfileVC
+    
+        vc.opponentId = idOfOtherUser
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 
    
     

@@ -277,12 +277,16 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
     }
     @objc func mViewProfile(sender: UIButton){
         let btnclick : Int = sender.tag
-            let otherUserId = self.nearByData[btnclick].id
+        guard let otherUserId = self.nearByData[btnclick].id else {
+            return
+        }
         
              let vc  = storyboard?.instantiateViewController(withIdentifier: "OtherUserProfileVCID")as! OtherUserProfileVC
         
 //            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserProfileVCID")as! UserProfileVC
-            vc.opponentId = otherUserId!
+            vc.opponentId = otherUserId
+        
+        
            // vc.VCcheckInt = 1
             navigationController?.pushViewController(vc, animated: true)
             

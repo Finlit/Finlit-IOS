@@ -57,6 +57,9 @@
 		4EE41D3B222956100092EC7E /* PendingDatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3A222956100092EC7E /* PendingDatesVC.swift */; };
 		4EE41D3D222C4DED0092EC7E /* DatingFiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */; };
 		4EE9D80F2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */; };
+		4EE9D811224CED2900C5FEF9 /* TermsAndConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */; };
+		4EE9D813224CF0AA00C5FEF9 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */; };
+		4EE9D815224CF0C700C5FEF9 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */; };
 		931048E52174808700E09C3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E42174808700E09C3E /* HomeVC.swift */; };
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
@@ -192,6 +195,9 @@
 		4EE41D3A222956100092EC7E /* PendingDatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesVC.swift; sourceTree = "<group>"; };
 		4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingFiltersVC.swift; sourceTree = "<group>"; };
 		4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedInterestsPopUpVC.swift; sourceTree = "<group>"; };
+		4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsVC.swift; sourceTree = "<group>"; };
+		4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
+		4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
 		6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finlit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931048E42174808700E09C3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -422,6 +428,9 @@
 				4E9AC03A220DAE4300A48D6F /* SplashVC.swift */,
 				4E384ED3222E56480031C452 /* OtherUserProfileVC.swift */,
 				4EE9D80E2249049300C5FEF9 /* SelectedInterestsPopUpVC.swift */,
+				4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */,
+				4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */,
+				4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */,
 			);
 			path = OnStoryboardVC;
 			sourceTree = "<group>";
@@ -976,6 +985,7 @@
 				93E75A372187315B004C30BC /* Validators.swift in Sources */,
 				4E0EEA2A2227B6ED00BA953B /* CommentsTblCell.swift in Sources */,
 				931048F32174C8C400E09C3E /* NotificationVC.swift in Sources */,
+				4EE9D813224CF0AA00C5FEF9 /* SupportVC.swift in Sources */,
 				4E1559F92227E51E00C4AFDA /* DatesAPI.swift in Sources */,
 				9354B8392188421600BA8D2A /* UpdatePasswordVC.swift in Sources */,
 				936E1FB7216DF56500D3AB25 /* CWStatusBarNotification.m in Sources */,
@@ -988,6 +998,7 @@
 				93E75A282187315B004C30BC /* TOCropView.m in Sources */,
 				93E75A232187315B004C30BC /* UIImage+CropRotate.m in Sources */,
 				4E384ED4222E56480031C452 /* OtherUserProfileVC.swift in Sources */,
+				4EE9D815224CF0C700C5FEF9 /* PrivacyVC.swift in Sources */,
 				939F46F12181F0E80010D7EE /* User.swift in Sources */,
 				4E6298C5218C25A800E39DB1 /* QuestionRemoteReplicator.swift in Sources */,
 				93E75A332187315B004C30BC /* String.swift in Sources */,
@@ -1002,6 +1013,7 @@
 				93E75A1F2187315B004C30BC /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				2EFA405921BA55420023ACC7 /* EditProfileTableViewCell.swift in Sources */,
 				93E75A262187315B004C30BC /* TOCropViewController.m in Sources */,
+				4EE9D811224CED2900C5FEF9 /* TermsAndConditionsVC.swift in Sources */,
 				9340028D217C4D8800D08E29 /* EditProfileVC.swift in Sources */,
 				2EF992032199AC7B003C44B4 /* NearBySearch.swift in Sources */,
 				93E75A2E2187315B004C30BC /* Date.swift in Sources */,

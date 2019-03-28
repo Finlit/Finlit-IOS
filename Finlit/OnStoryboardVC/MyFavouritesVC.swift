@@ -125,7 +125,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = mMyFavouriteTblCell.dequeueReusableCell(withIdentifier: "MyFavouriteTblCellID", for: indexPath) as! MyFavouriteTblCell
-    cell.mView.dropShadow(scale: true)
+    //cell.mView.dropShadow(scale: true)
     cell.mMessageBtn.addTarget(self, action: #selector(mMessageBtnAct(sender:)), for: .touchUpInside)
     cell.mMessageBtn.tag = indexPath.row
     cell.mViewProfileBtn.addTarget(self, action: #selector(mViewProfile(sender:)), for: .touchUpInside)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatVC: UIViewController,UITextFieldDelegate {
+class ChatVC: UIViewController {
     
     var Chatlistarr = NSMutableArray()
     var ChatlistarrForMyUnreadCount = NSMutableArray()
@@ -40,12 +40,7 @@ class ChatVC: UIViewController,UITextFieldDelegate {
      
     }
 
-//TEXT FIELD DELEGATE
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        self.view.endEditing(true)
-        return false
-    }
+
 
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -143,6 +138,7 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let otherUserId = self.chatArr[indexPath.row].id
         let otherUsername = self.chatArr[indexPath.row].name
+        
         print(otherUserId!)
         let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
         vc.opponentID = otherUserId!
@@ -159,31 +155,21 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
     }
     
 }
-extension UIView {
+
+
+
+extension ChatVC : UITextFieldDelegate {
     
-    // OUTPUT 1
-    func dropShadow(scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: -1, height: 1.5)
-        layer.shadowRadius = 3
+    //TEXT FIELD DELEGATE
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        self.view.endEditing(true)
+        return false
     }
     
-    // OUTPUT 2
-    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
-        layer.masksToBounds = false
-        layer.shadowColor = color.cgColor
-        layer.shadowOpacity = opacity
-        layer.shadowOffset = offSet
-        layer.shadowRadius = radius
-        
-        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+     
     }
 }
+

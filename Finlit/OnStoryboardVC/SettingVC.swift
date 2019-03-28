@@ -127,14 +127,18 @@ var GenderpickerView = UIPickerView()
             
             
         case 3:
-            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TermsAndConditionsVCID")as! TermsAndConditionsVC
+            navigationController?.pushViewController(vc, animated: true)
             break
-        case 4:
             
+        case 4:
+            let vc = storyboard?.instantiateViewController(withIdentifier: "SupportVCID")as! SupportVC
+            navigationController?.pushViewController(vc, animated: true)
             break
             
         case 5:
-            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "PrivacyVCID")as! PrivacyVC
+            navigationController?.pushViewController(vc, animated: true)
             break
             
             
