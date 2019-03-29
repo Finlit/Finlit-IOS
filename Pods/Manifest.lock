@@ -9,6 +9,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - CardIO (5.4.1)
+  - DeployGateSDK (1.0.7)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
@@ -132,6 +133,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - DeployGateSDK
   - FacebookCore
   - FacebookLogin
   - Firebase/Auth
@@ -159,6 +161,7 @@ SPEC REPOS:
     - AlamofireImage
     - Bolts
     - CardIO
+    - DeployGateSDK
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -199,6 +202,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
+  DeployGateSDK: df3d5838db7e35c05a711c35a3bdeef3c2b016ba
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
@@ -234,6 +238,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TTRangeSlider: 78188bea83f6471a06f75adbc88da5e990baeafe
 
-PODFILE CHECKSUM: 2ae98ea7ab62f19e51f091ea254bea83fc0fe531
+PODFILE CHECKSUM: 04deab5bc390d874f86742c2723417905782bf20
 
 COCOAPODS: 1.5.3

@@ -60,6 +60,7 @@
 		4EE9D811224CED2900C5FEF9 /* TermsAndConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */; };
 		4EE9D813224CF0AA00C5FEF9 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */; };
 		4EE9D815224CF0C700C5FEF9 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */; };
+		4EE9D817224DE02C00C5FEF9 /* SearchChatUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9D816224DE02C00C5FEF9 /* SearchChatUsersVC.swift */; };
 		931048E52174808700E09C3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E42174808700E09C3E /* HomeVC.swift */; };
 		931048E721748F8300E09C3E /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E621748F8300E09C3E /* NearByVC.swift */; };
 		931048E9217490A200E09C3E /* QuickViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931048E8217490A200E09C3E /* QuickViewVC.swift */; };
@@ -198,6 +199,7 @@
 		4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsVC.swift; sourceTree = "<group>"; };
 		4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
 		4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
+		4EE9D816224DE02C00C5FEF9 /* SearchChatUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatUsersVC.swift; sourceTree = "<group>"; };
 		6F2D40F5CF9E710ABC72D99F /* Pods_Finlit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finlit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931048E42174808700E09C3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		931048E621748F8300E09C3E /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				4EE9D810224CED2900C5FEF9 /* TermsAndConditionsVC.swift */,
 				4EE9D812224CF0AA00C5FEF9 /* SupportVC.swift */,
 				4EE9D814224CF0C700C5FEF9 /* PrivacyVC.swift */,
+				4EE9D816224DE02C00C5FEF9 /* SearchChatUsersVC.swift */,
 			);
 			path = OnStoryboardVC;
 			sourceTree = "<group>";
@@ -915,12 +918,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Finlit/Pods-Finlit-resources.sh",
+				"${PODS_ROOT}/DeployGateSDK/DeployGateSDK1.0.7.embeddedframework/DeployGateSDK.framework/Versions/A/Resources/en.lproj",
+				"${PODS_ROOT}/DeployGateSDK/DeployGateSDK1.0.7.embeddedframework/DeployGateSDK.framework/Versions/A/Resources/ja.lproj",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ja.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -994,6 +1001,7 @@
 				938CCEC0216CBD0800DFB8CC /* WelcomeVC.swift in Sources */,
 				9340028B217C46A300D08E29 /* ChatRoomsVC.swift in Sources */,
 				939EB54D2175B6E400125C17 /* NearByTblCell.swift in Sources */,
+				4EE9D817224DE02C00C5FEF9 /* SearchChatUsersVC.swift in Sources */,
 				93E75A352187315B004C30BC /* Color.swift in Sources */,
 				93E75A282187315B004C30BC /* TOCropView.m in Sources */,
 				93E75A232187315B004C30BC /* UIImage+CropRotate.m in Sources */,

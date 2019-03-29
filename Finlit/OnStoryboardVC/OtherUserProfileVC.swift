@@ -36,11 +36,15 @@ class OtherUserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
            self.userApi = UserAPI.sharedInstance
-          self.navigationController?.navigationBar.isHidden = true
+        
          getUserDetail(UserID: opponentId )
         self.mcoverImage.alpha = 0.7
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.navigationBar.isHidden = true
+    }
     
     
     @IBAction func mBackBtn(_ sender: UIButton) {

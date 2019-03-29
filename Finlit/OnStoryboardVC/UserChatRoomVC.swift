@@ -29,6 +29,7 @@ class UserChatRoomVC: UIViewController {
     var mlabelHeight = Int()
     var chatBlockBool = Bool()
     var blockStr = String()
+    var isComingFromSearchChatScreen : Bool = false
     @IBOutlet weak var mMsgtxtfld: UITextField!
     @IBOutlet weak var mUserChatRoomTblCell: UITableView!
     @IBOutlet weak var mTypeMessageView: UIView!
@@ -48,6 +49,10 @@ class UserChatRoomVC: UIViewController {
          chatModelData()
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,9 +163,20 @@ class UserChatRoomVC: UIViewController {
         
     }
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {
-       self.navigationController?.popViewController(animated: true)
+        if self.isComingFromSearchChatScreen == false {
+            self.navigationController?.popViewController(animated: true)}
+        else {
+            self.popViewControllerss(popViews: 2)
+        }
     }
     
+    func popViewControllerss(popViews: Int, animated: Bool = true) {
+        if self.navigationController!.viewControllers.count > popViews
+        {
+            let vc = self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - popViews - 1]
+            self.navigationController?.popToViewController(vc, animated: animated)
+        }
+    }
     
     
     

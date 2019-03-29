@@ -228,6 +228,24 @@ class UserAPI{
       
     })
   }
+    
+    
+    // MARK:-- getAllUsers
+    func getAllUsersWithSearch(type:String,callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
+    {
+        userRemoteReplicator.getAllUsersWithSearch(type: type, callback:  { (Data, error) in
+            if Data![APIConstants.isSuccess.rawValue] as! Bool == true {
+                callback(Data! , nil)
+            }
+            else{
+                print("Getting Error")
+                
+            }
+            
+        })
+    }
+    
+    
     // MARK:-- getAllUsers
     func getAllfilter(filterQuery:String,callback:@escaping (_ responseData:Dictionary<String,AnyObject>,_ error:String?) -> Void )
     {

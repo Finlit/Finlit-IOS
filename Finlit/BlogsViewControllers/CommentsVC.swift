@@ -54,7 +54,7 @@ class CommentsVC: UIViewController {
         self.mUserProfPic.clipsToBounds = true
         if fetchProfileFromPresistance() == true{
             if self.userMdlVar!.imgUrl != nil {
-                self.mUserProfPic.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                self.mUserProfPic.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
             
         }
         

@@ -15,6 +15,7 @@ class ChatVC: UIViewController {
     var chatArr : [Chat]!
     var chatMdlArryForLastMsg : [Chat]!
      var chatMdlArryForUnreadCount : [Chat]!
+       var userMdlArry : [User]!
     
     
 
@@ -28,19 +29,68 @@ class ChatVC: UIViewController {
         self.mChatTblView.dataSource = self
          self.navigationController?.navigationBar.isHidden = false
         self.mSearchHereTextField.delegate = self
-        self.chatArr = [Chat]()
-        self.chatMdlArryForLastMsg = [Chat]()
-        GetChatlist()
+      
+     
         let myId = Constants.kUserDefaults.value(forKey: appConstants.id) as! String
         print("My Id is \(myId)")
+        self.userMdlArry = [User]()
+        self.getAllUsersWithSearch(type: "")
+        
+      
+     
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-     
+      
+        self.navigationController?.navigationBar.isHidden = false
+        self.Chatlistarr = NSMutableArray()
+        self.ChatlistarrForMyUnreadCount = NSMutableArray()
+        self.chatArr = [Chat]()
+        self.chatMdlArryForLastMsg = [Chat]()
+        self.chatMdlArryForUnreadCount = [Chat]()
+        self.GetChatlist()
+      
+        
+        
+        
     }
+    
+ 
+    @IBAction func mSearchBtnTapped(_ sender: UIButton) {
+        if self.userMdlArry != nil || self.userMdlArry.count != 0 {
+            let vc  = storyboard?.instantiateViewController(withIdentifier: "SearchChatUsersVCID")as! SearchChatUsersVC
+            vc.userMdlArry = self.userMdlArry
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            return
+            
+        }
+    }
+    
 
+    //MARK : GET USERS API
+    func getAllUsersWithSearch(type: String) {
+     
+        UserAPI().getAllUsersWithSearch(type: type){ (data, error) in
+            if data[APIConstants.isSuccess.rawValue] as! Bool == true {
+                if error == nil{
+                    let userlist = data[APIConstants.items.rawValue] as! NSArray
+                    
+                    self.userMdlArry = User.modelsFromDictionaryArray(array: userlist)
 
+                }
+            }
+                
+            else{
+          
+                print("Getting Error")
+            }
+         
+        }
+    }
+    
 
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -52,9 +102,13 @@ class ChatVC: UIViewController {
         QuestionAPI().getchatlist() { (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
+                    
+                
+                    
                     let postList = data[APIConstants.items.rawValue] as! NSArray
                     
                     //WorkAround For Last Message
+                    self.chatMdlArryForLastMsg = [Chat]()
                     self.chatMdlArryForLastMsg = Chat.modelsFromDictionaryArray(array: postList)
                     
                     
@@ -69,24 +123,34 @@ class ChatVC: UIViewController {
                             print(id)
                             
                             if id != Constants.kUserDefaults.value(forKey: appConstants.id)as? String{
+                             
                                 self.Chatlistarr.add(dict)
                                 
                             }
                             else if id == Constants.kUserDefaults.value(forKey: appConstants.id)as? String {
                                  self.ChatlistarrForMyUnreadCount.add(dict)
+                                self.chatMdlArryForUnreadCount = [Chat]()
                                 self.chatMdlArryForUnreadCount = Chat.modelsFromDictionaryArray(array: self.ChatlistarrForMyUnreadCount)
                                 print("chatMdlArryForUnreadCount:\(self.chatMdlArryForUnreadCount)")
                             }
                             
                         }
                         
+                         self.mChatTblView.reloadData()
                     }
-                    print(self.Chatlistarr)
-                    self.chatArr.removeAll()
+    
+                    //self.chatArr.removeAll()
+                    self.chatArr = [Chat]()
                     self.chatArr = Chat.modelsFromDictionaryArray(array: self.Chatlistarr)
+                    self.mChatTblView.delegate = self
+                    self.mChatTblView.dataSource = self
                     self.mChatTblView.reloadData()
                     SVProgressHUD.dismiss()
-                }else{
+                }
+                
+                
+                
+                else{
                     print("Getting Error")
                     SVProgressHUD.dismiss()
                 }
@@ -136,13 +200,19 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let otherUserId = self.chatArr[indexPath.row].id
-        let otherUsername = self.chatArr[indexPath.row].name
+        guard let otherUserId = self.chatArr[indexPath.row].id else {
+            self.view.makeToast("Something Went Wrong")
+            return
+            
+        }
+        guard let otherUsername = self.chatArr[indexPath.row].name else {
+             self.view.makeToast("Something Went Wrong")
+            return}
         
-        print(otherUserId!)
+        print(otherUserId)
         let vc  = storyboard?.instantiateViewController(withIdentifier: "UserChatRoomVCID")as! UserChatRoomVC
-        vc.opponentID = otherUserId!
-        vc.opponentName = otherUsername!
+        vc.opponentID = otherUserId
+        vc.opponentName = otherUsername
         if self.chatArr[indexPath.row].imgUrl != nil{
             let otherImgUrl = self.chatArr[indexPath.row].imgUrl
             vc.opponentImgUrl = otherImgUrl!
@@ -167,9 +237,13 @@ extension ChatVC : UITextFieldDelegate {
         return false
     }
     
+
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-     
+ 
+        
+        
+        
     }
-}
+
+
 

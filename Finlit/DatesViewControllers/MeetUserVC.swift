@@ -36,7 +36,7 @@ class MeetUserVC: UIViewController {
         
         if fetchProfileFromPresistance() == true{
             if self.userMdlVar!.imgUrl != nil {
-                self.mUserImage1.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                self.mUserImage1.sd_setImage(with: URL.init(string:(self.userMdlVar!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
                 
             else {
                 if let userid = Constants.kUserDefaults.value(forKey: appConstants.userId){
@@ -162,7 +162,7 @@ class MeetUserVC: UIViewController {
             self.toUserId = (secondUserDetails?.id)!
             self.navigationItem.title = "MEET " + (secondUserDetails?.name?.capitalized)!
             if self.secondUserDetails!.imgUrl != nil {
-                self.mUserImg2.sd_setImage(with: URL.init(string:(self.secondUserDetails!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                self.mUserImg2.sd_setImage(with: URL.init(string:(self.secondUserDetails!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
         }
         
         

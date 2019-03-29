@@ -40,8 +40,12 @@ class NearByVC: UIViewController {
         
     }
     
+   
+    
     
     @objc func refresh(sender:AnyObject) {
+        
+        self.navigationController?.navigationBar.isTranslucent = true
         
         if Constants.kUserDefaults.value(forKey:appConstants.selecttype) != nil{
             let type =  Constants.kUserDefaults.value(forKey:appConstants.selecttype)as! String

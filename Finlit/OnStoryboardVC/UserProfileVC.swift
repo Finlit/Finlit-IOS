@@ -74,6 +74,16 @@ class UserProfileVC: UIViewController {
     }
     
     
+    @IBAction func mDatesBtntTapped(_ sender: UIButton) {
+        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "DatesVCID") as! DatesVC
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
+    @IBAction func mChatBtnTapped(_ sender: UIButton) {
+        let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatVCID") as! ChatVC
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
     
     @IBAction func mSelectedIntrestsBtnTapped(_ sender: UIButton) {
        

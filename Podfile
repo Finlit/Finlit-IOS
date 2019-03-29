@@ -29,4 +29,6 @@ pod 'FacebookLogin'
 pod ‘Toast-Swift', '~> 3.0.0’
 pod "HVTableView"
 pod 'Inapptics'
+pod "DeployGateSDK"
+
 end

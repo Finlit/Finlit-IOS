@@ -174,6 +174,19 @@ import Foundation
       }
         
         
+        //MARK:- Get User Details
+        func getAllUsersWithSearch(type:String = "",callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
+            
+            let url =  "users/list/search?name=" + "\(type)"
+            
+            
+            let urlString =  "\(baseUrl1)\(url.html)"
+            
+            remoteRepo.remoteGETService(urlString: urlString) { (data, error) -> Void in
+                callback(data, error)
+            }
+        }
+        
         
         
       
