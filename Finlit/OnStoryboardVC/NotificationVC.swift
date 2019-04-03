@@ -26,8 +26,6 @@ class NotificationVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.mNotificationsTblView.delegate = self
-        self.mNotificationsTblView.dataSource = self
        
     }
 
@@ -47,6 +45,9 @@ class NotificationVC: UIViewController {
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 let postList = data[APIConstants.items.rawValue] as! NSArray
                 self.notificationMdlArry = Notification.modelsFromDictionaryArray(array: postList)
+                self.mNotificationsTblView.delegate = self
+                self.mNotificationsTblView.dataSource = self
+
                 self.mNotificationsTblView.reloadData()
             }
             else{

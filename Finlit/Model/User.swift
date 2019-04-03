@@ -25,6 +25,7 @@ enum UserAttributes :String {
    case lastName = "lastName"
    case phone = "phone"
    case location = "location"
+    case userlocation = "userlocation"
     case ageGroup = "ageGroup"
     case gender = "gender"
     case profileType = "profileType"
@@ -40,6 +41,8 @@ enum UserAttributes :String {
     
     case facebookId = "facebookId"
       case question = "question"
+    
+    case date = "date"
 
 
   
@@ -82,7 +85,9 @@ enum UserAttributes :String {
     createdAt,
     facebookId,
     age,
-    question
+    question,
+    userlocation,
+    date
 
     
     
@@ -136,6 +141,8 @@ public class User {
     public var state : String?
     public var region : String?
     public var question : String?
+    
+    public var date : String?
 
 
 /**
@@ -205,6 +212,8 @@ public class User {
         createdAt = dictionary["createdAt"] as? String
          facebookId = dictionary["facebookId"] as? String
         
+        date = dictionary["date"] as? String
+        
          if (dictionary["interest"] != nil) { interest = InterestModel.modelsFromDictionaryArray(array: dictionary["interest"] as! NSArray) }
         
    
@@ -214,7 +223,9 @@ public class User {
         question = questarr?.object(at: 0) as? String
         }
         
-           if (dictionary["userlocation"] != nil) { userlocation = Location(dictionary: dictionary["userlocation"] as! NSDictionary) }
+//           if (dictionary["userlocation"] != nil) { userlocation = Location(dictionary: dictionary["userlocation"] as! NSDictionary) }
+        
+           if (dictionary["userlocation"] != nil) && !(dictionary["userlocation"] is NSNull) { userlocation = Location(dictionary: dictionary["userlocation"] as! NSDictionary) }
         
         
         
@@ -262,6 +273,7 @@ public class User {
         dictionary.setValue(self.isProfileCompleted, forKey: "isProfileCompleted")
         dictionary.setValue(self.role, forKey: "role")
         dictionary.setValue(self.question, forKey: "question")
+        dictionary.setValue(self.date, forKey: "date")
         
          dictionary.setValue(self.userlocation?.dictionaryRepresentation(), forKey: "userlocation")
         

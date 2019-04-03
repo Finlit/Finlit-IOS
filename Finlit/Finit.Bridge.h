@@ -15,6 +15,7 @@
 @import SVProgressHUD;
 
 
+
 #import "CWStatusBarNotification.h"
 
 #import "TOCropViewController.h"
@@ -26,6 +27,7 @@
 #import "TOCropScrollView.h"
 #import "TOCropViewControllerTransitioning.h"
 #import "UIImage+CropRotate.h"
+#import "DeployGateSDK/DeployGateSDK.h"
 
 //Paypal Integration header file
 

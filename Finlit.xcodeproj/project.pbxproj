@@ -53,6 +53,7 @@
 		4E992FC2221426EE0062EA58 /* MyBlogsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */; };
 		4E9AC03B220DAE4300A48D6F /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03A220DAE4300A48D6F /* SplashVC.swift */; };
 		4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AC03D2211681200A48D6F /* DatesVC.swift */; };
+		4EBBE0D22254E6AC00757AC9 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBBE0D12254E6AC00757AC9 /* DeviceType.swift */; };
 		4EE41D39222955EF0092EC7E /* PendingDatesTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */; };
 		4EE41D3B222956100092EC7E /* PendingDatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3A222956100092EC7E /* PendingDatesVC.swift */; };
 		4EE41D3D222C4DED0092EC7E /* DatingFiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */; };
@@ -192,6 +193,7 @@
 		4E992FC1221426EE0062EA58 /* MyBlogsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogsTblCell.swift; sourceTree = "<group>"; };
 		4E9AC03A220DAE4300A48D6F /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		4E9AC03D2211681200A48D6F /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
+		4EBBE0D12254E6AC00757AC9 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		4EE41D38222955EF0092EC7E /* PendingDatesTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesTblCell.swift; sourceTree = "<group>"; };
 		4EE41D3A222956100092EC7E /* PendingDatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatesVC.swift; sourceTree = "<group>"; };
 		4EE41D3C222C4DED0092EC7E /* DatingFiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingFiltersVC.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 				93E75A0721873154004C30BC /* UIViewController.swift */,
 				93E75A0821873154004C30BC /* Color.swift */,
 				4E0EEA2F2227D8B400BA953B /* TblView.swift */,
+				4EBBE0D12254E6AC00757AC9 /* DeviceType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -963,6 +966,7 @@
 				939EB5582175DEE700125C17 /* SettingVC.swift in Sources */,
 				93E75A2C2187315B004C30BC /* CropViewController.swift in Sources */,
 				93E75A1E2187315B004C30BC /* UITextField+fixCaretPosition.swift in Sources */,
+				4EBBE0D22254E6AC00757AC9 /* DeviceType.swift in Sources */,
 				93A45B972167758700DA505B /* SignUpVC.swift in Sources */,
 				4E12FC22224500810079CB26 /* Notification.swift in Sources */,
 				4E9AC03E2211681200A48D6F /* DatesVC.swift in Sources */,
@@ -1239,7 +1243,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vannteq.finlitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af9ffbb5-585d-4750-8e25-8ba8e767e476";
-				PROVISIONING_PROFILE_SPECIFIER = FinlitProvProfile;
+				PROVISIONING_PROFILE_SPECIFIER = FinlitProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = Finlit/Finit.Bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1265,7 +1269,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vannteq.finlitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af9ffbb5-585d-4750-8e25-8ba8e767e476";
-				PROVISIONING_PROFILE_SPECIFIER = FinlitProvProfile;
+				PROVISIONING_PROFILE_SPECIFIER = FinlitProvisioningProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = Finlit/Finit.Bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

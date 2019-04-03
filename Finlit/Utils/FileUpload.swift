@@ -72,7 +72,7 @@ class FileUpload {
 //    let imageData = UIImageJPEGRepresentation(image, 1.0)
 //    let imageInfo : UIImage = UIImage(data: imageData!)!
     
-    let id = Constants.kUserDefaults.value(forKey: appConstants.userId)!
+    guard let id = Constants.kUserDefaults.value(forKey: appConstants.userId) else {return}
     let baseUrl = baseUrl1 + self.imageUrl + "/\(id)"
     
     

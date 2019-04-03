@@ -229,6 +229,7 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         
         if self.categName == "Received" {
             cell.mConfirmInterestBtn.setTitle("Confirm", for: .normal)
+            cell.mNoThanksBtn.setTitle("Cancel", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "\(username.capitalized)" +  " wants to meet you"
             if userr.location?.address != nil {cell.mPlaceLbl.text = userr.location?.address}
@@ -236,16 +237,21 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
                 cell.mPlaceLbl.text = userr.userlocation?.address
             }
             
-            cell.mTimeLbl.text = userr.createdAt?.utcStringToLocalDateTimeForNotification
+            cell.mTimeLbl.text = userr.date
 
         }
         
         
         if self.categName == "Sent" {
-            cell.mConfirmInterestBtn.setTitle("Edit", for: .normal)
+            cell.mConfirmInterestBtn.setTitle("Requested", for: .normal)
+            cell.mNoThanksBtn.setTitle("Cancel", for: .normal)
             cell.mNoThanksBtn.setTitle("Cancel this date", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
             cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  "is looking for a date"
+            if let datte = userr.date {cell.mTimeLbl.text = datte}
+            if let loc = userr.userlocation?.address {cell.mPlaceLbl.text = loc}
+            
+            
 
         }
         
@@ -273,10 +279,11 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         let i = IndexPath(row: tag, section: 0)
         
         if self.categName == "Received" {
-        self.userMdlArry.remove(at: i.row)
+       
         
         if let idd = datess.id {
             self.sendConfirmRequest(IdofUser: idd)
+             self.userMdlArry.remove(at: i.row)
             self.mPendingDatesTblView.reloadData()
             
             }
@@ -284,9 +291,10 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         if self.categName == "Sent" {
-            let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
-            destinationVc.secondUserDetails = userMdlArry[tag]
-            self.navigationController?.pushViewController(destinationVc, animated: true)
+            return
+//            let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: "MeetUserVCID") as! MeetUserVC
+//            destinationVc.secondUserDetails = userMdlArry[tag]
+//            self.navigationController?.pushViewController(destinationVc, animated: true)
             
         }
         
@@ -298,9 +306,12 @@ extension PendingDatesVC : UITableViewDelegate, UITableViewDataSource {
         let tag = sender.tag
         let datess = userMdlArry[tag]
         let i = IndexPath(row: tag, section: 0)
-        self.userMdlArry.remove(at: i.row)
+        
+        
         if let idd = datess.id {
-            self.sendNoThanksRequestToPendingUser(IdofUser: idd)}
+            self.sendNoThanksRequestToPendingUser(IdofUser: idd)
+            self.userMdlArry.remove(at: i.row)
+        }
         self.mPendingDatesTblView.reloadData()
         
     }

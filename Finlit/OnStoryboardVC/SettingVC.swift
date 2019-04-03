@@ -18,9 +18,11 @@ var GenderpickerView = UIPickerView()
     @IBOutlet weak var mNotificationsSwitch: UISwitch!
     @IBOutlet weak var mSoundSwitch: UISwitch!
     @IBOutlet weak var mFindMeDateSwitch: UISwitch!
+     var currentGenderOnPicker : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.createDoneButtonForPickers()
         
         if  Constants.kUserDefaults.value(forKey: appConstants.findMeADate) != nil {
             if  Constants.kUserDefaults.value(forKey: appConstants.findMeADate) as! Bool == false {
@@ -180,6 +182,7 @@ extension  SettingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
        
+        self.currentGenderOnPicker = Gender[row]
             return Gender[row]
        
     }
@@ -189,8 +192,32 @@ extension  SettingVC: UIPickerViewDelegate, UIPickerViewDataSource {
             mGenderTextField.text = Gender[row]
         Constants.kUserDefaults.set(mGenderTextField.text!, forKey: appConstants.selecttype)
             mGenderTextField.resignFirstResponder()
-     (Constants.kUserDefaults.value(forKey: appConstants.selecttype) as! String)
+
         }
+    
+    
+    
+    
+    func createDoneButtonForPickers() {
+        let toolbarForGenderPicker = UIToolbar()
+        toolbarForGenderPicker.sizeToFit()
+
+        let doneForGender = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedForGenderPicker))
+        toolbarForGenderPicker.setItems([doneForGender], animated: false)
+        
+        mGenderTextField.inputAccessoryView = toolbarForGenderPicker
+        mGenderTextField.inputView = GenderpickerView
+        
+   
+    }
+    
+    @objc func donePressedForGenderPicker() {
+        mGenderTextField.text = self.currentGenderOnPicker
+         Constants.kUserDefaults.set(mGenderTextField.text!, forKey: appConstants.selecttype)
+        self.view.endEditing(true)
+        return
+    }
+    
         
         
     

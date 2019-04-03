@@ -59,6 +59,7 @@ public extension UIDevice {
         case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
         case "iPad6,7", "iPad6,8":                      return "iPad Pro"
         case "AppleTV5,3":                              return "Apple TV"
+        case "iPhone10,5","iPhone11,4","iPhone11,6":                 return "iPhone XS Max"
         default:                                        return machineString
         }
     }

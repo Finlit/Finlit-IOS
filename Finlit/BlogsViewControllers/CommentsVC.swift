@@ -137,7 +137,7 @@ class CommentsVC: UIViewController {
                 
                 
                 if self.blog!.imgUrl != nil {
-                    self.mBlogImg.sd_setImage(with: URL.init(string:(self.blog!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+                    self.mBlogImg.sd_setImage(with: URL.init(string:(self.blog!.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
             }
             else{
                 print("Getting Error")

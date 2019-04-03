@@ -134,6 +134,9 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
     }
     
     
+ 
+    
+    
     func count(){
         for i in 18...100{
             let num = String(describing: i)
@@ -472,7 +475,7 @@ extension CreateProfileVC:UIImagePickerControllerDelegate,UINavigationController
         self.dismiss(animated: false, completion: { [weak self] in
             self?.mUserImage.image = originalImage
             self?.mCoverImg.image = originalImage
-            self?.mCoverImg.alpha = 0.5
+            self?.mCoverImg.alpha = 0.7
             
             //self?.bUserProfileImgOut.setBackgroundImage(originalImage, for: .normal)
             self?.moveToImageCropper(image: originalImage)
@@ -495,7 +498,7 @@ extension CreateProfileVC : CropViewControllerDelegate {
     
     public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         self.mUserImage.contentMode = .scaleAspectFill
-        self.mCoverImg.contentMode = .scaleAspectFill
+        self.mCoverImg.contentMode = .scaleToFill
         //self.bUserProfileImgOut.setBackgroundImage(image, for: .normal)
         
         
@@ -510,6 +513,19 @@ extension CreateProfileVC : CropViewControllerDelegate {
         }
         cropViewController.dismiss(animated: true, completion: nil)
     }
+    
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        if cancelled == true {
+            self.mCoverImg.image = #imageLiteral(resourceName: "squareimage")
+            self.mUserImage.image = #imageLiteral(resourceName: "cameraicon")
+            self.mCoverImg.alpha = 1
+            cropViewController.dismiss(animated: true, completion: nil)
+            print("alpha value of cover image is \(self.mCoverImg.alpha)")
+        }
+        
+       
+    }
+    
     
 }
 extension CreateProfileVC: UITableViewDelegate, UITableViewDataSource

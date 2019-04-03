@@ -11,6 +11,7 @@ import GooglePlaces
 import Toast_Swift
 class MeetUserVC: UIViewController {
 
+    @IBOutlet weak var mTopDescriptionLbl: UILabel!
     @IBOutlet weak var mSendBtnOutl: UIBarButtonItem!
     @IBOutlet weak var mCancelBtn: UIBarButtonItem!
     @IBOutlet weak var mUserImage1: UIImageView!
@@ -32,6 +33,7 @@ class MeetUserVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.datesAPI = DatesAPI.sharedInstance
         
         if fetchProfileFromPresistance() == true{
@@ -43,11 +45,18 @@ class MeetUserVC: UIViewController {
                     self.getMyProfileDetails(UserID: userid as! String)
                 }}
         }
+        
+        guard let nameOfSecondUser = self.secondUserDetails?.name else {
+            return
+        }
+        
+        self.mTopDescriptionLbl.text = "Suggest a place & time to meet, we will notify you if \(nameOfSecondUser) confirms"
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        self.createDatePicker()
+        //self.createDatePicker()
         self.setupUI()
   
         //changeSendBtnToWhite()
@@ -56,9 +65,7 @@ class MeetUserVC: UIViewController {
        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-     
-    }
+
     
 
     
@@ -91,10 +98,15 @@ class MeetUserVC: UIViewController {
     
     self.userDict = User.init(dictionary: NSDictionary())
     if self.mLocationTxtFld.text != nil || self.mTimeTxtFld.text != "" {
-    userDict?.location?.address = self.mLocationTxtFld.text
-    var dateInString = self.selectedDate.stringOfDateandTimefromDateType
-        var dateInUTC = dateInString.dateStringToUTCString
-    userDict?.createdAt = dateInUTC
+    //userDict?.location?.address = self.mLocationTxtFld.text
+        let userLocDict = Location.init(dictionary: NSDictionary())
+        userDict?.userlocation = userLocDict
+        userDict?.userlocation?.address = self.mLocationTxtFld.text
+        
+//    var dateInString = self.selectedDate.stringOfDateandTimefromDateType
+//        var dateInUTC = dateInString.dateStringToUTCString
+    //userDict?.createdAt = dateInUTC
+    userDict?.date = self.mTimeTxtFld.text //dateInUTC
     self.sendDateRequest(userDict: userDict!) //API
     
     
@@ -308,6 +320,18 @@ extension MeetUserVC :UITextFieldDelegate{
             self.pickAddress()
             return false
             
+        case self.mTimeTxtFld :
+            if self.mLocationTxtFld.text?.count == 0 {
+                 self.view.makeToast("Please select a Location first")
+                return false
+            }
+            
+            else {
+                self.createDatePicker()
+                return true
+                
+            }
+            
         default:
             print("abc")
         }
@@ -318,11 +342,25 @@ extension MeetUserVC :UITextFieldDelegate{
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == self.mTimeTxtFld {
+            if self.mLocationTxtFld.text?.count == 0 {
+                self.view.makeToast("Please select a Location first")
+                return
+            }
+        }
+    }
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text?.count != 0 {
+        if self.mTimeTxtFld.text?.count != 0 && self.mLocationTxtFld.text?.count != 0 {
             self.changeSendBtnToPink()
         }
+        
+//        if self.mLocationTxtFld.text?.count != 0 {
+//            self.createDatePicker()
+//        }
     }
     
 }
@@ -345,6 +383,7 @@ extension MeetUserVC {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .medium
+     
         self.selectedDate = DateTimepicker.date
         let dateString =  DateTimepicker.date.dateToSmartDate
         let timeString = DateTimepicker.date.dateToSmartTime

@@ -20,6 +20,9 @@ class UpdatePasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
    userApi = UserAPI.sharedInstance
+        self.mReEnterPassword.delegate = self
+        self.mNewPassword.delegate = self
+        self.mOldPassword.delegate = self
         
        
     }
@@ -96,4 +99,17 @@ class UpdatePasswordVC: UIViewController {
         
     }
 
+}
+
+
+
+extension UpdatePasswordVC :UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+}
 }

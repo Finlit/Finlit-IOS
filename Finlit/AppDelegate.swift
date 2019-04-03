@@ -20,6 +20,9 @@ import IQKeyboardManagerSwift
 import Inapptics
 
 
+
+
+
 struct DataNotif: Codable {
     var title: String?
     var body: String?
@@ -49,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         
        Inapptics.letsGo(withAppToken: "8043b4b04ace11e99b475b5aadde95e7")
-        
+       DeployGateSDK.sharedInstance()?.launchApplication(withAuthor: "phillengel", key: "faad34275b9f0c8066f63695acf1b36f179c3516")
         
         
         
@@ -204,6 +207,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                     annotation: annotation)
     
                 return  facebookDidHandle
+            }
+            
+            else if url.scheme == "deploygate.394110d66736d9c95fd5a91e165512d5da7a32de" {
+                
+                DeployGateSDK.sharedInstance()?.handleOpen(url, sourceApplication: sourceApplication, annotation: annotation)
+                
             }
     
     

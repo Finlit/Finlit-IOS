@@ -13,7 +13,7 @@
         <!--Sign UpVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SignUpVCID" id="BYZ-38-t0r" customClass="SignUpVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVCID" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SignUpVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +274,7 @@ account which you can unsubscribes from at any time.</string>
         <!--Sign InVC-->
         <scene sceneID="8l3-5M-chk">
             <objects>
-                <viewController storyboardIdentifier="SignInVCID" id="Rwi-Ap-vO8" customClass="SignInVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVCID" automaticallyAdjustsScrollViewInsets="NO" id="Rwi-Ap-vO8" customClass="SignInVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XhK-9x-f5n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -626,7 +626,7 @@ account which you can unsubscribes from at any time.</string>
         <!--VERIFICATION CODE-->
         <scene sceneID="tS2-hf-HiL">
             <objects>
-                <viewController storyboardIdentifier="VerificationVCID" id="sB9-ge-jWk" customClass="VerificationVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerificationVCID" automaticallyAdjustsScrollViewInsets="NO" id="sB9-ge-jWk" customClass="VerificationVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44b-nd-ePy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,7 +862,7 @@ Please type the  Verification Code here.</string>
         <!--Forget PasswordVC-->
         <scene sceneID="Z7c-9h-eb7">
             <objects>
-                <viewController storyboardIdentifier="ForgetPasswordVCID" id="DVs-Cb-jQC" customClass="ForgetPasswordVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgetPasswordVCID" automaticallyAdjustsScrollViewInsets="NO" id="DVs-Cb-jQC" customClass="ForgetPasswordVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZ2-Jk-rtd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1084,21 +1084,21 @@ Please type the  Verification Code here.</string>
         <!--Create ProfileVC-->
         <scene sceneID="3Nh-NQ-ru8">
             <objects>
-                <viewController storyboardIdentifier="CreateProfileVCID" id="Jcm-MQ-7uv" customClass="CreateProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateProfileVCID" automaticallyAdjustsScrollViewInsets="NO" id="Jcm-MQ-7uv" customClass="CreateProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iJb-LN-mQD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-uA-0nP" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-uA-0nP" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66P-iL-KVu">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage" translatesAutoresizingMaskIntoConstraints="NO" id="aUz-RO-B5s">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="aUz-RO-B5s" secondAttribute="height" multiplier="32:17" id="nn9-eZ-4Pz"/>
+                                                    <constraint firstAttribute="width" secondItem="aUz-RO-B5s" secondAttribute="height" multiplier="1.8:1" id="1V6-eY-Q2z"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLR-6x-dyS">
@@ -1123,17 +1123,17 @@ Please type the  Verification Code here.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraicon" translatesAutoresizingMaskIntoConstraints="NO" id="hoC-le-xFe">
-                                                <rect key="frame" x="210" y="90" width="100" height="100"/>
+                                                <rect key="frame" x="210" y="98" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="Aa8-nz-1gA"/>
                                                     <constraint firstAttribute="height" constant="100" id="sQ2-vu-aD3"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6t-pM-fWC">
-                                                <rect key="frame" x="0.0" y="190" width="320" height="660"/>
+                                                <rect key="frame" x="0.0" y="223" width="320" height="527"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emj-3P-Qm5">
-                                                        <rect key="frame" x="30" y="25" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="0.0" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-uw-aDc">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1172,7 +1172,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKk-yA-1RJ">
-                                                        <rect key="frame" x="30" y="265" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="240" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="About You" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mw9-ZF-Rl1">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1211,7 +1211,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68R-VS-z4P">
-                                                        <rect key="frame" x="30" y="85" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="60" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgd-D6-AQc">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1250,7 +1250,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6o-yj-IEF">
-                                                        <rect key="frame" x="30" y="145" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="120" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-HK-pVn">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1289,7 +1289,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMi-9F-KF8">
-                                                        <rect key="frame" x="30" y="205" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="180" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="77I-Wl-yAB">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1328,7 +1328,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIP-Ka-ms8">
-                                                        <rect key="frame" x="30" y="325" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="300" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are your financial passions?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-ZM-zK8">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1377,7 +1377,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwt-iF-BRK">
-                                                        <rect key="frame" x="30" y="385" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="360" width="260" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eg6-4o-c9I">
                                                                 <rect key="frame" x="10" y="0.0" width="215" height="50"/>
@@ -1416,7 +1416,7 @@ Please type the  Verification Code here.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-27-6on">
-                                                        <rect key="frame" x="30" y="455" width="260" height="50"/>
+                                                        <rect key="frame" x="30" y="430" width="260" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.0" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="EUI-fn-8pg"/>
@@ -1437,7 +1437,7 @@ Please type the  Verification Code here.</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="emj-3P-Qm5" firstAttribute="top" secondItem="V6t-pM-fWC" secondAttribute="top" constant="25" id="1Vk-tZ-c9r"/>
+                                                    <constraint firstItem="emj-3P-Qm5" firstAttribute="top" secondItem="V6t-pM-fWC" secondAttribute="top" id="1Vk-tZ-c9r"/>
                                                     <constraint firstItem="WKk-yA-1RJ" firstAttribute="leading" secondItem="V6t-pM-fWC" secondAttribute="leading" constant="30" id="3QX-jp-uEM"/>
                                                     <constraint firstItem="JMi-9F-KF8" firstAttribute="leading" secondItem="V6t-pM-fWC" secondAttribute="leading" constant="30" id="41o-OI-Hba"/>
                                                     <constraint firstItem="D6o-yj-IEF" firstAttribute="top" secondItem="68R-VS-z4P" secondAttribute="bottom" constant="10" id="DK0-bv-jyz"/>
@@ -1464,7 +1464,7 @@ Please type the  Verification Code here.</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-iS-ykN">
-                                                <rect key="frame" x="210" y="90" width="100" height="100"/>
+                                                <rect key="frame" x="210" y="98" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="1OJ-2v-ers"/>
                                                     <constraint firstAttribute="height" constant="100" id="7eW-LK-wTh"/>
@@ -1478,14 +1478,15 @@ Please type the  Verification Code here.</string>
                                         <constraints>
                                             <constraint firstItem="JUI-TR-UwT" firstAttribute="centerX" secondItem="66P-iL-KVu" secondAttribute="centerX" id="1x1-Sc-u6N"/>
                                             <constraint firstAttribute="trailing" secondItem="Rfc-iS-ykN" secondAttribute="trailing" constant="10" id="3ra-79-udc"/>
+                                            <constraint firstItem="Rfc-iS-ykN" firstAttribute="centerX" secondItem="hoC-le-xFe" secondAttribute="centerX" id="BF2-K6-ZvQ"/>
                                             <constraint firstItem="aUz-RO-B5s" firstAttribute="top" secondItem="66P-iL-KVu" secondAttribute="top" id="Bih-Mi-39c"/>
                                             <constraint firstItem="hoC-le-xFe" firstAttribute="bottom" secondItem="aUz-RO-B5s" secondAttribute="bottom" constant="20" id="EBd-GX-xwx"/>
                                             <constraint firstItem="hLR-6x-dyS" firstAttribute="leading" secondItem="66P-iL-KVu" secondAttribute="leading" constant="10" id="THE-tz-28C"/>
-                                            <constraint firstItem="V6t-pM-fWC" firstAttribute="top" secondItem="Rfc-iS-ykN" secondAttribute="bottom" id="Xrs-ZT-upk"/>
-                                            <constraint firstAttribute="height" constant="850" id="bdA-ba-nNJ"/>
+                                            <constraint firstAttribute="height" constant="750" id="bdA-ba-nNJ"/>
                                             <constraint firstAttribute="trailing" secondItem="aUz-RO-B5s" secondAttribute="trailing" id="dlM-Sx-eeT"/>
                                             <constraint firstItem="V6t-pM-fWC" firstAttribute="leading" secondItem="66P-iL-KVu" secondAttribute="leading" id="gD3-xf-GfO"/>
-                                            <constraint firstItem="V6t-pM-fWC" firstAttribute="top" secondItem="hoC-le-xFe" secondAttribute="bottom" id="kUa-3A-rys"/>
+                                            <constraint firstItem="V6t-pM-fWC" firstAttribute="top" secondItem="aUz-RO-B5s" secondAttribute="bottom" constant="45" id="he1-bJ-luJ"/>
+                                            <constraint firstItem="Rfc-iS-ykN" firstAttribute="centerY" secondItem="hoC-le-xFe" secondAttribute="centerY" id="kPv-vu-816"/>
                                             <constraint firstItem="JUI-TR-UwT" firstAttribute="top" secondItem="66P-iL-KVu" secondAttribute="top" constant="20" id="mli-5R-7j1"/>
                                             <constraint firstItem="aUz-RO-B5s" firstAttribute="leading" secondItem="66P-iL-KVu" secondAttribute="leading" id="oLl-nM-2ra"/>
                                             <constraint firstAttribute="trailing" secondItem="V6t-pM-fWC" secondAttribute="trailing" id="pUn-Li-Sjv"/>
@@ -1813,7 +1814,7 @@ Please type the  Verification Code here.</string>
         <!--HomeVC-->
         <scene sceneID="h8S-Kf-38a">
             <objects>
-                <viewController storyboardIdentifier="HomeVCID" id="zUv-qB-0OI" customClass="HomeVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVCID" automaticallyAdjustsScrollViewInsets="NO" id="zUv-qB-0OI" customClass="HomeVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J66-jn-Jic">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2381,7 +2382,7 @@ Please type the  Verification Code here.</string>
         <!--CHAT-->
         <scene sceneID="wwo-3F-qOF">
             <objects>
-                <viewController storyboardIdentifier="ChatVCID" id="3ri-Ld-bUj" customClass="ChatVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVCID" automaticallyAdjustsScrollViewInsets="NO" id="3ri-Ld-bUj" customClass="ChatVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2hv-v7-J2V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2696,7 +2697,7 @@ whatever I put my mind to.</string>
         <!--CHATROOM123-->
         <scene sceneID="nQ7-LN-gL4">
             <objects>
-                <viewController storyboardIdentifier="UserChatRoomVCID" id="xvB-2z-cyv" customClass="UserChatRoomVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserChatRoomVCID" automaticallyAdjustsScrollViewInsets="NO" id="xvB-2z-cyv" customClass="UserChatRoomVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Z2-uI-CRR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="570"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3010,14 +3011,14 @@ whatever I put my mind to.</string>
                                                         <constraint firstAttribute="height" constant="15" id="FSe-OI-HE8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real Estate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-jC-FdD">
-                                                    <rect key="frame" x="35" y="48" width="66" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real Estate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-jC-FdD">
+                                                    <rect key="frame" x="35" y="48" width="160" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36 Evenue Alkaska Usa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kui-wf-Lsj">
-                                                    <rect key="frame" x="33" y="71" width="137" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36 Evenue Alkaska Usa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kui-wf-Lsj">
+                                                    <rect key="frame" x="33" y="71" width="162" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -3033,13 +3034,6 @@ whatever I put my mind to.</string>
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="novicesmall" translatesAutoresizingMaskIntoConstraints="NO" id="Ene-JF-qtu">
-                                                    <rect key="frame" x="162" y="26" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="0LT-Ed-OKS"/>
-                                                        <constraint firstAttribute="width" constant="30" id="kO2-2U-09Y"/>
-                                                    </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2th-zY-Qpe">
                                                     <rect key="frame" x="10" y="112" width="120" height="32"/>
@@ -3096,10 +3090,10 @@ whatever I put my mind to.</string>
                                                 <constraint firstItem="dja-7i-DN6" firstAttribute="top" secondItem="2th-zY-Qpe" secondAttribute="top" id="ezO-9P-UBU"/>
                                                 <constraint firstItem="rFS-W1-5Ym" firstAttribute="top" secondItem="w4H-hY-3B1" secondAttribute="bottom" constant="8" id="gdx-zK-RbO"/>
                                                 <constraint firstItem="42S-Fw-fKf" firstAttribute="top" secondItem="ut4-lR-C4H" secondAttribute="topMargin" constant="15" id="hSv-S1-GuV"/>
-                                                <constraint firstItem="42S-Fw-fKf" firstAttribute="leading" secondItem="Ene-JF-qtu" secondAttribute="trailing" constant="8" id="i2F-Vh-LKG"/>
+                                                <constraint firstItem="42S-Fw-fKf" firstAttribute="leading" secondItem="kui-wf-Lsj" secondAttribute="trailing" constant="5" id="jcP-Nx-f8O"/>
                                                 <constraint firstItem="dja-7i-DN6" firstAttribute="top" secondItem="42S-Fw-fKf" secondAttribute="bottom" constant="16" id="khY-kJ-ci1"/>
                                                 <constraint firstItem="rFS-W1-5Ym" firstAttribute="leading" secondItem="w4H-hY-3B1" secondAttribute="leading" id="kwg-gG-OcS"/>
-                                                <constraint firstItem="Ene-JF-qtu" firstAttribute="top" secondItem="42S-Fw-fKf" secondAttribute="top" id="nZK-gV-3Qn"/>
+                                                <constraint firstItem="42S-Fw-fKf" firstAttribute="leading" secondItem="jXg-jC-FdD" secondAttribute="trailing" constant="5" id="oRT-mG-rHC"/>
                                                 <constraint firstItem="dja-7i-DN6" firstAttribute="leading" secondItem="2th-zY-Qpe" secondAttribute="trailing" constant="20" id="qcW-WL-aB5"/>
                                                 <constraint firstItem="kui-wf-Lsj" firstAttribute="centerY" secondItem="rFS-W1-5Ym" secondAttribute="centerY" id="rf8-mf-MYB"/>
                                                 <constraint firstItem="w4H-hY-3B1" firstAttribute="top" secondItem="kqx-uT-2un" secondAttribute="bottom" constant="8" id="rv6-SS-k9O"/>
@@ -3118,7 +3112,6 @@ whatever I put my mind to.</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="mImageView" destination="42S-Fw-fKf" id="M4n-PX-op8"/>
-                                            <outlet property="mImageView1" destination="Ene-JF-qtu" id="8YP-yr-RSq"/>
                                             <outlet property="mImageView2" destination="w4H-hY-3B1" id="bVB-kt-fXF"/>
                                             <outlet property="mImageView3" destination="rFS-W1-5Ym" id="cPE-VA-DvP"/>
                                             <outlet property="mLabel" destination="jXg-jC-FdD" id="bnN-BQ-jBX"/>
@@ -3743,7 +3736,7 @@ happen to bond prices?</string>
         <!--SETTINGS-->
         <scene sceneID="qxu-Qn-pyP">
             <objects>
-                <viewController storyboardIdentifier="SettingVCID" id="ae0-lV-btS" customClass="SettingVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingVCID" automaticallyAdjustsScrollViewInsets="NO" id="ae0-lV-btS" customClass="SettingVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvS-UD-vNm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="708"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4290,7 +4283,7 @@ happen to bond prices?</string>
         <!--Update PasswordVC-->
         <scene sceneID="JhN-kl-BVV">
             <objects>
-                <viewController storyboardIdentifier="UpdatePasswordVCID" id="skg-td-M8e" customClass="UpdatePasswordVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdatePasswordVCID" automaticallyAdjustsScrollViewInsets="NO" id="skg-td-M8e" customClass="UpdatePasswordVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jk1-rf-frJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4701,45 +4694,45 @@ happen to bond prices?</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user_square" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-V5-Cee">
-                                                            <rect key="frame" x="10" y="79" width="300" height="150"/>
+                                                            <rect key="frame" x="10" y="79" width="300" height="166.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="XVt-V5-Cee" secondAttribute="height" multiplier="2:1" id="OtY-9Y-sa7"/>
+                                                                <constraint firstAttribute="width" secondItem="XVt-V5-Cee" secondAttribute="height" multiplier="1.8:1" id="OtY-9Y-sa7"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karina wants to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwh-DH-eRg">
-                                                            <rect key="frame" x="12" y="237" width="163" height="17"/>
+                                                            <rect key="frame" x="12" y="253.5" width="163" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOCATION" translatesAutoresizingMaskIntoConstraints="NO" id="TZ9-fy-R0m">
-                                                            <rect key="frame" x="12" y="262" width="20" height="20"/>
+                                                            <rect key="frame" x="12" y="278.5" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="Mof-5c-SUt"/>
                                                                 <constraint firstAttribute="height" constant="20" id="ipd-3w-TGG"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calandericon" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-t4-PDd">
-                                                            <rect key="frame" x="12" y="292" width="18" height="18"/>
+                                                            <rect key="frame" x="12" y="308.5" width="18" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="70N-cA-MRc"/>
                                                                 <constraint firstAttribute="height" constant="18" id="KD5-Vm-gAq"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggest a place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU9-gi-GzQ">
-                                                            <rect key="frame" x="42" y="265" width="91" height="14.5"/>
+                                                            <rect key="frame" x="42" y="281.5" width="91" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggest a time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-dv-xnE">
-                                                            <rect key="frame" x="42" y="294" width="85" height="14.5"/>
+                                                            <rect key="frame" x="42" y="310.5" width="85" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giS-wf-IT5">
-                                                            <rect key="frame" x="12" y="324" width="138" height="35"/>
+                                                            <rect key="frame" x="12" y="340.5" width="138" height="35"/>
                                                             <color key="backgroundColor" red="0.91372549020000005" green="0.2156862745" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="H8Z-D7-vbq"/>
@@ -4750,7 +4743,7 @@ happen to bond prices?</string>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naq-ej-k8U">
-                                                            <rect key="frame" x="170" y="324" width="138" height="35"/>
+                                                            <rect key="frame" x="170" y="340.5" width="138" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                             <state key="normal" title="No Thanks">
                                                                 <color key="titleColor" red="0.3411764706" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4869,7 +4862,7 @@ happen to bond prices?</string>
         <!--MEET USER-->
         <scene sceneID="2S3-oB-ZWQ">
             <objects>
-                <viewController storyboardIdentifier="MeetUserVCID" id="ex3-1v-P3z" customClass="MeetUserVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeetUserVCID" automaticallyAdjustsScrollViewInsets="NO" id="ex3-1v-P3z" customClass="MeetUserVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wKy-ZH-lRH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5027,6 +5020,7 @@ happen to bond prices?</string>
                         <outlet property="mLocationTxtFld" destination="QPS-qY-Vh2" id="Xk3-xI-s3w"/>
                         <outlet property="mSendBtnOutl" destination="Y7m-Lq-3As" id="krK-9l-dWT"/>
                         <outlet property="mTimeTxtFld" destination="Xuc-hc-Rzm" id="bS6-92-Jfd"/>
+                        <outlet property="mTopDescriptionLbl" destination="WRz-H4-GC8" id="1g4-HY-DaI"/>
                         <outlet property="mUserImage1" destination="I9y-Ui-8cD" id="qfZ-Hw-vc3"/>
                         <outlet property="mUserImg2" destination="HFK-L2-tH8" id="v37-U0-yXN"/>
                         <segue destination="9Jb-Kf-tnU" kind="show" id="VJz-Au-liU"/>
@@ -5323,7 +5317,7 @@ happen to bond prices?</string>
         <!--FILTERS-->
         <scene sceneID="iL5-Ar-VPP">
             <objects>
-                <viewController storyboardIdentifier="DatingFiltersVCID" id="4B7-2B-Vo9" customClass="DatingFiltersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatingFiltersVCID" automaticallyAdjustsScrollViewInsets="NO" id="4B7-2B-Vo9" customClass="DatingFiltersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P02-Ew-QGd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5482,7 +5476,7 @@ happen to bond prices?</string>
         <!--MY BLOGS-->
         <scene sceneID="XM8-JQ-1aw">
             <objects>
-                <viewController storyboardIdentifier="MyBlogsVCID" id="9Jb-Kf-tnU" customClass="MyBlogsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyBlogsVCID" automaticallyAdjustsScrollViewInsets="NO" id="9Jb-Kf-tnU" customClass="MyBlogsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="68x-p4-4vZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5745,7 +5739,7 @@ happen to bond prices?</string>
         <!--BLOCKED USERS-->
         <scene sceneID="qwM-ez-i8K">
             <objects>
-                <viewController storyboardIdentifier="BlockedUsersVCID" id="559-Vr-kQm" customClass="BlockedUsersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlockedUsersVCID" automaticallyAdjustsScrollViewInsets="NO" id="559-Vr-kQm" customClass="BlockedUsersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2K-l1-3b6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5858,7 +5852,7 @@ happen to bond prices?</string>
         <!--COMMENTS-->
         <scene sceneID="0Jb-By-KaY">
             <objects>
-                <viewController storyboardIdentifier="CommentsVCID" id="IvY-yI-UVo" customClass="CommentsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentsVCID" automaticallyAdjustsScrollViewInsets="NO" id="IvY-yI-UVo" customClass="CommentsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6R-pZ-AB2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -6129,7 +6123,7 @@ happen to bond prices?</string>
         <!--PRIVACY-->
         <scene sceneID="ZHu-ja-LLz">
             <objects>
-                <viewController storyboardIdentifier="PrivacyVCID" id="3Wc-2m-V9r" customClass="PrivacyVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyVCID" automaticallyAdjustsScrollViewInsets="NO" id="3Wc-2m-V9r" customClass="PrivacyVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1M-lK-eYB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -6472,7 +6466,7 @@ United States</string>
         <!--SUPPORT-->
         <scene sceneID="DqW-Uq-ILh">
             <objects>
-                <viewController storyboardIdentifier="SupportVCID" id="lGc-Vu-oxX" customClass="SupportVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SupportVCID" automaticallyAdjustsScrollViewInsets="NO" id="lGc-Vu-oxX" customClass="SupportVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hzp-iX-BrB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -6514,7 +6508,7 @@ Thank you!</string>
         <!--TERMS AND CONDITONS-->
         <scene sceneID="eEX-5A-Dwy">
             <objects>
-                <viewController storyboardIdentifier="TermsAndConditionsVCID" id="4hx-Lp-Z99" customClass="TermsAndConditionsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsAndConditionsVCID" automaticallyAdjustsScrollViewInsets="NO" id="4hx-Lp-Z99" customClass="TermsAndConditionsVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XVI-jg-9ca">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7345,7 +7339,7 @@ letsmeet@finlitdating.com</string>
         <!--NOTIFICATIONS-->
         <scene sceneID="TFA-oN-yGD">
             <objects>
-                <viewController storyboardIdentifier="NotificationVCID" id="34N-qJ-eis" customClass="NotificationVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationVCID" automaticallyAdjustsScrollViewInsets="NO" id="34N-qJ-eis" customClass="NotificationVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Wg-Po-bky">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7484,7 +7478,7 @@ Request</string>
         <!--Edit ProfileVC-->
         <scene sceneID="Ymi-XQ-fRR">
             <objects>
-                <viewController storyboardIdentifier="EditProfileVCID" id="Mpc-3D-vqE" customClass="EditProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileVCID" automaticallyAdjustsScrollViewInsets="NO" id="Mpc-3D-vqE" customClass="EditProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ezH-tE-FNT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -8121,7 +8115,7 @@ Request</string>
         <!--User ProfileVC-->
         <scene sceneID="cE5-BA-tyA">
             <objects>
-                <viewController storyboardIdentifier="UserProfileVCID" id="Wqd-fk-C6N" customClass="UserProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileVCID" automaticallyAdjustsScrollViewInsets="NO" id="Wqd-fk-C6N" customClass="UserProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Len-5F-k2K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -9032,7 +9026,7 @@ graduation and working in C.A</string>
         <!--Other User ProfileVC-->
         <scene sceneID="fT5-P5-hJc">
             <objects>
-                <viewController storyboardIdentifier="OtherUserProfileVCID" id="6PK-48-ylw" customClass="OtherUserProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherUserProfileVCID" automaticallyAdjustsScrollViewInsets="NO" id="6PK-48-ylw" customClass="OtherUserProfileVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FQF-7S-Qgg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -9686,7 +9680,7 @@ graduation and working in C.A</string>
         <!--CHAT-->
         <scene sceneID="eA3-Ae-IPx">
             <objects>
-                <viewController storyboardIdentifier="SearchChatUsersVCID" id="zix-BW-Dw8" customClass="SearchChatUsersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchChatUsersVCID" automaticallyAdjustsScrollViewInsets="NO" id="zix-BW-Dw8" customClass="SearchChatUsersVC" customModule="Finlit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EPy-kP-IU7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -9894,7 +9888,6 @@ graduation and working in C.A</string>
         <image name="mycircle" width="100" height="100"/>
         <image name="myprofile" width="86" height="86"/>
         <image name="navicon2" width="86" height="86"/>
-        <image name="novicesmall" width="85" height="78"/>
         <image name="pinpoint" width="70" height="70"/>
         <image name="portrait" width="633" height="952"/>
         <image name="recommnd" width="94" height="76"/>
@@ -9912,6 +9905,6 @@ graduation and working in C.A</string>
         <image name="username" width="53" height="49"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8dn-ic-4ma"/>
+        <segue reference="A6M-Xr-46d"/>
     </inferredMetricsTieBreakers>
 </document>

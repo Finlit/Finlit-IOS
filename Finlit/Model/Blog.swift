@@ -18,6 +18,9 @@ public class Blog {
     public var commentCount : Int?
      public var isLike : Bool?
     public var user : User?
+    public var link : String?
+  
+    
     
     public var tags : [NSDictionary]?
     
@@ -61,6 +64,7 @@ public class Blog {
         commentCount = dictionary["commentCount"] as? Int
         isLike = dictionary["isLike"] as? Bool
         tags = dictionary["tags"] as? [NSDictionary]
+        link = dictionary["link"] as? String
         
         if (dictionary["user"] != nil) { user = User(dictionary: dictionary["user"] as! NSDictionary) }
     }
@@ -83,6 +87,7 @@ public class Blog {
         dictionary.setValue(self.commentCount, forKey: "commentCount")
         dictionary.setValue(self.isLike, forKey: "isLike")
         dictionary.setValue(self.tags, forKey: "tags")
+        dictionary.setValue(self.link, forKey: "link")
         dictionary.setValue(self.user?.dictionaryRepresentation(), forKey: "user")
         
         return dictionary

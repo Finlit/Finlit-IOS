@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelegate, PayPalProfileSharingDelegate {
     
     func userDidCancel(_ profileSharingViewController: PayPalProfileSharingViewController) {
@@ -210,6 +211,8 @@ class HomeVC: UIViewController, PayPalPaymentDelegate, PayPalFuturePaymentDelega
     
     
     @IBAction func mShareNow(_ sender: UIButton) {
+        
+        
         // text to share
         let text = "Share"
         

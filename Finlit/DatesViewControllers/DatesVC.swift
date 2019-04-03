@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DeviceCheck
 
 class DatesVC: UIViewController {
 
@@ -18,12 +19,15 @@ class DatesVC: UIViewController {
     @IBOutlet weak var mPinkBotmLbl3: UILabel!
     @IBOutlet weak var mTopCategView: UIView!
     @IBOutlet weak var mDatesTblView: UITableView!
+     var refreshControl = UIRefreshControl()
     var categoryType : String = "Available"
     let vcHelper = VCHelper()
     var cellHeight : CGFloat =  380
     var userMdlArry :  [User]!
     var datesAPI : DatesAPI!
     var queryForFilterType  = "isInterest"
+    var deviceModelName : String?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,15 @@ class DatesVC: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
+         self.ResetBtnProperties()
+        self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
+        self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
+        
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        mDatesTblView.addSubview(refreshControl)
+        self.checkDeviceModel()
         
         
     }
@@ -56,14 +69,21 @@ class DatesVC: UIViewController {
       
         mDatesTblView.rowHeight = UITableViewAutomaticDimension
         mDatesTblView.estimatedRowHeight = 380
-        
-        self.ResetBtnProperties()
-      self.mAvailableBtnOutl.setTitleColor(UIColor.pinkThemeColor(), for: .normal)
-      self.mPinkBotmLbl1.backgroundColor = UIColor.pinkThemeColor()
-        
+
         self.getallDatingUsers(type: queryForFilterType)
     }
     
+    
+    @objc func refresh(sender:AnyObject) {
+         self.getallDatingUsers(type: queryForFilterType)
+        
+    }
+    
+    
+    func checkDeviceModel () {
+        self.deviceModelName = UIDevice.current.modelName
+        print ("Device Model is \(deviceModelName)")
+    }
     
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -178,6 +198,7 @@ class DatesVC: UIViewController {
         DatesAPI().getAllAvailableUsers(type: type,minAge:minage,maxAge: maxAge ){ (data, error) in
             if data[APIConstants.isSuccess.rawValue] as! Bool == true {
                 if error == nil{
+                      self.refreshControl.endRefreshing()
                     self.userMdlArry = [User]()
                     
                     let userlist = data[APIConstants.items.rawValue] as! NSArray
@@ -307,7 +328,7 @@ class DatesVC: UIViewController {
 extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.userMdlArry.count == 0 || self.userMdlArry.isEmpty == true  {
-            self.mDatesTblView.setEmptyMessage("No Users Yet", tablename: self.mDatesTblView)
+            self.mDatesTblView.setEmptyMessage("No \(self.categoryType) Users Yet", tablename: self.mDatesTblView)
         }
             
             
@@ -354,8 +375,10 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
             cell.mLocationIcon.isHidden = false
             cell.mPlaceLbl.isHidden = false
             cell.mTimeLbl.isHidden = false
-            cell.mPlaceLbl.text = userr.location?.address
-            cell.mTimeLbl.text = userr.createdAt?.utcStringToLocalDateTimeForNotification
+            //cell.mPlaceLbl.text = userr.location?.address
+            cell.mPlaceLbl.text = userr.userlocation?.address
+            //cell.mTimeLbl.text = userr.createdAt?.utcStringToLocalDateTimeForNotification
+            cell.mTimeLbl.text =  userr.date //userr.date?.utcStringToLocalDateTimeForNotification
             cell.mConfirmBtnTopConst.constant = 14
             cell.mConfirmBtnTopConst.isActive = true
             cell.layoutIfNeeded()
@@ -366,11 +389,13 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
             cell.mConfirmInterestBtn.setTitle("Edit", for: .normal)
              cell.mNoThanksBtn.setTitle("Cancel this date", for: .normal)
             let username = userr.name != nil ? String(describing: userr.name!) : "User"
-            cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  "is looking for a date"
+            cell.mWantsToMeetLbl.text = "Hey, \(username.capitalized)" +  " is looking for a date"
             cell.mCalendarIcon.isHidden = false
             cell.mLocationIcon.isHidden = false
             cell.mPlaceLbl.isHidden = false
             cell.mTimeLbl.isHidden = false
+            cell.mPlaceLbl.text = userr.userlocation?.address
+            cell.mTimeLbl.text = userr.date //userr.date?.utcStringToLocalDateTimeForNotification
             cell.mConfirmBtnTopConst.constant = 14
             cell.mConfirmBtnTopConst.isActive = true
             cell.layoutIfNeeded()
@@ -393,12 +418,18 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if self.categoryType == "Available" {
-            return 350
+            if self.deviceModelName == "iPhone XS Max"{
+                return 385
+            }
+            return 362
         }
         
         else {
+            if self.deviceModelName == "iPhone XS Max"{
+                return 435
+            }
         
-        return 400
+        return 412
         }}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -406,6 +437,8 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         guard let idOfOtherUser = self.userMdlArry[indexPath.row].id else {
             return
         }
+        
+      
         let vc  = storyboard?.instantiateViewController(withIdentifier: "OtherUserProfileVCID")as! OtherUserProfileVC
     
         vc.opponentId = idOfOtherUser
@@ -435,10 +468,10 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         
         if self.categoryType == "Pending" {
-            self.userMdlArry.remove(at: i.row)
-            
+           
             if let idd = datess.id {
                 self.sendConfirmRequest(IdofUser: idd)
+                 self.userMdlArry.remove(at: i.row)
                 self.mDatesTblView.reloadData()
             }
             
@@ -464,29 +497,36 @@ extension DatesVC : UITableViewDelegate, UITableViewDataSource {
         
         
         if self.categoryType == "Available" {
-            self.userMdlArry.remove(at: i.row)
+            
             var userDict : User?
             userDict = User.init(dictionary: NSDictionary())
             if let idd = datess.id {
-                self.sendNoThanksRequest(IdofUser: idd, userDict: userDict!)}
+                self.sendNoThanksRequest(IdofUser: idd, userDict: userDict!)
+                self.userMdlArry.remove(at: i.row)
+            }
+            
             self.mDatesTblView.reloadData()
             
         }
         
         
         if self.categoryType == "Pending" {
-            self.userMdlArry.remove(at: i.row)
+           
             if let idd = datess.id {
-                self.sendNoThanksRequestToPendingUser(IdofUser: idd)}
+                self.sendNoThanksRequestToPendingUser(IdofUser: idd)
+                 self.userMdlArry.remove(at: i.row)
+            }
             self.mDatesTblView.reloadData()
             
         }
         
         
         if self.categoryType == "Confirmed" {
-            self.userMdlArry.remove(at: i.row)
+           
             if let idd = datess.id {
-                self.cancelDateRequest(IdofUser: idd)}
+                self.cancelDateRequest(IdofUser: idd)
+                 self.userMdlArry.remove(at: i.row)
+            }
             self.mDatesTblView.reloadData()
             
         }

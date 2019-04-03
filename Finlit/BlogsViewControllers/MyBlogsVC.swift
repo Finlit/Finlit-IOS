@@ -8,6 +8,7 @@
 
 import UIKit
 import HVTableView
+import Toast_Swift
 
 class MyBlogsVC: UIViewController {
 
@@ -18,11 +19,15 @@ class MyBlogsVC: UIViewController {
     var selectedCellIndex : IndexPath?
     var descriptlblWidth : CGFloat = 0
     var descriptionStringArry = [String]()
+      var refreshControl = UIRefreshControl()
    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descriptlblWidth = self.view.bounds.width - 20
           self.blogsModelArray = [Blog]()
+        refreshControl.attributedTitle = NSAttributedString(string: "")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        mBlogsTblView.addSubview(refreshControl)
     
     }
     
@@ -36,6 +41,13 @@ class MyBlogsVC: UIViewController {
             self.getAllBlogs()
         }
        
+    }
+    
+    
+    
+    @objc func refresh(sender:AnyObject) {
+        self.getAllBlogs()
+        
     }
     
 
@@ -53,6 +65,7 @@ class MyBlogsVC: UIViewController {
 
                 if error == nil{
                     
+                    self.refreshControl.endRefreshing()
                     let blogList = data[APIConstants.items.rawValue] as! NSArray
                     self.blogsModelArray = Blog.modelsFromDictionaryArray(array: blogList)
                     self.mBlogsTblView.delegate = self
@@ -118,9 +131,9 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
         }
         
         if blog.user?.imgUrl != nil {
-            cell.mUserImgView.sd_setImage(with: URL.init(string:((blog.user?.imgUrl!.httpsExtend)!)), placeholderImage: #imageLiteral(resourceName: "portrait2")) }
+            cell.mUserImgView.sd_setImage(with: URL.init(string:((blog.user?.imgUrl!.httpsExtend)!)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
         if blog.imgUrl != nil {
-            cell.mBlogImgView.sd_setImage(with: URL.init(string:(blog.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+            cell.mBlogImgView.sd_setImage(with: URL.init(string:(blog.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "default_user_square")) }
         
         
         cell.mLikeLbl.text = "Like " + String(describing:blog.likeCount!)
@@ -255,12 +268,23 @@ extension MyBlogsVC {
         let tag = sender.tag
         let blog = blogsModelArray[tag]
         let i = IndexPath(row: tag, section: 0)
-        let text = blog.description
+        guard let blogLink = blog.link  else {
+            return }
+        
         // set up activity view controller
-        let textToShare = [ text ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        let textToShare = [ blogLink ]
+        
+        if #available(iOS 11, *) {
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.navigationController?.present(activityViewController, animated: true, completion: nil)
+        } else {
+            self.view.makeToast("To use this feature, update your os")
+            return
+           
+        }
+       
+       
     }
     
     

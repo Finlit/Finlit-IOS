@@ -239,13 +239,13 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
         
        // print("question is \(self.nearByData[indexPath.row].question![0])")
         
-        if self.nearByData[indexPath.row].profileType == "novice"{
-            cell.mImageView1.image = #imageLiteral(resourceName: "novicesmall")
-        }else if self.nearByData[indexPath.row].profileType == "proficent"{
-            cell.mImageView1.image = #imageLiteral(resourceName: "proficentsmall")
-        }else{
-            cell.mImageView1.image = #imageLiteral(resourceName: "expertsmall")
-        }
+//        if self.nearByData[indexPath.row].profileType == "novice"{
+//            cell.mImageView1.image = #imageLiteral(resourceName: "novicesmall")
+//        }else if self.nearByData[indexPath.row].profileType == "proficent"{
+//            cell.mImageView1.image = #imageLiteral(resourceName: "proficentsmall")
+//        }else{
+//            cell.mImageView1.image = #imageLiteral(resourceName: "expertsmall")
+//        }
         let url = self.nearByData[indexPath.row].imgUrl
         if url != nil{
             let urlimage = URL(string: url!)
