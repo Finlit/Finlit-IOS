@@ -20,6 +20,7 @@ class MyBlogsVC: UIViewController {
     var descriptlblWidth : CGFloat = 0
     var descriptionStringArry = [String]()
       var refreshControl = UIRefreshControl()
+     var deviceModelName : String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class MyBlogsVC: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         mBlogsTblView.addSubview(refreshControl)
+        self.checkDeviceModel()
     
     }
     
@@ -48,6 +50,12 @@ class MyBlogsVC: UIViewController {
     @objc func refresh(sender:AnyObject) {
         self.getAllBlogs()
         
+    }
+    
+    
+    func checkDeviceModel () {
+        self.deviceModelName = UIDevice.current.modelName
+        print ("Device Model is \(deviceModelName)")
     }
     
 
@@ -167,7 +175,10 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        print("Total height at index path \(indexPath.row) is 325 + \(labelHeight) = \(325 + labelHeight)")
+        if self.deviceModelName == "iPhone XS Max" {
+            
+            return 330 + self.labelHeight
+        }
           return 320 + labelHeight
 
     }
@@ -293,7 +304,8 @@ extension MyBlogsVC {
         let tag = sender.tag
         let blog = blogsModelArray[tag]
         let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CommentsVCID") as! CommentsVC
-        destinationVC.blogID = blog.id!
+        guard let blgId = blog.id else {return}
+        destinationVC.blogID = blgId   //blog.id!
         self.navigationController?.pushViewController(destinationVC, animated: true)
         
     }
@@ -314,88 +326,93 @@ extension MyBlogsVC {
 } //EXTENSION CLOSED
 
 
-extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
-    func tableView(_ tableView: UITableView!, cellForRowAt indexPath: IndexPath!, isExpanded: Bool) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyBlogsTblCellID", for: indexPath) as! MyBlogsTblCell
-
-        cell.selectionStyle = .none
-  
-        let blog = self.blogsModelArray[indexPath.row]
-      
-        self.labelHeight = (blog.description?.heightWithConstrainedWidth(width: self.descriptlblWidth, font: UIFont.systemFont(ofSize: 14)))!
-        cell.mHeadlineLbl.text = blog.title
-        cell.mDescriptionLbl.text = blog.description
-        
-//        let subSt = blog.description?.prefix(25)
-//        cell.mDescriptionLbl.text = String(subSt!)
-        
-  
-        
-        
-        
-        
-        
-        if blog.isLike == true {
-            cell.mHeartImgView.image = UIImage(named: "filledHeart")
-            
-        }
-            
-        else if blog.isLike == false {
-            cell.mHeartImgView.image = UIImage(named: "unfilledHeart")
-            
-        }
-        
-        if blog.user?.imgUrl != nil {
-            cell.mUserImgView.sd_setImage(with: URL.init(string:((blog.user?.imgUrl!.httpsExtend)!)), placeholderImage: #imageLiteral(resourceName: "portrait2")) }
-        if blog.imgUrl != nil {
-            cell.mBlogImgView.sd_setImage(with: URL.init(string:(blog.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
-        
-        
-        cell.mLikeLbl.text = "Like " + String(describing:blog.likeCount!)
-        cell.mCommentsLbl.text = "Comments " + "(\(String(describing:blog.commentCount!)))"
-        cell.mBlogImgView.contentMode = .scaleToFill
-        cell.mBlogImgView.clipsToBounds = true
-        
-        cell.mLikeBtn.tag = indexPath.row
-        cell.mShareBtn.tag = indexPath.row
-        cell.mCommentsBtn.tag = indexPath.row
-        cell.mLikeBtn.addTarget(self, action: #selector(likeBtnAction), for: .touchUpInside)
-        cell.mShareBtn.addTarget(self, action: #selector(shareBtnAction), for: .touchUpInside)
-        cell.mCommentsBtn.addTarget(self, action: #selector(commentBtnAction), for: .touchUpInside)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView!, collapse cell: UITableViewCell!, with indexPath: IndexPath!) {
-//         let blog = self.blogsModelArray[indexPath.row]
-//        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
-//        let subSt = blog.description?.prefix(25)
-//        cell.mDescriptionLbl.text = String(subSt!) + "..."
-//        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-      
-       
-    }
-    
-    func tableView(_ tableView: UITableView!, expand cell: UITableViewCell!, with indexPath: IndexPath!) {
-
+//extension MyBlogsVC : HVTableViewDelegate,HVTableViewDataSource {
+//    func tableView(_ tableView: UITableView!, cellForRowAt indexPath: IndexPath!, isExpanded: Bool) -> UITableViewCell! {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MyBlogsTblCellID", for: indexPath) as! MyBlogsTblCell
+//
+//        cell.selectionStyle = .none
+//
 //        let blog = self.blogsModelArray[indexPath.row]
-//        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
+//
+//        self.labelHeight = (blog.description?.heightWithConstrainedWidth(width: self.descriptlblWidth, font: UIFont.systemFont(ofSize: 14)))!
+//        cell.mHeadlineLbl.text = blog.title
 //        cell.mDescriptionLbl.text = blog.description
-//        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-        
-        
-    }
-    
-    
-//    func numberOfSections(in tableView: UITableView!) -> Int {
-//        return 1
+//
+////        let subSt = blog.description?.prefix(25)
+////        cell.mDescriptionLbl.text = String(subSt!)
+//
+//
+//
+//
+//
+//
+//
+//        if blog.isLike == true {
+//            cell.mHeartImgView.image = UIImage(named: "filledHeart")
+//
+//        }
+//
+//        else if blog.isLike == false {
+//            cell.mHeartImgView.image = UIImage(named: "unfilledHeart")
+//
+//        }
+//
+//        if blog.user?.imgUrl != nil {
+//            cell.mUserImgView.sd_setImage(with: URL.init(string:((blog.user?.imgUrl!.httpsExtend)!)), placeholderImage: #imageLiteral(resourceName: "portrait2")) }
+//        if blog.imgUrl != nil {
+//            cell.mBlogImgView.sd_setImage(with: URL.init(string:(blog.imgUrl!.httpsExtend)), placeholderImage: #imageLiteral(resourceName: "blogdefaultimg")) }
+//
+//
+//        cell.mLikeLbl.text = "Like " + String(describing:blog.likeCount!)
+//        cell.mCommentsLbl.text = "Comments " + "(\(String(describing:blog.commentCount!)))"
+//        cell.mBlogImgView.contentMode = .scaleToFill
+//        cell.mBlogImgView.clipsToBounds = true
+//
+//        cell.mLikeBtn.tag = indexPath.row
+//        cell.mShareBtn.tag = indexPath.row
+//        cell.mCommentsBtn.tag = indexPath.row
+//        cell.mLikeBtn.addTarget(self, action: #selector(likeBtnAction), for: .touchUpInside)
+//        cell.mShareBtn.addTarget(self, action: #selector(shareBtnAction), for: .touchUpInside)
+//        cell.mCommentsBtn.addTarget(self, action: #selector(commentBtnAction), for: .touchUpInside)
+//        return cell
 //    }
-    
-    func tableView(_ tableView: UITableView!, heightForRowAt indexPath: IndexPath!, isExpanded: Bool) -> CGFloat {
-      
-        return 340 + self.labelHeight
-     
-        
-    }
-    
-    
-}
+//
+//    func tableView(_ tableView: UITableView!, collapse cell: UITableViewCell!, with indexPath: IndexPath!) {
+////         let blog = self.blogsModelArray[indexPath.row]
+////        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
+////        let subSt = blog.description?.prefix(25)
+////        cell.mDescriptionLbl.text = String(subSt!) + "..."
+////        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+//
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView!, expand cell: UITableViewCell!, with indexPath: IndexPath!) {
+//
+////        let blog = self.blogsModelArray[indexPath.row]
+////        let cell = tableView.cellForRow(at: indexPath) as! MyBlogsTblCell
+////        cell.mDescriptionLbl.text = blog.description
+////        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+//
+//
+//    }
+//
+//
+////    func numberOfSections(in tableView: UITableView!) -> Int {
+////        return 1
+////    }
+//
+//    func tableView(_ tableView: UITableView!, heightForRowAt indexPath: IndexPath!, isExpanded: Bool) -> CGFloat {
+//
+//        if self.deviceModelName == "iPhone XS Max" {
+//
+//             return 350 + self.labelHeight
+//        }
+//
+//        return 340 + self.labelHeight
+//
+//
+//    }
+//
+//
+//}
