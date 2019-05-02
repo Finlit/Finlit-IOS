@@ -99,7 +99,7 @@ class QuestionRemoteReplicator{
     //MARK:- Get filter
     func getfilter(latitude:String =
         "",longitude:String = "",range:String = "",filterBy:String = "",ageMin:String = "",ageMax : String = "",callback:@escaping (_ responseData: Dictionary<String, AnyObject>?, _ error: NSError?) -> Void ) {
-        let url = "users?" + longitude + latitude + filterBy + range + ageMin + ageMax
+        let url = "users/list/search?" + latitude + longitude + filterBy + range + ageMin + ageMax
         
         let urlString =  "\(baseUrl1)\(url.html)"
         print(urlString)

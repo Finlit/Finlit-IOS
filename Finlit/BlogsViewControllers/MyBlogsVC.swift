@@ -152,6 +152,7 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
         cell.mLikeBtn.tag = indexPath.row
         cell.mShareBtn.tag = indexPath.row
         cell.mCommentsBtn.tag = indexPath.row
+    
         cell.mLikeBtn.addTarget(self, action: #selector(likeBtnAction), for: .touchUpInside)
         cell.mShareBtn.addTarget(self, action: #selector(shareBtnAction), for: .touchUpInside)
         cell.mCommentsBtn.addTarget(self, action: #selector(commentBtnAction), for: .touchUpInside)
@@ -170,6 +171,7 @@ extension MyBlogsVC : UITableViewDelegate,UITableViewDataSource {
         
   
     }
+    
     
     
     

@@ -75,24 +75,24 @@ class NearByVC: UIViewController {
         }
         
         else{
-            if latStr != ""{
-
-            }else if longStr != ""{
-
-            }else if rangeStr == "0.0" {
-              rangeStr = "40000"
-            }else if filterbyStr != ""{
-                
-            }else if ageMin == "0.0"{
-                ageMin = "0"
-            }else if ageMax == "0.0"{
-                 ageMax = "100"
-            }else{
-            }
-            print(filterbyStr)
-            let filterbys = filterbyStr.replacingOccurrences(of: "%20", with: " ")
-            print(filterbys)
-            getfilterdata(latitude: "&longitude=\(longStr)", longitude: "latitude=\(latStr)", range: "&range=\("40000")", filterBy: "&filterBy=\(filterbys)", ageMin: "&ageMin=\(ageMin)", ageMax: "&ageMax=\(ageMax)")
+//            if latStr != ""{
+//
+//            }else if longStr != ""{
+//
+//            }else if rangeStr == "0.0" {
+//              rangeStr = "40000"
+//            }else if filterbyStr != ""{
+//
+//            }else if ageMin == "0.0"{
+//                ageMin = "0"
+//            }else if ageMax == "0.0"{
+//                 ageMax = "100"
+//            }else{
+//            }
+//            print(filterbyStr)
+//            let filterbys = filterbyStr.replacingOccurrences(of: "%20", with: " ")
+//            print(filterbys)
+//            getfilterdata(latitude: "&longitude=\(longStr)", longitude: "latitude=\(latStr)", range: "&range=\("40000")", filterBy: "&filterBy=\(filterbys)", ageMin: "&ageMin=\(ageMin)", ageMax: "&ageMax=\(ageMax)")
             
         }
         
@@ -117,10 +117,6 @@ class NearByVC: UIViewController {
     }
 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func mBackBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -130,6 +126,7 @@ class NearByVC: UIViewController {
     @IBAction func mFilterBtnAct(_ sender: Any) {
         
         let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "FiltersVCID") as! FiltersVC
+        destinationvc.delegate = self
         self.navigationController?.pushViewController(destinationvc, animated: true)
     }
     
@@ -194,7 +191,7 @@ class NearByVC: UIViewController {
                    
                     
                     self.nearByData = NearBySearch.modelsFromDictionaryArray(array: nearlist)
-                    //
+          
                     self.mNearByTblCell.reloadData()
                     
                 }
@@ -220,7 +217,7 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NearByTblCellID", for: indexPath) as! NearByTblCell
-        //cell.mView.dropShadow(scale: true)
+   
         cell.mMessageBtn.addTarget(self, action: #selector(mMessageBtnAct(sender:)), for: .touchUpInside)
         cell.mMessageBtn.tag = indexPath.row
         cell.mViewProfileBtn.addTarget(self, action: #selector(mViewProfile(sender:)), for: .touchUpInside)
@@ -237,15 +234,7 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
         }
         
         
-       // print("question is \(self.nearByData[indexPath.row].question![0])")
-        
-//        if self.nearByData[indexPath.row].profileType == "novice"{
-//            cell.mImageView1.image = #imageLiteral(resourceName: "novicesmall")
-//        }else if self.nearByData[indexPath.row].profileType == "proficent"{
-//            cell.mImageView1.image = #imageLiteral(resourceName: "proficentsmall")
-//        }else{
-//            cell.mImageView1.image = #imageLiteral(resourceName: "expertsmall")
-//        }
+
         let url = self.nearByData[indexPath.row].imgUrl
         if url != nil{
             let urlimage = URL(string: url!)
@@ -287,13 +276,26 @@ extension NearByVC: UITableViewDelegate, UITableViewDataSource
         
              let vc  = storyboard?.instantiateViewController(withIdentifier: "OtherUserProfileVCID")as! OtherUserProfileVC
         
-//            let vc  = storyboard?.instantiateViewController(withIdentifier: "UserProfileVCID")as! UserProfileVC
             vc.opponentId = otherUserId
-        
-        
-           // vc.VCcheckInt = 1
             navigationController?.pushViewController(vc, animated: true)
             
         
     }
+}
+
+
+extension NearByVC : FiltersVCDelegate {
+    func setFilterParameters(minimumRange: Double, maximumRange: Double, minimumAge: Int, maximumAge: Int, lati: Double, longi: Double, financialInterest: String) {
+        
+      self.getfilterdata(latitude: "latitude=\(String(lati))", longitude: "&longitude=\(String(longi))", range: "&range=\(String(maximumRange))", filterBy: "&filterBy=\(String(financialInterest))", ageMin: "&ageMin=\(String(minimumAge))", ageMax: "&ageMax=\(String(maximumAge))")
+        
+       
+        
+
+        
+    }
+    
+  
+    
+    
 }

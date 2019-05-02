@@ -1511,14 +1511,14 @@ Please type the  Verification Code here.</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wWa-1s-zXw">
-                                <rect key="frame" x="27" y="177" width="266" height="278"/>
+                                <rect key="frame" x="25" y="109" width="270" height="414"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WhatsTableViewCellID" rowHeight="52" id="QVG-BN-bcA" customClass="WhatsTableViewCell" customModule="Finlit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="266" height="52"/>
+                                        <rect key="frame" x="0.0" y="28" width="270" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QVG-BN-bcA" id="buf-by-lCL">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJp-Lf-0Rq">
@@ -1559,10 +1559,10 @@ Please type the  Verification Code here.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WhatsTableViewCell2ID" rowHeight="73" id="tZY-XP-uSD" customClass="WhatsTableViewCell" customModule="Finlit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="80" width="266" height="73"/>
+                                        <rect key="frame" x="0.0" y="80" width="270" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tZY-XP-uSD" id="pcL-4Q-eiS">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="72.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="72.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78x-34-1Mi">
@@ -1637,17 +1637,17 @@ Please type the  Verification Code here.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wWa-1s-zXw" firstAttribute="top" secondItem="pos-7Q-scQ" secondAttribute="top" constant="113" id="6Nj-La-jQV"/>
+                            <constraint firstItem="wWa-1s-zXw" firstAttribute="top" secondItem="pos-7Q-scQ" secondAttribute="top" constant="45" id="6Nj-La-jQV"/>
                             <constraint firstItem="QWR-Bm-7b1" firstAttribute="leading" secondItem="pos-7Q-scQ" secondAttribute="leading" id="9IT-lE-CFR"/>
-                            <constraint firstItem="wWa-1s-zXw" firstAttribute="leading" secondItem="pos-7Q-scQ" secondAttribute="leading" constant="27" id="BDs-zM-WbV"/>
+                            <constraint firstItem="wWa-1s-zXw" firstAttribute="leading" secondItem="pos-7Q-scQ" secondAttribute="leading" constant="25" id="BDs-zM-WbV"/>
                             <constraint firstItem="QWR-Bm-7b1" firstAttribute="top" secondItem="iJb-LN-mQD" secondAttribute="top" id="JqI-vG-9Xa"/>
                             <constraint firstItem="pos-7Q-scQ" firstAttribute="trailing" secondItem="jsp-uA-0nP" secondAttribute="trailing" id="LT0-dy-toG"/>
                             <constraint firstItem="jsp-uA-0nP" firstAttribute="leading" secondItem="pos-7Q-scQ" secondAttribute="leading" id="U9m-Rv-5jR"/>
                             <constraint firstItem="QWR-Bm-7b1" firstAttribute="trailing" secondItem="pos-7Q-scQ" secondAttribute="trailing" id="VIR-pw-tG8"/>
                             <constraint firstItem="66P-iL-KVu" firstAttribute="width" secondItem="iJb-LN-mQD" secondAttribute="width" id="WKE-II-wZT"/>
                             <constraint firstItem="jsp-uA-0nP" firstAttribute="top" secondItem="pos-7Q-scQ" secondAttribute="top" id="a2S-9U-3Os"/>
-                            <constraint firstItem="pos-7Q-scQ" firstAttribute="trailing" secondItem="wWa-1s-zXw" secondAttribute="trailing" constant="27" id="dEk-lW-DEq"/>
-                            <constraint firstItem="pos-7Q-scQ" firstAttribute="bottom" secondItem="wWa-1s-zXw" secondAttribute="bottom" constant="113" id="fDa-yb-3iZ"/>
+                            <constraint firstItem="pos-7Q-scQ" firstAttribute="trailing" secondItem="wWa-1s-zXw" secondAttribute="trailing" constant="25" id="dEk-lW-DEq"/>
+                            <constraint firstItem="pos-7Q-scQ" firstAttribute="bottom" secondItem="wWa-1s-zXw" secondAttribute="bottom" constant="45" id="fDa-yb-3iZ"/>
                             <constraint firstItem="pos-7Q-scQ" firstAttribute="bottom" secondItem="jsp-uA-0nP" secondAttribute="bottom" id="p0t-FC-DgK"/>
                             <constraint firstItem="QWR-Bm-7b1" firstAttribute="bottom" secondItem="pos-7Q-scQ" secondAttribute="bottom" id="wJX-XM-dv6"/>
                         </constraints>
@@ -9905,6 +9905,6 @@ graduation and working in C.A</string>
         <image name="username" width="53" height="49"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A6M-Xr-46d"/>
+        <segue reference="8dn-ic-4ma"/>
     </inferredMetricsTieBreakers>
 </document>

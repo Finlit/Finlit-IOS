@@ -19,7 +19,9 @@ struct remoteConfig{
     //http://3.16.159.98:3011/api/users/signup
     //"http://18.222.249.193:3009/api/"
     
-      static let mBaseUrl = "http://3.16.159.98:3009/api/"
+   // http://3.16.159.98:3009/api/users/list/search
+    //http://34.214.234.243:3009/api/users/signup
+      static let mBaseUrl =   "http://34.214.234.243:3009/api/"
     static let environment = "PRO"
     static let googleAPIKey = "AIzaSyD24CVsxirIYTY2uejIlhfrCMyBlPmJ2kc"
     // static let environment = "DEBUG"

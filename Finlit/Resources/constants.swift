@@ -15,6 +15,11 @@ enum APIConstants :String {
     pageNo = "pageNo",
     total = "total",
     totalRecords = "totalRecords"
+    static let SingnIn = "http://18.222.94.70:3006/api/users/signin"
+    static let Oders = "http://18.222.94.70:3006/api/orders"
+    static let allChat = "http://18.222.94.70:3006/api/chats"
+    static let searchChat = "http://18.222.94.70:3006/api/search/bart"
+    static let statsApi = "http://18.222.94.70:3006/api/orders/average/serve"
 }
 
 struct appConstants{
@@ -53,13 +58,21 @@ struct appConstants{
    static let isLoggedIn = "isLoggedIn"
   static let isCorrect = "isCorrect"
   static let totalQuestionCount = "totalQuestionCount"
-     static let findMeADate  = "findMeADate"
+    static let findMeADate = "findMeADate"
+    
+
+ 
     
 }
 struct AppConstants{
     static let genderArray = ["Male","Female","Other","None"]
     static let serviceTax :Float = 2
     static let surchargeTax :Float = 0
+    static let isLogin  = "isLogin"
+ 
+    
+    
+    
 }
 
 struct Constants {

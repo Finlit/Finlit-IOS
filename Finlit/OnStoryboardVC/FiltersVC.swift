@@ -10,6 +10,19 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import TTRangeSlider
+
+
+
+
+protocol FiltersVCDelegate: class {
+    
+    func setFilterParameters(minimumRange:Double,maximumRange:Double, minimumAge:Int, maximumAge:Int, lati:Double,longi:Double, financialInterest : String)
+    
+}
+
+
+
+
 class FiltersVC: UIViewController {
   var locCor = [Double]()
     
@@ -35,11 +48,18 @@ class FiltersVC: UIViewController {
     var mAgeMax = Int()
     var mAgeMin = Int()
     var mMaxRange = Double()
+    var mMinRange = Double()
     var filterUrl = NSMutableArray()
     var filterBy = String()
     var addressStr = String()
     var lat = Double()
     var long = Double()
+    
+    
+     weak var delegate : FiltersVCDelegate?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationItem.title = "FILTERS"
@@ -54,10 +74,7 @@ class FiltersVC: UIViewController {
         mBoolCheck6 = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     @IBAction func mBackBtnTapped(_ sender: UIBarButtonItem) {
         
@@ -74,138 +91,90 @@ class FiltersVC: UIViewController {
         vc.longStr = String(describing: long)
         vc.rangeStr = String(describing: mMaxRange)
         vc.VCcheckInt = 1
-        navigationController?.pushViewController(vc, animated: true)
+        //navigationController?.pushViewController(vc, animated: true)
+        self.delegate?.setFilterParameters(minimumRange: self.mMinRange, maximumRange: self.mMaxRange, minimumAge: self.mAgeMin, maximumAge: self.mAgeMax, lati: self.lat, longi: self.long, financialInterest: self.filterBy)
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    
+    
+    
+    
     @IBAction func mAllFiterByBtnAct(_ sender: UIButton) {
         resetbtn2()
         switch sender.tag {
         case 0:
             if mBoolCheck == true{
 
-             //   resetbtn()
+        mAllbtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
                 mBoolCheck = false
             }else{
-             //    resetbtn2()
+     
 
                 mBoolCheck = true
             }
             
             break
         case 1:
-//            if mBoolCheck1 == true{
-                 filterBy = "Real Estate"
-//                filterUrl.add(filterBy)
-//                 print(filterUrl)
+
+                 filterBy = "Real estate"
+
                 mRealbtnOut.setTitleColor(.white, for: .normal)
                 mRealbtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                 mBoolCheck1 = false
-//            }else{
-//                filterBy = "Real Estate"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mRealbtnOut.backgroundColor = .clear
-//                mRealbtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck1 = true
-//            }
+
            
             
             break
             
         case 2:
-//            if mBoolCheck2 == true{
-                 filterBy = "Retirements"
-//                filterUrl.add(filterBy)
-//                print(filterUrl)
+
+                 filterBy = "Retirement planning"
+
                 mRetirementBtnOut.setTitleColor(.white, for: .normal)
                 mRetirementBtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                mBoolCheck2 = false
-//            }else{
-//                 filterBy = "Retirements"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mRetirementBtnOut.backgroundColor = .clear
-//                mRetirementBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck2 = true
-//            }
+
             
             
             break
         case 3:
-//            if mBoolCheck3 == true{
-                filterBy = "CC Cruncching"
-//                filterUrl.add(filterBy)
-//                print(filterUrl)
+
+                filterBy = "Credit Card Churning"
+
                 mCCCrngBtnOut.setTitleColor(.white, for: .normal)
                 mCCCrngBtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                mBoolCheck3 = false
-//            }else{
-//                filterBy = "CC Cruncching"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mCCCrngBtnOut.backgroundColor = .clear
-//                mCCCrngBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck3 = true
-//            }
+
            
             break
         case 4:
-//            if mBoolCheck4 == true{
-                filterBy = "Budget Planing"
-//                filterUrl.add(filterBy)
-//                print(filterUrl)
+
+                filterBy = "Budget planning"
+
                 mBudgetBtnOut.setTitleColor(.white, for: .normal)
                 mBudgetBtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                mBoolCheck4 = false
-//            }else{
-//                filterBy = "Budget Planing"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mBudgetBtnOut.backgroundColor = .clear
-//                mBudgetBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck4 = true
-//            }
-//
+
+
           
             break
         case 5:
-           // if mBoolCheck5 == true{
-                filterBy = "Personal Investment"
+       
+                filterBy = "Personal investment"
                
-//                filterUrl.add(filterBy)
-//                print(filterUrl)
+
                 mPersonalBtnOut.setTitleColor(.white, for: .normal)
                 mPersonalBtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                mBoolCheck5 = false
-//            }else{
-//
-//               filterBy = "Personal Investment"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mPersonalBtnOut.backgroundColor = .clear
-//                mPersonalBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck5 = true
-//            }
+
             
           
             break
         case 6:
-//            if mBoolCheck6 == true{
-                filterBy = "Cyptocurency"
-//
-//                filterUrl.add(filterBy)
-//                print(filterUrl)
+
+                filterBy = "Cryptocurrency Trading"
+
+
                 mLastBtnOut.setTitleColor(.white, for: .normal)
                 mLastBtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
-//                mBoolCheck6 = false
-//            }else{
-//                filterBy = "Cyptocurency"
-//                filterUrl.remove(filterBy)
-//                print(filterUrl)
-//                mLastBtnOut.backgroundColor = .clear
-//                mLastBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//                mBoolCheck6 = true
-//            }
-//
+
             break
         default:
             break
@@ -213,18 +182,7 @@ class FiltersVC: UIViewController {
         
     }
     func resetbtn(){
-//        var RemoveArray : [String]?
-//        filterBy = "Real Estate, Retirements, CC Cruncching, Budget Planing, Personal Investment, Cyptocurency"
-//        filterUrl.remove(filterBy)
-//        filterBy = "Real Estate, Retirements, CC Cruncching, Budget Planing, Personal Investment, Cyptocurency"
-//        filterUrl.add(filterBy)
-//         print(filterUrl)
-//        RemoveArray = (filterUrl as! [String])
-//        print(RemoveArray!)
-       // let removeDuplicatearr = RemoveArray?.uniq()
-       // print(removeDuplicatearr!)
-       
-       // for
+
         
         
          mAllbtnOut.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.5764705882, alpha: 1)
@@ -251,8 +209,7 @@ class FiltersVC: UIViewController {
         mBoolCheck6 = false
     }
     func resetbtn2(){
-//        filterBy = "Real Estate,Retirements,CC Cruncching,Budget Planing,Personal Investment,Cyptocurency"
-//        filterUrl.remove(filterBy)
+
         mAllbtnOut.backgroundColor = .clear
         mRealbtnOut.backgroundColor = .clear
         mRetirementBtnOut.backgroundColor = .clear
@@ -268,13 +225,7 @@ class FiltersVC: UIViewController {
         mBudgetBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
         mPersonalBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
         mLastBtnOut.setTitleColor(#colorLiteral(red: 0.2602087259, green: 0.6764962673, blue: 0.9224001765, alpha: 1), for: .normal)
-//        mBoolCheck = true
-//        mBoolCheck1 = true
-//        mBoolCheck2 = true
-//        mBoolCheck3 = true
-//        mBoolCheck4 = true
-//        mBoolCheck5 = true
-//        mBoolCheck6 = true
+
     }
     func uniqueElementsFrom(array: [String]) -> [String] {
         //Create an empty Set to track unique items
@@ -364,12 +315,13 @@ extension FiltersVC : TTRangeSliderDelegate{
         if sender == mAgeSlider{
         print(selectedMaximum)
         print(selectedMinimum)
-            mAgeMax = Int((selectedMaximum))
-            mAgeMin = Int((selectedMaximum))
+            self.mAgeMax = Int((selectedMaximum))
+            self.mAgeMin = Int((selectedMaximum))
         }else{
             print(selectedMaximum)
             print(selectedMinimum)
-            mMaxRange = Double(selectedMaximum) * 1600
+            self.mMaxRange = Double(selectedMaximum) * 1600
+            self.mMinRange = Double(selectedMinimum) * 1600
         }
     }
     

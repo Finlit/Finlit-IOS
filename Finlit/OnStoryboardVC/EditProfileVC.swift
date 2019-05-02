@@ -190,6 +190,8 @@ class EditProfileVC: UIViewController {
         self.user?.aboutUs = self.mAboutYouTextField.text
         self.user?.question  = self.mWhatRUTextField.text
         self.user?.userId  =  Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
+       
+        
         if picUrl != nil{
             self.user?.picUrl = nil
             self.user?.picUrl = picUrl!
@@ -216,14 +218,9 @@ class EditProfileVC: UIViewController {
                 SVProgressHUD.dismiss()
                 self.view.makeToast("Profile Updated Successfully")
                 Constants.kUserDefaults.set("active", forKey: UserAttributes.status.rawValue)
-                //self.performSegue(withIdentifier: "segueToHome", sender: self)
-              // let userId = Constants.kUserDefaults.value(forKey: appConstants.userId) as? String
-                  self.navigationController?.popViewController(animated: true)
-                //self.getUserDetail(UserID:userId!)
 
-                
-                //                let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCID") as! HomeVC
-//                self.navigationController?.pushViewController(destinationvc, animated: true)
+                  self.navigationController?.popViewController(animated: true)
+     
                 return
                 
                 

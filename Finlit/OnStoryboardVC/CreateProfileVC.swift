@@ -156,6 +156,8 @@ class CreateProfileVC: UIViewController, CLLocationManagerDelegate {
         self.mGenderTextField.text = user?.gender
         if  self.user?.imgUrl != nil {
             self.mUserImage.sd_setImage(with: URL.init(string:(user?.imgUrl!.httpsExtend)!), placeholderImage: #imageLiteral(resourceName: "cameraicon"))
+             self.mCoverImg.sd_setImage(with: URL.init(string:(user?.imgUrl!.httpsExtend)!), placeholderImage: #imageLiteral(resourceName: "squareimage"))
+            self.mCoverImg.alpha = 0.6
             
         }
     }
