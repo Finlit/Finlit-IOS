@@ -26,7 +26,7 @@ class NearByVC: UIViewController {
     var rangeStr = String()
     var VCcheckInt = Int()
     
-    @IBOutlet weak var mQuickViewBtnOutl: UIButton!
+
     @IBOutlet weak var mNearByTblCell: UITableView!
     
     override func viewDidLoad() {
@@ -58,8 +58,7 @@ class NearByVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.mQuickViewBtnOutl.isHidden = true
-        self.mQuickViewBtnOutl.isEnabled = false
+    
         if VCcheckInt == 0{
             self.questionAPI = QuestionAPI.sharedInstance
             userApi = UserAPI.sharedInstance
@@ -131,13 +130,7 @@ class NearByVC: UIViewController {
     }
     
     
-    @IBAction func mQuickViewSlideView(_ sender: UIButton) {
-        
-        let destinationvc = self.storyboard?.instantiateViewController(withIdentifier: "QuickViewVCID") as! QuickViewVC
-      //  destinationvc.nearByData = self.nearByData
-        self.navigationController?.pushViewController(destinationvc, animated: true)
-        
-    }
+ 
     func getallUsers(type: String) {
         SVProgressHUD.show()
         UserAPI().getAllUsers(type: type){ (data, error) in
