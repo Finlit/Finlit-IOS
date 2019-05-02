@@ -149,7 +149,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func mSignInBtnTapped(_ sender: UIButton) {
         guard validator.validatorEmail(TF1: self.mEmailTextField,fieldName: "Email") == false
-            
+        
+       
             
             else{
                 self.user?.email = self.mEmailTextField.text

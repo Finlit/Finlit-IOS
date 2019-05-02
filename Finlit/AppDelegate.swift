@@ -273,6 +273,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func showNotification(text: String){
         let displayInterval =  max(CGFloat(text.length) * 0.04 + 0.5,0.5)
+        self.notificationBanner.notificationStyle = CWNotificationStyle.navigationBarNotification
+        self.notificationBanner.notificationLabelBackgroundColor = UIColor.lightBlackThemeColor()
+        self.notificationBanner.notificationLabelFont.withSize(12.0)
         self.notificationBanner.display( withMessage: text, forDuration: Double(displayInterval) )
     }
     

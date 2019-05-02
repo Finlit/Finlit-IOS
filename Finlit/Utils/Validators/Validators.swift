@@ -47,6 +47,7 @@ class Validators: NSObject {
     }
     if  TF1.text?.isValidEmail == false{
        kAppDelegate.showNotification(text: errorMsgEmail)
+
       return false
     }
     return true
